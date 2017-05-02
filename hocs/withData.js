@@ -1,12 +1,12 @@
 import 'isomorphic-fetch'
 
 import { ApolloProvider, getDataFromTree } from 'react-apollo'
+import React, { Component } from 'react'
 
-import React from 'react'
 import { initClient } from '../lib/initClient'
 import { initStore } from '../lib/initStore'
 
-export default Component => class extends React.Component {
+export default ComposedComponent => class extends React.Component {
   static async getInitialProps(ctx) {
     const headers = ctx.req ? ctx.req.headers : {}
     const client = initClient(headers)
@@ -22,7 +22,7 @@ export default Component => class extends React.Component {
     if (!process.browser) {
       const app = (
         <ApolloProvider client={client} store={store}>
-          <Component {...props} />
+          <ComposedComponent {...props} />
         </ApolloProvider>
       )
       await getDataFromTree(app)
@@ -51,7 +51,7 @@ export default Component => class extends React.Component {
   render() {
     return (
       <ApolloProvider client={this.client} store={this.store}>
-        <Component {...this.props} />
+        <ComposedComponent {...this.props} />
       </ApolloProvider>
     )
   }

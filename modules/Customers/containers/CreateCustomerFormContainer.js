@@ -1,11 +1,12 @@
+import { Component } from 'react'
 import CreateCustomerForm from '../components/CreateCustomerForm'
 import CreateCustomerMutation from '../mutations/CreateCustomerMutation.js'
-import { PureComponent } from 'react'
 import Router from 'next/router'
 import { graphql } from 'react-apollo'
-import withData from '../../../hocs/withData'
 
-class CreateCustomerFormContainer extends PureComponent {
+// import withData from '../../../hocs/withData'
+
+class CreateCustomerFormContainer extends Component {
   constructor(props) {
     super(props)
     this.state = { errors: [] }
@@ -58,6 +59,6 @@ const CreateCustomerWithGraph = graphql(CreateCustomerMutation, {
   }),
 })(CreateCustomerFormContainer)
 
-const CreateCustomerWithData = withData(CreateCustomerWithGraph)
+//const CreateCustomerWithData = withData(CreateCustomerWithGraph)
 
-export default CreateCustomerWithData
+export default CreateCustomerWithGraph
