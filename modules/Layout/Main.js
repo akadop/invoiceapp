@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 import App from 'grommet/components/App'
-import BottomFooter from './BottomFooter'
 import NavSidebar from './NavSidebar'
 import PropTypes from 'prop-types'
 import Split from 'grommet/components/Split'
@@ -30,7 +29,7 @@ class Main extends Component {
     const priority = includeNav && responsive === 'single' ? 'left' : 'right'
 
     return (
-      <App centered={false}>
+      <App centered={true}>
         <Split
           priority={priority}
           flex="right"
@@ -38,7 +37,6 @@ class Main extends Component {
         >
           {nav}
           {this.props.children}
-          <BottomFooter />
         </Split>
       </App>
     )

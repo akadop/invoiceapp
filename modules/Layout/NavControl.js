@@ -1,11 +1,12 @@
 import { Box, Button, Title } from 'grommet'
-import React, { Component, PropTypes } from 'react'
 
 import Logo from 'grommet/components/icons/Grommet'
+import PropTypes from 'prop-types'
+import { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { navActivate } from '../actions/nav'
 
-class NavControl extends Component {
+class NavControl extends PureComponent {
   render() {
     const { name, nav: { active } } = this.props
 

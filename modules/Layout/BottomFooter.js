@@ -1,7 +1,7 @@
 import { Anchor, Box, Footer, Menu, Paragraph, Title } from 'grommet'
 
 export default () => (
-  <Footer flex={true} responsive={true} justify="center" size="small">
+  <div>
     <Title>
       invoice app
     </Title>
@@ -21,5 +21,5 @@ export default () => (
         </Anchor>
       </Menu>
     </Box>
-  </Footer>
+  </div>
 )

@@ -1,14 +1,15 @@
-import { Anchor, Button, Header, Menu, Sidebar, Title } from 'grommet'
-import React, { Component } from 'react'
+import { Anchor, Button, Footer, Header, Menu, Sidebar, Title } from 'grommet'
 
+import BottomFooter from './BottomFooter'
 import CloseIcon from 'grommet/components/icons/base/Close'
 import Logo from 'grommet/components/icons/Grommet'
 import PropTypes from 'prop-types'
+import { PureComponent } from 'react'
 import Router from 'next/router'
 import { connect } from 'react-redux'
-import { navActivate } from '../actions/nav'
+import { navActivate } from '../../actions/nav'
 
-class NavSidebar extends Component {
+class NavSidebar extends PureComponent {
   constructor() {
     super()
     this._onClose = this._onClose.bind(this)
@@ -23,15 +24,11 @@ class NavSidebar extends Component {
 
     const links = items.map(page => (
       <Anchor
-        onClick={() => url.pushTo(`${page.path}`)}
+        onClick={() => Router.push(`${page.path}`)}
         key={page.label}
         label={page.label}
       />
     ))
-    {
-      // prefetch
-      Router.prefetch('/'), Router.prefetch('/customers')
-    }
 
     return (
       <Sidebar colorIndex="neutral-3" fixed={true}>
@@ -50,6 +47,9 @@ class NavSidebar extends Component {
         <Menu fill={true} primary={true}>
           {links}
         </Menu>
+        <Footer pad={{ horizontal: 'medium', vertical: 'small' }}>
+          <BottomFooter />
+        </Footer>
       </Sidebar>
     )
   }

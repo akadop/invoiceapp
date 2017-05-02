@@ -1,5 +1,4 @@
 import { Component } from 'react'
-import FooterNav from '../modules/Layout/FooterNav'
 import Head from 'next/head'
 import Main from '../modules/Layout/Main'
 import grommetStyle from 'grommet/scss/vanilla/index.scss'
