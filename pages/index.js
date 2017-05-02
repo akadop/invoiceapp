@@ -2,11 +2,11 @@ import { App, Heading, Section } from 'grommet'
 
 import { Component } from 'react'
 import CreateCustomerFormContainer
-  from '../components/Customers/containers/CreateCustomerFormContainer.js'
-import FooterNav from '../components/Layout/FooterNav'
+  from '../modules/Customers/containers/CreateCustomerFormContainer.js'
+import FooterNav from '../modules/Layout/FooterNav'
 import Head from 'next/head'
-import Layout from '../components/Layout/FooterNav'
-import NavTop from '../components/Layout/NavTop'
+import Layout from '../modules/Layout/FooterNav'
+import NavTop from '../modules/Layout/NavTop'
 import grommetStyle from 'grommet/scss/vanilla/index.scss'
 
 export default class CreateCustomerPage extends Component {
