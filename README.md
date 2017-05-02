@@ -1,8 +1,6 @@
-# Carpet Mills of America Digital Order Form
+# invoice app
 
-![graphql schema for carpet mills america](https://github.com/akadop/cpa-invoice/blob/master/static/schema.png?raw=true)
-
-Tech used:
+used:
 - nodeJs
 - reactJs (ui library)
 - redux (state management)
