@@ -6,6 +6,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 const ProgressPlugin = require('webpack/lib/ProgressPlugin')
 const webpack = require('webpack')
+const CompressionPlugin = require('compression-webpack-plugin')
 
 module.exports = {
   webpack: (config, { dev }) => {
@@ -86,7 +87,14 @@ module.exports = {
             path.join(__dirname, 'node_modules/grommet/components/**/*.js')
           ),
         }),
-        new OptimizeCssAssetsPlugin()
+        new OptimizeCssAssetsPlugin(),
+        new CompressionPlugin({
+          asset: '[path].gz[query]',
+          algorithm: 'gzip',
+          test: /\.(js|html)$/,
+          threshold: 10240,
+          minRatio: 0.8,
+        })
       )
     }
     return config

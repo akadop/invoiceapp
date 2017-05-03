@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const next = require('next')
+const compression = require('compression')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dir: '.', dev })
@@ -8,7 +9,7 @@ const handle = app.getRequestHandler()
 
 app.prepare().then(_ => {
   const server = express()
-
+  server.use(compression())
   // serve service worker
   server.get('/sw.js', (req, res) =>
     res.sendFile(path.resolve('./.next/sw.js'))
