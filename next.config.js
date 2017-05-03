@@ -80,7 +80,6 @@ module.exports = {
               __dirname,
               'modules/Customers/components/CustomersList.js'
             ),
-            path.join(__dirname, 'hocs/withLayout.js'),
             path.join(__dirname, 'modules/Layout/BottomFooter.js'),
             path.join(__dirname, 'modules/Layout/Main.js'),
             path.join(__dirname, 'modules/Layout/NavControl.js'),
