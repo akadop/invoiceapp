@@ -16,7 +16,6 @@ const HeaderNav = (
     direction="row"
     justify="between"
     size="large"
-    margin="{{vertical: medium}}"
     pad={{ horizontal: 'small', between: 'medium' }}
   >
     <NavControl name="Customers" />
@@ -27,12 +26,11 @@ const HeaderNav = (
 export default props => {
   const allCustomers = props.data.allCustomers
   return (
-    <Box full="width" primary={true}>
+    <Box full="horizontal" primary={true}>
       {HeaderNav}
       <Box align="center">
         <Box
           responsive={true}
-          margin="small"
           pad={{ horizontal: 'medium', vertical: 'small' }}
         >
           <Label uppercase={true}>

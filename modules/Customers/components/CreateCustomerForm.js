@@ -27,7 +27,6 @@ const HeaderNav = (
     direction="row"
     justify="between"
     size="large"
-    margin="{{vertical: medium}}"
     pad={{ horizontal: 'small', between: 'medium' }}
   >
     <NavControl name="Add Customer" />
@@ -39,7 +38,7 @@ const CustomerForm = props => {
   const { handleSubmit, submitting, onSubmit, reset, pristine } = props
   const errors = props.errors <= 0 ? null : renderErrors(props.errors)
   return (
-    <Box full="width" primary={true}>
+    <Box full="horizontal" primary={true}>
       {HeaderNav}
       <Box align="center">
         <Box

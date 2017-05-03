@@ -80,6 +80,7 @@ module.exports = {
               __dirname,
               'modules/Customers/components/CustomersList.js'
             ),
+            path.join(__dirname, 'hocs/withLayout.js'),
             path.join(__dirname, 'modules/Layout/BottomFooter.js'),
             path.join(__dirname, 'modules/Layout/Main.js'),
             path.join(__dirname, 'modules/Layout/NavControl.js'),
@@ -91,7 +92,7 @@ module.exports = {
         new CompressionPlugin({
           asset: '[path].gz[query]',
           algorithm: 'gzip',
-          test: /\.(js|html)$/,
+          test: /\.(js|html|css)$/,
           threshold: 10240,
           minRatio: 0.8,
         })

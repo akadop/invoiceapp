@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import Head from 'next/head'
 import Main from '../modules/Layout/Main'
-import grommetStyle from 'grommet/scss/vanilla/index.scss'
+import css from '../modules/styles.min.css'
 import { loadGetInitialProps } from 'next/dist/lib/utils'
 
 export default ComposedComponent => class WithLayout extends React.Component {
@@ -24,7 +24,7 @@ export default ComposedComponent => class WithLayout extends React.Component {
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="theme-color" content="#865cd6" />
         </Head>
-        <style dangerouslySetInnerHTML={{ __html: grommetStyle }} />
+        <style dangerouslySetInnerHTML={{ __html: css }} />
         <Main>
           <ComposedComponent {...this.props} />
         </Main>
