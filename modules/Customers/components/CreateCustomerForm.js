@@ -85,6 +85,8 @@ const CustomerForm = props => {
   )
 }
 
+// custom validation errors for each different field.
+
 const validate = values => {
   const errors = {}
 

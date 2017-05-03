@@ -6,6 +6,15 @@ import React, { Component } from 'react'
 import { initClient } from '../lib/initClient'
 import { initStore } from '../lib/initStore'
 
+/* 
+A hoc is a higher order component. 
+The basis of react is to make it as modular as possible, from button components to the giant containers.
+A hoc is a pure function that will always return the same value if the same input is used. 
+Because of this, we can pass our little components with no information into this apollo-client connected component, 
+effectively making anything passing through it data-connected. 
+thus, we make stateless, informationless base components and pass it into these higher order components.
+*/
+
 export default ComposedComponent => class extends React.Component {
   static async getInitialProps(ctx) {
     const headers = ctx.req ? ctx.req.headers : {}
@@ -18,6 +27,8 @@ export default ComposedComponent => class extends React.Component {
         ? Component.getInitialProps(ctx)
         : {})),
     }
+
+    // pass the work onto the browser after the initial server render.
 
     if (!process.browser) {
       const app = (
@@ -42,11 +53,14 @@ export default ComposedComponent => class extends React.Component {
     }
   }
 
+  // Initiate the stores and their props.
   constructor(props) {
     super(props)
     this.client = initClient(this.props.headers, this.props.initialState)
     this.store = initStore(this.client, this.props.initialState)
   }
+
+  // Return stores and wrap the app with a data wrapper.
 
   render() {
     return (
