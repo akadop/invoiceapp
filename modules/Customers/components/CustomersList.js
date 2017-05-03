@@ -17,6 +17,7 @@ const HeaderNav = (
     justify="between"
     size="large"
     margin="{{vertical: medium}}"
+    pad={{ horizontal: 'small', between: 'medium' }}
   >
     <NavControl name="Customer List" />
   </Header>
