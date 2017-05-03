@@ -1,6 +1,11 @@
 const path = require('path')
 const glob = require('glob')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const PurifyCSSPlugin = require('purifycss-webpack')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
+const ProgressPlugin = require('webpack/lib/ProgressPlugin')
+const webpack = require('webpack')
 
 module.exports = {
   webpack: (config, { dev }) => {
@@ -34,6 +39,56 @@ module.exports = {
         ],
       }
     )
+    if (!dev) {
+      // Service Worker
+      config.plugins.push(
+        new SWPrecacheWebpackPlugin({
+          filename: 'sw.js',
+          minify: true,
+          staticFileGlobsIgnorePatterns: [/\.next\//],
+          staticFileGlobs: [
+            'static/**/*', // Precache all static files by default
+          ],
+          forceDelete: true,
+          runtimeCaching: [
+            // Example with different handlers
+            {
+              handler: 'fastest',
+              urlPattern: /[.](png|jpg|css)/,
+            },
+            {
+              handler: 'networkFirst',
+              urlPattern: /^http.*/, //cache all files
+            },
+          ],
+        }),
+        new ProgressPlugin(),
+        new ExtractTextPlugin('[name].[chunkhash:8].css'),
+        new webpack.DefinePlugin({
+          'process.env.NODE_ENV': JSON.stringify('production'),
+        }), // remove unused css
+        new PurifyCSSPlugin({
+          // Give paths to parse for rules. These should be absolute!
+          moduleExtensions: ['.jsx', '.html', '.js'],
+          paths: glob.sync(
+            path.join(
+              __dirname,
+              'modules/Customers/components/CreateCustomerForm.js'
+            ),
+            path.join(
+              __dirname,
+              'modules/Customers/components/CustomersList.js'
+            ),
+            path.join(__dirname, 'modules/Layout/BottomFooter.js'),
+            path.join(__dirname, 'modules/Layout/Main.js'),
+            path.join(__dirname, 'modules/Layout/NavControl.js'),
+            path.join(__dirname, 'modules/Layout/NavSidebar.js'),
+            path.join(__dirname, 'node_modules/grommet/components/**/*.js')
+          ),
+        }),
+        new OptimizeCssAssetsPlugin()
+      )
+    }
     return config
   },
 }

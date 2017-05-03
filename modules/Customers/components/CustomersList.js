@@ -19,7 +19,7 @@ const HeaderNav = (
     margin="{{vertical: medium}}"
     pad={{ horizontal: 'small', between: 'medium' }}
   >
-    <NavControl name="Customer List" />
+    <NavControl name="Customers" />
   </Header>
 )
 
@@ -27,22 +27,19 @@ const HeaderNav = (
 export default props => {
   const allCustomers = props.data.allCustomers
   return (
-    <Box full={true} primary={true}>
+    <Box full="width" primary={true}>
       {HeaderNav}
-      <Box pad={{ horizontal: 'medium' }}>
-        <Label uppercase={true}>
-          Current Customers in the Database
-        </Label>
-      </Box>
-      <Box
-        direction="row"
-        pad={{
-          vertical: 'small',
-          horizontal: 'small',
-          between: 'medium',
-        }}
-      >
-        <Table responsive direction="row">
+      <Box align="center">
+        <Box
+          responsive={true}
+          margin="small"
+          pad={{ horizontal: 'medium', vertical: 'small' }}
+        >
+          <Label uppercase={true}>
+            registered customers.
+          </Label>
+        </Box>
+        <Table responsive={true}>
           <TableHeader
             labels={[
               'First Name',

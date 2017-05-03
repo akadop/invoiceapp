@@ -18,8 +18,11 @@ export default ComposedComponent => class WithLayout extends React.Component {
           <title>Demo Invoice</title>
           <meta
             name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+            content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui"
           />
+          <link rel="manifest" href="static/manifest.json" />
+          <meta name="mobile-web-app-capable" content="yes" />
+          <meta name="theme-color" content="#865cd6" />
         </Head>
         <style dangerouslySetInnerHTML={{ __html: grommetStyle }} />
         <Main>

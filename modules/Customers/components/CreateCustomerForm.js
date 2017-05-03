@@ -42,7 +42,11 @@ const CustomerForm = props => {
     <Box full="width" primary={true}>
       {HeaderNav}
       <Box align="center">
-        <Box pad={{ horizontal: 'medium' }}>
+        <Box
+          responsive={true}
+          margin="small"
+          pad={{ horizontal: 'medium', vertical: 'small' }}
+        >
           <Label uppercase={true}>
             Create a new customer entry.
           </Label>
