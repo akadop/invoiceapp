@@ -1,5 +1,3 @@
-import '../lib/offlineInstaller'
-
 import CreateCustomerFormContainer
   from '../modules/Customers/containers/CreateCustomerFormContainer.js'
 import page from '../hocs/page'
