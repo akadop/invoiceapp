@@ -1,9 +1,8 @@
-import React, { Component } from 'react'
-
 import App from 'grommet/components/App'
+import { Component } from 'react'
 import NavSidebar from './NavSidebar'
 import PropTypes from 'prop-types'
-import Split from 'grommet/components/Split'
+import { Split } from 'grommet'
 import { connect } from 'react-redux'
 import { navResponsive } from '../../actions/nav'
 
@@ -29,7 +28,7 @@ class Main extends Component {
     const priority = includeNav && responsive === 'single' ? 'left' : 'right'
 
     return (
-      <App centered={true}>
+      <App centered={false}>
         <Split
           priority={priority}
           flex="right"

@@ -1,12 +1,12 @@
 import { Box, Button, Title } from 'grommet'
 
+import { Component } from 'react'
 import Logo from 'grommet/components/icons/Grommet'
 import PropTypes from 'prop-types'
-import { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { navActivate } from '../actions/nav'
+import { navActivate } from '../../actions/nav'
 
-class NavControl extends PureComponent {
+class NavControl extends Component {
   render() {
     const { name, nav: { active } } = this.props
 
@@ -15,7 +15,7 @@ class NavControl extends PureComponent {
     if (!active) {
       result = (
         <Button onClick={() => this.props.dispatch(navActivate(true))}>
-          <Box direction="row" responsive={false} pad={{ between: 'small' }}>
+          <Box direction="row" responsive={true} pad={{ between: 'small' }}>
             <Logo />
             {title}
           </Box>

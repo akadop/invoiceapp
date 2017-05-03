@@ -1,10 +1,11 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
+
 import Head from 'next/head'
 import Main from '../modules/Layout/Main'
 import grommetStyle from 'grommet/scss/vanilla/index.scss'
 import { loadGetInitialProps } from 'next/dist/lib/utils'
 
-export default ComposedComponent => class WithLayout extends Component {
+export default ComposedComponent => class WithLayout extends React.Component {
   static async getInitialProps(ctx) {
     return loadGetInitialProps(ComposedComponent, ctx)
   }

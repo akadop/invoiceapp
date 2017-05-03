@@ -13,12 +13,6 @@ export default () => (
         <Anchor href="#">
           Support
         </Anchor>
-        <Anchor href="#">
-          Contact
-        </Anchor>
-        <Anchor href="#">
-          About
-        </Anchor>
       </Menu>
     </Box>
   </div>
