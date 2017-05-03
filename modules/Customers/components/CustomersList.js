@@ -10,19 +10,24 @@ import {
 
 import NavControl from '../../Layout/NavControl'
 
+// header for this page
+const HeaderNav = (
+  <Header
+    direction="row"
+    justify="between"
+    size="large"
+    margin="{{vertical: medium}}"
+  >
+    <NavControl name="Customer List" />
+  </Header>
+)
+
 // a table of all the customers we have registered in the system
 export default props => {
   const allCustomers = props.data.allCustomers
   return (
     <Box full={true} primary={true}>
-      <Header
-        direction="row"
-        justify="between"
-        size="large"
-        pad={{ horizontal: 'medium', between: 'small' }}
-      >
-        <NavControl name="Customer List" />
-      </Header>
+      {HeaderNav}
       <Box pad={{ horizontal: 'medium' }}>
         <Label uppercase={true}>
           Current Customers in the Database

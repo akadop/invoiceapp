@@ -5,10 +5,13 @@ import {
   Form,
   FormField,
   FormFields,
-  Heading,
+  Header,
+  Label,
   TextInput,
 } from 'grommet'
 import { Field, reduxForm } from 'redux-form'
+
+import NavControl from '../../Layout/NavControl'
 
 const renderField = ({ input, label, type, meta: { touched, error } }) => {
   return (
@@ -18,45 +21,62 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => {
   )
 }
 
+// header for this page
+const HeaderNav = (
+  <Header
+    direction="row"
+    justify="between"
+    size="large"
+    margin="{{vertical: medium}}"
+    pad={{ horizontal: 'small', between: 'medium' }}
+  >
+    <NavControl name="Add Customer" />
+  </Header>
+)
+
 // the redux form
 const CustomerForm = props => {
   const { handleSubmit, submitting, onSubmit, reset, pristine } = props
   const errors = props.errors <= 0 ? null : renderErrors(props.errors)
   return (
-    <Box
-      primary
-      align="center"
-      alignContent="center"
-      justify="center"
-      full
-      responsive
-    >
-      <Heading tag="h2">Create Customer</Heading>
-      <Form onSubmit={handleSubmit}>
-        <FormFields>
-          <Field name="firstName" component={renderField} label="First Name" />
-          <Field name="lastName" component={renderField} label="Last Name" />
-          <Field name="email" component={renderField} label="Email" />
-          <Field name="address" component={renderField} label="Address" />
-          <Field name="addressCity" component={renderField} label="City" />
-          <Field name="addressState" component={renderField} label="State" />
-          <Field name="addressZip" component={renderField} label="Zipcode" />
-          <Footer
-            pad={{ between: 'small', vertical: 'medium' }}
-            alignContent="center"
-            justify="center"
-            responsive={true}
-          >
-            <Button
-              primary
-              label="Submit"
-              type="submit"
-              onClick={handleSubmit}
-              disabled={submitting}
+    <Box full="width" primary={true}>
+      {HeaderNav}
+      <Box align="center">
+        <Box pad={{ horizontal: 'medium' }}>
+          <Label uppercase={true}>
+            Create a new customer entry.
+          </Label>
+        </Box>
+        <Form onSubmit={handleSubmit}>
+          <FormFields>
+            <Field
+              name="firstName"
+              component={renderField}
+              label="First Name"
             />
-          </Footer>
-        </FormFields>
-      </Form>
+            <Field name="lastName" component={renderField} label="Last Name" />
+            <Field name="email" component={renderField} label="Email" />
+            <Field name="address" component={renderField} label="Address" />
+            <Field name="addressCity" component={renderField} label="City" />
+            <Field name="addressState" component={renderField} label="State" />
+            <Field name="addressZip" component={renderField} label="Zipcode" />
+            <Footer
+              pad={{ between: 'small', vertical: 'medium' }}
+              alignContent="center"
+              justify="center"
+              responsive={true}
+            >
+              <Button
+                primary
+                label="Submit"
+                type="submit"
+                onClick={handleSubmit}
+                disabled={submitting}
+              />
+            </Footer>
+          </FormFields>
+        </Form>
+      </Box>
     </Box>
   )
 }
