@@ -87,11 +87,11 @@ module.exports = {
             path.join(__dirname, 'node_modules/grommet/components/**/*.js')
           ),
         }),
-        new OptimizeCssAssetsPlugin(),
+        //new OptimizeCssAssetsPlugin(),
         new CompressionPlugin({
           asset: '[path].gz[query]',
           algorithm: 'gzip',
-          test: /\.(js|html|css)$/,
+          test: /\.(js|html)$/,
           threshold: 10240,
           minRatio: 0.8,
         })
