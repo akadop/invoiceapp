@@ -24,10 +24,9 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => {
 // header for this page
 const HeaderNav = (
   <Header
-    direction="row"
-    justify="between"
+    justify="start"
     size="large"
-    pad={{ horizontal: 'small', between: 'medium' }}
+    pad={{ horizontal: 'medium', between: 'medium' }}
   >
     <NavControl name="Add Customer" />
   </Header>
@@ -38,7 +37,7 @@ const CustomerForm = props => {
   const { handleSubmit, submitting, onSubmit, reset, pristine } = props
   const errors = props.errors <= 0 ? null : renderErrors(props.errors)
   return (
-    <Box full="horizontal" primary={true}>
+    <Box full="horizontal" size="full" primary={true}>
       {HeaderNav}
       <Box align="center">
         <Box

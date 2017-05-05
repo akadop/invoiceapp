@@ -15,7 +15,7 @@ class NavControl extends Component {
     if (!active) {
       result = (
         <Button onClick={() => this.props.dispatch(navActivate(true))}>
-          <Box direction="row" responsive={true} pad={{ between: 'small' }}>
+          <Box direction="row" responsive={true} pad={{ between: 'medium' }}>
             <Logo />
             {title}
           </Box>

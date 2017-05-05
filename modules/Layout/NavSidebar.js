@@ -31,7 +31,7 @@ class NavSidebar extends PureComponent {
     ))
 
     return (
-      <Sidebar colorIndex="neutral-3" fixed={true}>
+      <Sidebar colorIndex="neutral-3-a" fixed={true}>
         <Header size="large" justify="between" pad={{ horizontal: 'medium' }}>
           <Title onClick={this._onClose} a11yTitle="Close Menu">
             <Logo />
@@ -47,7 +47,7 @@ class NavSidebar extends PureComponent {
         <Menu fill={true} primary={true}>
           {links}
         </Menu>
-        <Footer pad={{ horizontal: 'medium', vertical: 'small' }}>
+        <Footer pad={{ horizontal: 'medium', vertical: 'medium' }}>
           <BottomFooter />
         </Footer>
       </Sidebar>

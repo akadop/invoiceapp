@@ -2,8 +2,6 @@ import { gql, graphql } from 'react-apollo'
 
 import CustomersList from '../components/CustomersList'
 
-//import withData from '../../../hocs/withData'
-
 const allCustomersQuery = gql`
   query allCustomers {
     allCustomers {
@@ -19,6 +17,4 @@ const allCustomersQuery = gql`
   }`
 
 const CustomersListWithGraph = graphql(allCustomersQuery)(CustomersList)
-//const CustomersListWithData = withData(CustomersListWithGraph)
-
 export default CustomersListWithGraph

@@ -4,8 +4,6 @@ import CreateCustomerMutation from '../mutations/CreateCustomerMutation.js'
 import Router from 'next/router'
 import { graphql } from 'react-apollo'
 
-// import withData from '../../../hocs/withData'
-
 class CreateCustomerFormContainer extends Component {
   constructor(props) {
     super(props)
@@ -58,7 +56,5 @@ const CreateCustomerWithGraph = graphql(CreateCustomerMutation, {
       }),
   }),
 })(CreateCustomerFormContainer)
-
-//const CreateCustomerWithData = withData(CreateCustomerWithGraph)
 
 export default CreateCustomerWithGraph

@@ -8,10 +8,12 @@ const initialState = {
   responsive: 'multiple',
   items: [
     { path: '/index', label: 'Create Customer' },
+    { path: '/createInvoice', label: 'Create New Invoice' },
     { path: '/customers', label: 'Customer List' },
+    { path: '/handbook', label: 'Employee Handbook' },
+    { path: '/invoices', label: 'Invoices' },
   ],
 }
-
 const handlers = {
   [NAV_ACTIVATE]: (_, action) => ({
     active: action.active,
