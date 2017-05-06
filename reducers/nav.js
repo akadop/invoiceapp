@@ -12,6 +12,7 @@ const initialState = {
     { path: '/customers', label: 'Customer List' },
     { path: '/handbook', label: 'Employee Handbook' },
     { path: '/invoices', label: 'Invoices' },
+    { path: '/signature', label: 'Signatures' },
   ],
 }
 const handlers = {
