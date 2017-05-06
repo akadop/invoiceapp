@@ -1,4 +1,5 @@
-import SignaturePad from '../modules/SignaturePad'
+import CreateSignatureComponent
+  from '../modules/Signature/CreateSignatureComponent'
 import page from '../hocs/page'
 
-export default page(() => <SignaturePad />)
+export default page(() => <CreateSignatureComponent />)

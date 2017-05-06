@@ -17,8 +17,8 @@ var mouseButtonDown = false
 var ReactSignature = React.createClass({
   getDefaultProps: function() {
     return {
-      width: 450,
-      height: 300,
+      width: 320,
+      height: 180,
     }
   },
   componentDidMount: function() {

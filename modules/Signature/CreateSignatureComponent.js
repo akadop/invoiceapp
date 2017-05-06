@@ -1,8 +1,8 @@
 import { Box, Button, Footer, Header, Section } from 'grommet'
+import React, { Component } from 'react'
 
 import NavControl from '../Layout/NavControl'
-import React from 'react'
-import ReactSignature from './ReactSignature'
+import ReactSignature from './Base/ReactSignature'
 
 const HeaderNav = (
   <Header
@@ -14,10 +14,9 @@ const HeaderNav = (
   </Header>
 )
 
-class SignaturePad extends React.Component {
+class CreateSignatureComponent extends Component {
   constructor(props) {
     super(props)
-    this.state = { data: '' }
     this._submitClick = this._getImgData.bind(this)
     this._resetClick = this._handleResetClick.bind(this)
   }
@@ -65,4 +64,4 @@ class SignaturePad extends React.Component {
   }
 }
 
-export default SignaturePad
+export default CreateSignatureComponent
