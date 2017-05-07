@@ -1,8 +1,16 @@
-import { Anchor, Button, Footer, Header, Menu, Sidebar, Title } from 'grommet'
+import {
+  Anchor,
+  Button,
+  Footer,
+  Header,
+  Menu,
+  Sidebar,
+  Title,
+} from 'custom-grommet-package'
 
 import BottomFooter from './BottomFooter'
-import CloseIcon from 'grommet/components/icons/base/Close'
-import Logo from 'grommet/components/icons/Grommet'
+import CloseIcon from 'custom-grommet-package/components/icons/base/Close'
+import Logo from 'custom-grommet-package/components/icons/Grommet'
 import PropTypes from 'prop-types'
 import { PureComponent } from 'react'
 import Router from 'next/router'

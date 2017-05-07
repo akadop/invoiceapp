@@ -1,5 +1,6 @@
 import CustomersListContainer
   from '../modules/Customers/containers/CustomersListContainer.js'
-import page from '../hocs/page'
+import pageWithDataAndLayout from '../hocs/pageWithDataAndLayout'
 
-export default page(() => <CustomersListContainer />)
+// expose the CustomersList module wrapped with apollo/redux
+export default pageWithDataAndLayout(() => <CustomersListContainer />)

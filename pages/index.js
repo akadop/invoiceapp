@@ -1,5 +1,6 @@
 import CreateCustomerFormContainer
   from '../modules/Customers/containers/CreateCustomerFormContainer.js'
-import page from '../hocs/page'
+import pageWithDataAndLayout from '../hocs/pageWithDataAndLayout'
 
-export default page(() => <CreateCustomerFormContainer />)
+// expose the CreateCustomerFormContainer module wrapped with apollo/redux
+export default pageWithDataAndLayout(() => <CreateCustomerFormContainer />)

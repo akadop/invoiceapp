@@ -1,6 +1,6 @@
-import { Box, Button, Footer, Header, Section } from 'grommet'
-import React, { Component } from 'react'
+import { Box, Button, Footer, Header, Section } from 'custom-grommet-package'
 
+import { Component } from 'react'
 import NavControl from '../Layout/NavControl'
 import ReactSignature from './Base/ReactSignature'
 
@@ -23,7 +23,7 @@ class CreateSignatureComponent extends Component {
 
   _handleResetClick() {
     this.refs.signatureboard.handleClear()
-    console.log('Board has been cleared.')
+    console.log('The Signature Pad has been cleared.')
   }
 
   _getImgData() {

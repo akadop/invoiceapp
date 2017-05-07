@@ -1,4 +1,11 @@
-import { Anchor, Box, Footer, Menu, Paragraph, Title } from 'grommet'
+import {
+  Anchor,
+  Box,
+  Footer,
+  Menu,
+  Paragraph,
+  Title,
+} from 'custom-grommet-package'
 
 export default () => (
   <div>

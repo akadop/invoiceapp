@@ -8,7 +8,7 @@ import {
   Header,
   Label,
   TextInput,
-} from 'grommet'
+} from 'custom-grommet-package'
 import { Field, reduxForm } from 'redux-form'
 
 import NavControl from '../../Layout/NavControl'

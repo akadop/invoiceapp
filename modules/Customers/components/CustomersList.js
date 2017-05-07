@@ -6,7 +6,7 @@ import {
   Table,
   TableHeader,
   TableRow,
-} from 'grommet'
+} from 'custom-grommet-package'
 
 import NavControl from '../../Layout/NavControl'
 
@@ -49,6 +49,7 @@ export default props => {
               'Zipcode',
             ]}
             sortIndex={0}
+            onSort={sortAscending}
           />
           <tbody>
             {allCustomers &&

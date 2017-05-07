@@ -3,7 +3,6 @@ const glob = require('glob')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const PurifyCSSPlugin = require('purifycss-webpack')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 const ProgressPlugin = require('webpack/lib/ProgressPlugin')
 const webpack = require('webpack')
 const CompressionPlugin = require('compression-webpack-plugin')
@@ -41,28 +40,24 @@ module.exports = {
       }
     )
     if (!dev) {
+      config.module.rules.push(
+        {
+          test: /\.css$/,
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: 'css-loader',
+          }),
+        },
+        {
+          test: /\.scss$/,
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: ['css-loader', 'sass-loader'],
+          }),
+        }
+      )
       // Service Worker
       config.plugins.push(
-        new SWPrecacheWebpackPlugin({
-          filename: 'sw.js',
-          minify: true,
-          staticFileGlobsIgnorePatterns: [/\.next\//],
-          staticFileGlobs: [
-            'static/**/*', // Precache all static files by default
-          ],
-          forceDelete: true,
-          runtimeCaching: [
-            // Example with different handlers
-            {
-              handler: 'fastest',
-              urlPattern: /[.](png|jpg|css)/,
-            },
-            {
-              handler: 'networkFirst',
-              urlPattern: /^http.*/, //cache all files
-            },
-          ],
-        }),
         new ProgressPlugin(),
         new ExtractTextPlugin('[name].[chunkhash:8].css'),
         new webpack.DefinePlugin({
@@ -88,6 +83,11 @@ module.exports = {
           ),
         }),
         //new OptimizeCssAssetsPlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+          compress: {
+            warnings: false,
+          },
+        }),
         new CompressionPlugin({
           asset: '[path].gz[query]',
           algorithm: 'gzip',

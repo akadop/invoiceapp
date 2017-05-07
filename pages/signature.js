@@ -1,5 +1,6 @@
 import CreateSignatureComponent
   from '../modules/Signature/CreateSignatureComponent'
-import page from '../hocs/page'
+import pageWithDataAndLayout from '../hocs/pageWithDataAndLayout'
 
-export default page(() => <CreateSignatureComponent />)
+// expose the signature module wrapped with apollo/redux
+export default pageWithDataAndLayout(() => <CreateSignatureComponent />)
