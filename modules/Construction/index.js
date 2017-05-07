@@ -1,4 +1,4 @@
-import { Box, Heading } from 'custom-grommet-package'
+import { Box, Header, Heading } from 'custom-grommet-package'
 
 import NavControl from '../Layout/NavControl'
 
@@ -14,7 +14,7 @@ const HeaderNav = (
   </Header>
 )
 
-const Construction = (
+const Construction = () => (
   <Box full="horizontal" primary={true}>
     {HeaderNav}
     <Box align="center">
