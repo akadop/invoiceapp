@@ -25,7 +25,7 @@
     "recompose": "^0.23.1",
     "redux": "3.6.0",
     "redux-form": "6.6.3",
-    "react-signature": "1.2.4"
+    "sw-precache-webpack-plugin": "0.11.0"
   },
   "devDependencies": {
     "autoprefixer": "6.7.7",
@@ -47,7 +47,6 @@
     "raw-loader": "^0.5.1",
     "css-loader": "0.28.1",
     "sass-loader": "^6.0.3",
-    "style-loader": "0.17.0",
-    "sw-precache-webpack-plugin": "0.11.0"
+    "style-loader": "0.17.0"
   }
 }
