@@ -23,14 +23,10 @@ export default ComposedComponent =>
               name="viewport"
               content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui"
             />
-            <link
-              href="//cdnjs.cloudflare.com/ajax/libs/grommet/1.0.1/grommet.min.css"
-              rel="stylesheet"
-              type="text/css"
-            />
             <link rel="manifest" href="static/manifest.json" />
             <meta name="mobile-web-app-capable" content="yes" />
             <meta name="theme-color" content="#865cd6" />
+            <link rel="stylesheet" href="" />
           </Head>
           <Main>
             <ComposedComponent {...this.props} />

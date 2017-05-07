@@ -1,7 +1,7 @@
 import { Box, Button, Footer, Header, Section } from 'custom-grommet-package'
 
-import { Component } from 'react'
 import NavControl from '../Layout/NavControl'
+import { PureComponent } from 'react'
 import ReactSignature from './Base/ReactSignature'
 
 const HeaderNav = (
@@ -14,7 +14,7 @@ const HeaderNav = (
   </Header>
 )
 
-class CreateSignatureComponent extends Component {
+class CreateSignatureComponent extends PureComponent {
   constructor(props) {
     super(props)
     this._submitClick = this._getImgData.bind(this)
