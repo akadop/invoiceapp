@@ -1,7 +1,8 @@
 import { Box, Button, Footer, Header, Section } from 'custom-grommet-package'
 
+import { Component } from 'react'
+import { Holdable } from 'react-touch'
 import NavControl from '../Layout/NavControl'
-import { PureComponent } from 'react'
 import ReactSignature from './Base/ReactSignature'
 
 const HeaderNav = (
@@ -14,7 +15,7 @@ const HeaderNav = (
   </Header>
 )
 
-class CreateSignatureComponent extends PureComponent {
+class CreateSignatureComponent extends Component {
   constructor(props) {
     super(props)
     this._submitClick = this._getImgData.bind(this)
@@ -36,7 +37,12 @@ class CreateSignatureComponent extends PureComponent {
       <Box full="horizontal" size="full" primary={true}>
         {HeaderNav}
         <Box align="center">
-          <Section pad="medium" justify="center" colorIndex="light-2">
+          <Section
+            pad="medium"
+            justify="center"
+            colorIndex="light-2"
+            onClick={hold}
+          >
             <ReactSignature ref="signatureboard" />
           </Section>
           <Footer
