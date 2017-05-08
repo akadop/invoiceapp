@@ -23,9 +23,9 @@
     ]
   ],
   "presets": [
-    "next/babel",
-    "react",
-    "react-optimize"
+    "next/babel"
+    //"react",
+    //"react-optimize"
   ],
   "ignore": []
 }
