@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import CreateCustomerForm from '../components/CreateCustomerForm'
-import CreateCustomerMutation from '../mutations/CreateCustomerMutation.js'
+import CreateCustomerMutation from '../graphql/CreateCustomerMutation.js'
 import Router from 'next/router'
 import { graphql } from 'react-apollo'
 

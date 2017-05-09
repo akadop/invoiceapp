@@ -1,20 +1,9 @@
-import { gql, graphql } from 'react-apollo'
-
+import AllCustomersQuery from '../graphql/AllCustomersQuery'
 import CustomersList from '../components/CustomersList'
+import { graphql } from 'react-apollo'
 
-const allCustomersQuery = gql`
-  query allCustomers {
-    allCustomers {
-      firstName
-      lastName
-      email
-      address
-      addressCity
-      addressState
-      addressZip
-      id
-    }
-  }`
+// connect the apollo client to the query being made
+const CustomersListWithGraph = graphql(AllCustomersQuery)(CustomersList)
 
-const CustomersListWithGraph = graphql(allCustomersQuery)(CustomersList)
+// export the query wrapped component
 export default CustomersListWithGraph

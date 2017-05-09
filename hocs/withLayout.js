@@ -40,6 +40,12 @@ export default ComposedComponent =>
 						<link
 							rel="icon"
 							type="image/png"
+							href="/static/img/pwa-192x192.png"
+							sizes="192x192"
+						/>
+						<link
+							rel="icon"
+							type="image/png"
 							href="/static/img/android-192x192.png"
 							sizes="192x192"
 						/>

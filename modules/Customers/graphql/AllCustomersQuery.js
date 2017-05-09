@@ -10,5 +10,6 @@ export default gql`
         addressCity
         addressState
         addressZip
+        id
       }
     }`
