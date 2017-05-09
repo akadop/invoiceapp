@@ -1,17 +1,23 @@
 import { Field, reduxForm } from 'redux-form'
 
+import Box from 'custom-grommet-package'
 import { Component } from 'react'
+import InvoiceWizardFormCustomers
+	from '../components/InvoiceWizardFormCustomers'
+import InvoiceWizardFormItems from '../components/InvoiceWizardFormItems'
+import InvoiceWizardFormPayment from '../components/InvoiceWizardFormPayment'
 import NavControl from '../../Layout/NavControl'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-class CreateInvoiceWizardForm extends Component {
+class CreateInvoiceWizardContainer extends Component {
 	constructor(props) {
 		super(props)
-		this.nextPage = this.nextPage.bind(this)
-		this.previousPage = this.previousPage.bind(this)
 		this.state = {
 			page: 1,
 		}
+		this.nextPage = this.nextPage.bind(this)
+		this.previousPage = this.previousPage.bind(this)
 	}
 
 	nextPage() {
@@ -23,8 +29,10 @@ class CreateInvoiceWizardForm extends Component {
 	}
 
 	render() {
+		const { page } = this.state
+		const { onSubmit } = this.props
 		return (
-			<Section>
+			<div>
 				{page === 1 && <InvoiceWizardFormCustomers onSubmit={this.nextPage} />}
 				{page === 2 &&
 					<InvoiceWizardFormItems
@@ -36,14 +44,13 @@ class CreateInvoiceWizardForm extends Component {
 						previousPage={this.previousPage}
 						onSubmit={onSubmit}
 					/>}
-
-			</Section>
+			</div>
 		)
 	}
 }
 
-CreateInvoiceWizardForm.propTypes = {
+CreateInvoiceWizardContainer.propTypes = {
 	onSubmit: PropTypes.func.isRequired,
 }
 
-export default CreateInvoiceWizard
+export default CreateInvoiceWizardContainer
