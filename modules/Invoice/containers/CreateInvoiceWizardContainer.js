@@ -1,5 +1,3 @@
-import { Field, reduxForm } from 'redux-form'
-
 import Box from 'custom-grommet-package'
 import { Component } from 'react'
 import InvoiceWizardFormCustomers
@@ -8,7 +6,6 @@ import InvoiceWizardFormItems from '../components/InvoiceWizardFormItems'
 import InvoiceWizardFormPayment from '../components/InvoiceWizardFormPayment'
 import NavControl from '../../Layout/NavControl'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 
 class CreateInvoiceWizardContainer extends Component {
   constructor(props) {

@@ -8,11 +8,9 @@ const initialState = {
   responsive: 'multiple',
   items: [
     { path: '/index', label: 'Create Customer' },
-    { path: '/createInvoice', label: 'Create New Invoice' },
     { path: '/customers', label: 'Customer List' },
     { path: '/handbook', label: 'Employee Handbook' },
-    { path: '/invoices', label: 'Invoices' },
-    { path: '/signature', label: 'Signatures' },
+    { path: '/invoices', label: 'Create Invoice' },
   ],
 }
 const handlers = {
