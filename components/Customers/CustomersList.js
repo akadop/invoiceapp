@@ -8,7 +8,7 @@ import {
   TableRow,
 } from 'custom-grommet-package'
 
-import NavControl from '../../Layout/NavControl'
+import NavControl from '../Layout/NavControl'
 
 // header for this page
 const HeaderNav = (

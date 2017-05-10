@@ -9,9 +9,9 @@ import {
 } from 'custom-grommet-package'
 import { Field, reduxForm } from 'redux-form'
 
-import renderSelectField from '../util/renderSelectField'
-import renderTextField from '../util/renderTextField'
-import validate from '../util/validate'
+import renderSelectField from './util/renderSelectField'
+import renderTextField from './util/renderTextField'
+import validate from './util/validate'
 
 const CreditCardTypes = ['Visa', 'American Express', 'Discover', 'Master Card']
 

@@ -1,10 +1,9 @@
 import Box from 'custom-grommet-package'
 import { Component } from 'react'
-import InvoiceWizardFormCustomers
-  from '../components/InvoiceWizardFormCustomers'
-import InvoiceWizardFormItems from '../components/InvoiceWizardFormItems'
-import InvoiceWizardFormPayment from '../components/InvoiceWizardFormPayment'
-import NavControl from '../../Layout/NavControl'
+import InvoiceWizardFormCustomers from './InvoiceWizardFormCustomers'
+import InvoiceWizardFormItems from './InvoiceWizardFormItems'
+import InvoiceWizardFormPayment from './InvoiceWizardFormPayment'
+import NavControl from '../NavControl'
 import PropTypes from 'prop-types'
 
 class CreateInvoiceWizardContainer extends Component {

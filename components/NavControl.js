@@ -1,24 +1,21 @@
-import { Box, Button, Title } from 'custom-grommet-package'
-
+import Button from 'custom-grommet-package/components/Button'
 import Logo from 'custom-grommet-package/components/icons/Grommet'
 import PropTypes from 'prop-types'
 import { PureComponent } from 'react'
+import Title from 'custom-grommet-package/components/Title'
 import { connect } from 'react-redux'
-import { navActivate } from '../../actions/nav'
+import { navActivate } from '../actions/nav'
 
 class NavControl extends PureComponent {
   render() {
     const { name, nav: { active } } = this.props
-
     let result
     const title = <Title>{name || 'Invoice App'}</Title>
     if (!active) {
       result = (
         <Button onClick={() => this.props.dispatch(navActivate(true))}>
-          <Box direction="row" responsive={true} pad={{ between: 'medium' }}>
-            <Logo />
-            {title}
-          </Box>
+          <Logo />
+          {title}
         </Button>
       )
     } else {

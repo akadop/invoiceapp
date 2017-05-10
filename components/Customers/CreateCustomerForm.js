@@ -11,7 +11,7 @@ import {
 } from 'custom-grommet-package'
 import { Field, reduxForm } from 'redux-form'
 
-import NavControl from '../../Layout/NavControl'
+import NavControl from '../Layout/NavControl'
 
 const renderField = ({ input, label, type, meta: { touched, error } }) => {
   return (

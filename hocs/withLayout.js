@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import Head from 'next/head'
-import Main from '../modules/Layout/Main'
+import Main from '../components/Main'
 import akastyle from 'custom-grommet-package/scss/vanilla/index.scss'
 import { loadGetInitialProps } from 'next/dist/lib/utils'
 

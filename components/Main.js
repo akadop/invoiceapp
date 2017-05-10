@@ -2,9 +2,9 @@ import App from 'custom-grommet-package/components/App'
 import { Component } from 'react'
 import NavSidebar from './NavSidebar'
 import PropTypes from 'prop-types'
-import { Split } from 'custom-grommet-package'
+import Split from 'custom-grommet-package/components/Split'
 import { connect } from 'react-redux'
-import { navResponsive } from '../../actions/nav'
+import { navResponsive } from '../actions/nav'
 
 class Main extends Component {
   constructor() {

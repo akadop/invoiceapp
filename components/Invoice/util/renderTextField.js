@@ -4,11 +4,11 @@ import { FormField, TextInput } from 'custom-grommet-package'
 // html form field.
 
 const renderTextField = ({ input, label, type, meta: { touched, error } }) => {
-	return (
-		<FormField help={label} htmlFor={label} error={touched && error} {...input}>
-			<TextInput {...input} />
-		</FormField>
-	)
+  return (
+    <FormField help={label} htmlFor={label} error={touched && error} {...input}>
+      <TextInput {...input} />
+    </FormField>
+  )
 }
 
 export default renderTextField

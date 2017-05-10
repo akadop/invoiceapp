@@ -9,9 +9,9 @@ import {
 } from 'custom-grommet-package'
 import { Field, reduxForm } from 'redux-form'
 
-import NavControl from '../../Layout/NavControl'
-import renderTextField from '../util/renderTextField'
-import validate from '../util/validate'
+import NavControl from '../Layout/NavControl'
+import renderTextField from './util/renderTextField'
+import validate from './util/validate'
 
 const HeaderNav = (
   <Header

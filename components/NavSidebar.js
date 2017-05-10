@@ -8,14 +8,14 @@ import {
   Title,
 } from 'custom-grommet-package'
 
-import BottomFooter from './BottomFooter'
 import CloseIcon from 'custom-grommet-package/components/icons/base/Close'
 import Logo from 'custom-grommet-package/components/icons/Grommet'
 import PropTypes from 'prop-types'
 import { PureComponent } from 'react'
 import Router from 'next/router'
+import SessionMenu from './BottomFooter'
 import { connect } from 'react-redux'
-import { navActivate } from '../../actions/nav'
+import { navActivate } from '../actions/nav'
 
 class NavSidebar extends PureComponent {
   constructor() {
@@ -42,7 +42,7 @@ class NavSidebar extends PureComponent {
       <Sidebar colorIndex="neutral-3-a" fixed={true}>
         <Header size="large" justify="between" pad={{ horizontal: 'medium' }}>
           <Title onClick={this._onClose} a11yTitle="Close Menu">
-            <Logo />
+            <Logo colorIndex="light-1" />
             <span>Demo</span>
           </Title>
           <Button
@@ -55,8 +55,11 @@ class NavSidebar extends PureComponent {
         <Menu fill={true} primary={true}>
           {links}
         </Menu>
-        <Footer pad={{ horizontal: 'medium', vertical: 'medium' }}>
-          <BottomFooter />
+        <Footer pad={{ horizontal: 'medium', vertical: 'small' }}>
+          <SessionMenu
+            dropAlign={{ bottom: 'bottom' }}
+            colorIndex="neutral-1-a"
+          />
         </Footer>
       </Sidebar>
     )
@@ -73,6 +76,7 @@ NavSidebar.propTypes = {
       })
     ),
   }),
+  onClose: PropTypes.func,
 }
 
 const select = state => ({
