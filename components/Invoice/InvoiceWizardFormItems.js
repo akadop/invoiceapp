@@ -1,15 +1,7 @@
-import {
-  Box,
-  Button,
-  Columns,
-  Footer,
-  Form,
-  FormFields,
-  Label,
-  Section,
-} from 'custom-grommet-package'
 import { Field, FieldArray, reduxForm } from 'redux-form'
 
+import Button from 'custom-grommet-package/components/Box'
+import Form from 'custom-grommet-package/components/Form'
 import renderSelectField from './util/renderSelectField'
 import renderTextField from './util/renderTextField'
 import validate from './util/validate'
@@ -17,10 +9,10 @@ import validate from './util/validate'
 const SelectItemType = ['Flooring Item', 'Pad']
 
 const renderItems = ({ fields, meta: { error, submitFailed } }) => (
-  <Box>
+  <div>
     <Button type="button" label="Add an Item" onClick={() => fields.push({})} />
     {fields.map((item, index) => (
-      <Columns justify="center" size="medium" maxCount={3}>
+      <fieldset>
         <Button
           critical
           fill
@@ -28,95 +20,74 @@ const renderItems = ({ fields, meta: { error, submitFailed } }) => (
           label="Remove"
           onClick={() => fields.remove(index)}
         />
-        <Box>
-          <FormFields>
-            <Field
-              name={`${item}.itemType`}
-              type="select"
-              component={renderSelectField}
-              label="Item Type"
-              options={SelectItemType}
-            />
-            <Field
-              name={`${item}.refNumber`}
-              type="text"
-              component={renderTextField}
-              label="Item Reference Number"
-            />
-          </FormFields>
-        </Box>
-        <Box>
-          <FormFields>
-            <Field
-              name={`${item}.color`}
-              type="text"
-              component={renderTextField}
-              label="Item Color"
-            />
-            <Field
-              name={`${item}.dimensionLength`}
-              type="number"
-              component={renderTextField}
-              label="Item Length"
-            />
-            <Field
-              name={`${item}.dimensionWidth`}
-              type="number"
-              component={renderTextField}
-              label="Item Width"
-            />
-          </FormFields>
-        </Box>
-        <Box>
-          <FormFields>
-            <Field
-              name={`${item}.unitPrice`}
-              type="number"
-              component={renderTextField}
-              label="Unit Price"
-            />
-            <Field
-              name={`${item}.estimatedQuantity`}
-              type="number"
-              component={renderTextField}
-              label="Estimated Quantity"
-            />
-            <Field
-              name={`${item}.estimatedTotal`}
-              type="number"
-              component={renderTextField}
-              label="Estimated Total"
-            />
-            <Field
-              name={`${item}.extendedPrice`}
-              type="number"
-              component={renderTextField}
-              label="Extended Price"
-            />
-          </FormFields>
-        </Box>
-      </Columns>
+        <Field
+          name={`${item}.itemType`}
+          type="select"
+          component={renderSelectField}
+          label="Item Type"
+          options={SelectItemType}
+        />
+        <Field
+          name={`${item}.refNumber`}
+          type="text"
+          component={renderTextField}
+          label="Item Reference Number"
+        />
+        <Field
+          name={`${item}.color`}
+          type="text"
+          component={renderTextField}
+          label="Item Color"
+        />
+        <Field
+          name={`${item}.dimensionLength`}
+          type="number"
+          component={renderTextField}
+          label="Item Length"
+        />
+        <Field
+          name={`${item}.dimensionWidth`}
+          type="number"
+          component={renderTextField}
+          label="Item Width"
+        />
+        <Field
+          name={`${item}.unitPrice`}
+          type="number"
+          component={renderTextField}
+          label="Unit Price"
+        />
+        <Field
+          name={`${item}.estimatedQuantity`}
+          type="number"
+          component={renderTextField}
+          label="Estimated Quantity"
+        />
+        <Field
+          name={`${item}.estimatedTotal`}
+          type="number"
+          component={renderTextField}
+          label="Estimated Total"
+        />
+        <Field
+          name={`${item}.extendedPrice`}
+          type="number"
+          component={renderTextField}
+          label="Extended Price"
+        />
+      </fieldset>
     ))}
-  </Box>
+  </div>
 )
 
 const InvoiceWizardFormCustomers = props => {
   const { handleSubmit, reset, previousPage } = props
   return (
-    <Box primary={true} align="center">
-      <Form onSubmit={handleSubmit} compact>
-        <FieldArray name="items" component={renderItems} />
-      </Form>
-      <Footer
-        pad={{ between: 'small', vertical: 'medium' }}
-        alignContent="center"
-        justify="center"
-        responsive={true}
-      >
-        <Button secondary label="Back" type="button" onClick={previousPage} />
-        <Button primary label="Next" type="submit" onClick={handleSubmit} />
-      </Footer>
-    </Box>
+    <Form onSubmit={handleSubmit} compact>
+      <FieldArray name="items" component={renderItems} />
+      <Button secondary label="Back" type="button" onClick={previousPage} />
+      <Button primary label="Next" type="submit" onClick={handleSubmit} />
+    </Form>
   )
 }
 
