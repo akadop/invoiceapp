@@ -1,44 +1,28 @@
 import { Component } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
+import Router from 'next/router'
+import cookie from 'react-cookie'
 import { loadGetInitialProps } from 'next/dist/lib/utils'
-import { login } from '../data/auth/actions'
-import mapDispatch from '../util/redux'
 
-let auth = { loggedIn: false }
-
-const mapDispatchToLogin = mapDispatch('login', login)
-
-export default ComposedComponent => {
-  class WithAuth extends Component {
-    static propTypes = {
-      serverRendered: PropTypes.bool.isRequired,
-      auth: PropTypes.object.isRequired,
-    }
-
+export default ComposedComponent =>
+  class extends Component {
     static async getInitialProps(ctx) {
-      if (!process.browser) {
-        auth.token =
-          ctx.req.session && ctx.req.session.user && ctx.req.session.user.token
-        auth.loggedIn = Boolean(auth.token)
-      }
-      return {
-        serverRendered: !process.browser,
-        auth,
-        ...(await loadGetInitialProps(ComposedComponent, ctx)),
-      }
-    }
+      const token = cookie.load('__AUTH_TOKEN__')
+      const loggedIn = Boolean(token)
 
-    componentDidMount() {
-      if (this.props.serverRendered) {
-        auth = this.props.auth
+      if (!loggedIn) {
+        if (!process.browser) {
+          ctx.res.writeHead(302, { Location: '/auth' })
+
+          return ctx.res.send()
+        }
+
+        return Router.push('/auth')
       }
+
+      return { ...(await loadGetInitialProps(ComposedComponent, ctx)) }
     }
 
     render() {
       return <ComposedComponent {...this.props} />
     }
   }
-
-  return connect(null, mapDispatchToLogin)(WithAuth)
-}

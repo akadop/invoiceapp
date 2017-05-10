@@ -1,7 +1,5 @@
 import { Component } from 'react'
 import Head from 'next/head'
-import Main from '../components/Main'
-import akastyle from 'custom-grommet-package/scss/vanilla/index.scss'
 import { loadGetInitialProps } from 'next/dist/lib/utils'
 
 // The basic layout that is going to be on every page.
@@ -60,10 +58,9 @@ export default ComposedComponent =>
             />
             <meta name="theme-color" content="#222" />
           </Head>
-          <style dangerouslySetInnerHTML={{ __html: akastyle }} />
-          <Main>
+          <div>
             <ComposedComponent {...this.props} />
-          </Main>
+          </div>
         </div>
       )
     }
