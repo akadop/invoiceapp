@@ -86,7 +86,13 @@ export default ComposedComponent =>
             muiTheme={getMuiTheme(theme, { userAgent: this.props.userAgent })}
           >
             <ComposedComponent {...this.props} />
-            <ReduxToastr
+          </MuiThemeProvider>
+        </ApolloProvider>
+      )
+    }
+  }
+
+/**<ReduxToastr
               timeOut={4000}
               newestOnTop={false}
               preventDuplicates={true}
@@ -94,9 +100,4 @@ export default ComposedComponent =>
               transitionIn="fadeIn"
               transitionOut="fadeOut"
               progressBar
-            />
-          </MuiThemeProvider>
-        </ApolloProvider>
-      )
-    }
-  }
+            /> */

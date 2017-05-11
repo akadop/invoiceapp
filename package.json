@@ -11,9 +11,12 @@
 	"author": "Ahmed Alahmady",
 	"license": "ISC",
 	"dependencies": {
+		"draft-js": "^0.10.1",
 		"express": "^4.15.2",
 		"module-alias": "^2.0.0",
 		"next": "2.3.1",
+		"react": "15.5.4",
+		"react-dom": "15.5.4",
 		"preact": "^8.1.0",
 		"preact-compat": "^3.16.0",
 		"prop-types": "15.5.9",
@@ -21,10 +24,10 @@
 		"react-redux": "5.0.4",
 		"react-tap-event-plugin": "^2.0.1",
 		"recompose": "^0.23.1",
-		"material-ui": "next",
+		"material-ui": "0.18.0",
 		"redux": "3.6.0",
 		"redux-form": "6.7.0",
-		"react-redux-toastr": "^6.2.4"
+		"redux-form-material-ui": "4.2.0"
 	},
 	"devDependencies": {
 		"autoprefixer": "7.0.1",
@@ -41,11 +44,11 @@
 		"offline-plugin": "^4.7.0",
 		"optimize-css-assets-webpack-plugin": "^1.3.1",
 		"postcss-easy-import": "2.0.0",
-		"postcss-loader": "1.3.3",
+		"postcss-loader": "2.0.5",
 		"preload-webpack-plugin": "^1.2.2",
-		"purifycss-webpack": "^0.6.1",
+		"purifycss-webpack": "^0.6.2",
 		"raw-loader": "^0.5.1",
-		"sass-loader": "^6.0.3",
+		"sass-loader": "^6.0.5",
 		"style-loader": "0.17.0",
 		"sw-precache-webpack-plugin": "0.11.0",
 		"now": "^5.2.3"

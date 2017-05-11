@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import Head from 'next/head'
 import { loadGetInitialProps } from 'next/dist/lib/utils'
+import stylesheet from '../styles/vendor.css'
 
 // The basic layout that is going to be on every page.
 // No point in repeating the code over and over for each page, just make it a wrapper that goes over every page.
@@ -56,7 +57,12 @@ export default ComposedComponent =>
               name="msapplication-config"
               content="/static/img/browserconfig.xml"
             />
+            <link
+              href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+              rel="stylesheet"
+            />
             <meta name="theme-color" content="#222" />
+            <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
           </Head>
           <div>
             <ComposedComponent {...this.props} />
