@@ -7,18 +7,21 @@ import {
 
 import { Component } from 'react'
 import { FieldArray } from 'redux-form'
-import { HoverMorphIcon } from 'react-svg-buttons'
+import ItemForm from './ItemForm'
 
-export default ({
-  addItemDialogOpened,
-  actions: { closeAddItemDialog, openAddItemDialog },
-}) => {
-  const actions = [
-    <FlatButton
-      label="close"
-      primary="true"
-      onTouchTap={closeAddItemDialog}
-      style={{ margin: 2 }}
-    />,
-  ]
+export default class InvoiceItemList {
+  constructor() {
+    this.state = {
+      expanded: false,
+    }
+    this.handleExpandChange = this.handleExpandChange.bind(this)
+  }
+
+  handleExpandChange = expanded => {
+    this.setState({ expanded: expanded })
+  }
+
+  render() {
+    return <ItemForm />
+  }
 }
