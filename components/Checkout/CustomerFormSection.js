@@ -2,9 +2,7 @@ import { Card, CardHeader, CardText } from 'material-ui/Card'
 
 import Divider from 'material-ui/Divider'
 import { Field } from 'redux-form'
-import PropTypes from 'prop-types'
 import { TextField } from 'redux-form-material-ui'
-import validate from '../../lib/util/validate'
 
 const CustomerFormSection = () => {
   return (
@@ -14,44 +12,44 @@ const CustomerFormSection = () => {
         <Field
           name="firstName"
           component={TextField}
-          floatingLabelText="First Name"
+          hintText="First Name"
           underlineShow={false}
         />
         <Field
           name="lastName"
           component={TextField}
-          floatingLabelText="Last Name"
+          hintText="Last Name"
           underlineShow={false}
         />
         <Field
           name="email"
           component={TextField}
-          floatingLabelText="Email"
+          hintText="Email"
           underlineShow={false}
         />
         <Divider />
         <Field
           name="address"
           component={TextField}
-          floatingLabelText="Address"
+          hintText="Address"
           underlineShow={false}
         />
         <Field
           name="addressCity"
           component={TextField}
-          floatingLabelText="City"
+          hintText="City"
           underlineShow={false}
         />
         <Field
           name="addressState"
           component={TextField}
-          floatingLabelText="State"
+          hintText="State"
           underlineShow={false}
         />
         <Field
           name="addressZip"
           component={TextField}
-          floatingLabelText="Zipcode"
+          hintText="Zipcode"
           underlineShow={false}
         />
       </CardText>

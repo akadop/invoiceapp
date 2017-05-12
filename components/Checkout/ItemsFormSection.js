@@ -7,7 +7,6 @@ import Divider from 'material-ui/Divider'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import MenuItem from 'material-ui/MenuItem'
 import Paper from 'material-ui/Paper'
-import PropTypes from 'prop-types'
 import RaisedButton from 'material-ui/RaisedButton'
 
 const renderItems = ({ fields, meta: { error } }) => (
@@ -28,7 +27,7 @@ const renderItems = ({ fields, meta: { error } }) => (
         />
         <CardText>
           <Field
-            floatingLabelText="Flooring or Padding"
+            hintText="Flooring or Padding"
             name={`${item}.itemType`}
             component={SelectField}
             underlineShow={false}
@@ -38,53 +37,55 @@ const renderItems = ({ fields, meta: { error } }) => (
             <MenuItem value="Pad" primaryText="Pad" />
           </Field>
           <Field
-            floatingLabelText="Item Reference Number"
+            hintText="Item Reference Number"
             name={`${item}.refNumber`}
             component={TextField}
             underlineShow={false}
             fullWidth
           />
           <Field
-            floatingLabelText="Color"
+            hintText="Color"
             name={`${item}.color`}
             component={TextField}
             underlineShow={false}
           />
           <Field
-            floatingLabelText="Length (dimension)"
+            hintText="Length (dimension)"
             name={`${item}.dimensionLength`}
             component={TextField}
             underlineShow={false}
           />
           <Field
-            floatingLabelText="Width (dimension)"
+            hintText="Width (dimension)"
             name={`${item}.dimensionWidth`}
             component={TextField}
             underlineShow={false}
           />
           <Divider />
           <Field
-            floatingLabelText="Unit Price"
+            hintText="Unit Price"
             name={`${item}.unitPrice`}
             component={TextField}
             underlineShow={false}
           />
           <Field
-            floatingLabelText="Estimated Quantity"
+            hintText="Estimated Quantity"
             name={`${item}.estimatedQuantity`}
             component={TextField}
             underlineShow={false}
           />
           <Field
-            floatingLabelText="Extended Price"
+            hintText="Extended Price"
             name={`${item}.extendedPrice`}
             component={TextField}
             underlineShow={false}
           />
           <Field
-            floatingLabelText="Estimated Total"
+            hintText="Estimated Total"
             name={`${item}.estimatedTotal`}
             component={TextField}
+            type={number}
+            step="any"
             underlineShow={false}
           />
           <CardActions>

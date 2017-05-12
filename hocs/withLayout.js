@@ -12,6 +12,7 @@ export default ComposedComponent =>
     static async getInitialProps(ctx) {
       return loadGetInitialProps(ComposedComponent, ctx)
     }
+
     render() {
       return (
         <div>
@@ -70,8 +71,8 @@ export default ComposedComponent =>
           </Head>
           <div>
             <ComposedComponent {...this.props} />
+            <BottomNav />
           </div>
-          <BottomNav />
         </div>
       )
     }

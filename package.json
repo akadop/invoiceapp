@@ -16,8 +16,6 @@
 		"next": "next",
 		"react": "15.5.4",
 		"react-dom": "15.5.4",
-		"preact": "^8.1.0",
-		"preact-compat": "^3.16.0",
 		"prop-types": "15.5.9",
 		"react-apollo": "1.2.0",
 		"react-redux": "5.0.4",

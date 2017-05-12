@@ -3,7 +3,6 @@ import { SelectField, TextField } from 'redux-form-material-ui'
 
 import { Field } from 'redux-form'
 import MenuItem from 'material-ui/MenuItem'
-import PropTypes from 'prop-types'
 
 const PaymentFormSection = () => {
   return (
@@ -16,12 +15,12 @@ const PaymentFormSection = () => {
         <Field
           name="total"
           component={TextField}
-          floatingLabelText="Total"
+          hintText="Total"
           underlineShow={false}
           fullWidth
         />
         <Field
-          floatingLabelText="Credit Card Type"
+          hintText="Credit Card Type"
           name="paymentBy"
           component={SelectField}
           underlineShow={false}
@@ -31,18 +30,20 @@ const PaymentFormSection = () => {
           <MenuItem value="MasterCard" primaryText="MasterCard" />
           <MenuItem value="Discover" primaryText="Discover" />
           <MenuItem value="AmericanExpress" primaryText="American Express" />
+          <MenuItem value="Cash" primaryText="Cash" />
+          <MenuItem value="Check" primaryText="Check" />
         </Field>
         <Field
           name="balance"
           component={TextField}
-          floatingLabelText="Balance"
+          hintText="Balance"
           underlineShow={false}
           fullWidth
         />
         <Field
           name="deposit"
           component={TextField}
-          floatingLabelText="Deposit"
+          hintText="Deposit"
           underlineShow={false}
           fullWidth
         />
