@@ -2,9 +2,10 @@ import { Component } from 'react'
 import InvoiceWizardFormCustomers from './InvoiceWizardFormCustomers'
 import InvoiceWizardFormItems from './InvoiceWizardFormItems'
 import InvoiceWizardFormPayments from './InvoiceWizardFormPayments'
+import Paper from 'material-ui/Paper'
 import PropTypes from 'prop-types'
 
-class InvoiceWizardForm extends Component {
+class InvoiceWizardFormContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -24,25 +25,25 @@ class InvoiceWizardForm extends Component {
     const { page } = this.state
     const { onSubmit } = this.props
     return (
-      <div>
-        {page === 1 &&
+      <Paper zDepth={2}>
+        {page === 1 && <InvoiceWizardFormCustomers onSubmit={this.nextPage} />}
+        {page === 2 &&
           <InvoiceWizardFormItems
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />}
-        {page === 2 && <InvoiceWizardFormCustomers onSubmit={this.nextPage} />}
         {page === 3 &&
-          <InvoiceWizardFormPayment
+          <InvoiceWizardFormPayments
             previousPage={this.previousPage}
             onSubmit={onSubmit}
           />}
-      </div>
+      </Paper>
     )
   }
 }
 
-CreateInvoiceWizardContainer.propTypes = {
+InvoiceWizardFormContainer.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 }
 
-export default CreateInvoiceWizardContainer
+export default InvoiceWizardFormContainer

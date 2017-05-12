@@ -70,8 +70,8 @@ export default ComposedComponent =>
           </Head>
           <div>
             <ComposedComponent {...this.props} />
-            <ButtonNav />
           </div>
+          <BottomNav />
         </div>
       )
     }
