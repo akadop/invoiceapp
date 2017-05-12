@@ -12,8 +12,8 @@ const recentsIcon = <FontIcon className="material-icons">Invoices</FontIcon>
 const favoritesIcon = <FontIcon className="material-icons">favorite</FontIcon>
 
 const style = {
-  width: '100%',
   bottom: 0,
+  width: '100%',
   position: 'fixed',
 }
 

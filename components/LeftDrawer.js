@@ -1,11 +1,11 @@
+import { Component } from 'react'
 import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
 import RaisedButton from 'material-ui/RaisedButton'
-import React from 'react'
 
 const forceNavDown = { top: '64px', zIndex: '98', left: '-0px' }
 
-export default class DrawerSimpleExample extends React.Component {
+export default class DrawerSimpleExample extends Component {
   constructor(props) {
     super(props)
     this.state = { open: true }

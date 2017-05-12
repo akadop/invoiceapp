@@ -1,19 +1,17 @@
-import {
-  Card,
-  CardActions,
-  CardHeader,
-  CardText,
-  Divider,
-  FloatingActionButton,
-  MenuItem,
-  Paper,
-  RaisedButton,
-  Subheader,
-} from 'material-ui'
 import { Field, FieldArray, reduxForm } from 'redux-form'
 import { SelectField, TextField } from 'redux-form-material-ui'
 
+import Card from 'material-ui/Card'
+import CardActions from 'material-ui/CardActions'
+import CardHeader from 'material-ui/CardHeader'
+import CardText from 'material-ui/CardText'
 import ContentAdd from 'material-ui/svg-icons/content/add'
+import Divider from 'material-ui/Divider'
+import FlatButton from 'material-ui/FlatButton'
+import FloatingActionButton from 'material-ui/FloatingActionButton'
+import MenuItem from 'material-ui/MenuItem'
+import Paper from 'material-ui/Paper'
+import RaisedButton from 'material-ui/RaisedButton'
 import validate from '../../lib/util/validate'
 
 const styles = {
@@ -72,43 +70,51 @@ const renderItems = ({
             component={TextField}
             underlineShow={false}
           />
+
           <Field
             floatingLabelText="Length (dimension)"
             name={`${item}.dimensionLength`}
             component={TextField}
             underlineShow={false}
           />
+
           <Field
             floatingLabelText="Width (dimension)"
             name={`${item}.dimensionWidth`}
             component={TextField}
             underlineShow={false}
           />
+
           <Divider />
+
           <Field
             floatingLabelText="Unit Price"
             name={`${item}.unitPrice`}
             component={TextField}
             underlineShow={false}
           />
+
           <Field
             floatingLabelText="Estimated Quantity"
             name={`${item}.estimatedQuantity`}
             component={TextField}
             underlineShow={false}
           />
+
           <Field
             floatingLabelText="Extended Price"
             name={`${item}.extendedPrice`}
             component={TextField}
             underlineShow={false}
           />
+
           <Field
             floatingLabelText="Estimated Total"
             name={`${item}.estimatedTotal`}
             component={TextField}
             underlineShow={false}
           />
+
           <CardActions>
             <RaisedButton
               backgroundColor="#EF4836"
@@ -117,19 +123,21 @@ const renderItems = ({
               onTouchTap={() => fields.remove(index)}
             />
           </CardActions>
+
         </CardText>
       </Card>
     ))}
   </div>
 )
 
-const ItemForm = props => {
-  const { handleSubmit, handleExpandChange } = props
+const InvoiceWizardFormItems = props => {
+  const { handleSubmit, reset, previousPage } = props
   return (
     <Paper zDepth={2}>
       <form onSubmit={handleSubmit} style={styles.form}>
         <FieldArray name="items" component={renderItems} />
       </form>
+      <FlatButton secondary label="back" onTouchTap={previousPage} />
       <RaisedButton
         primary
         label="submit"
@@ -141,5 +149,8 @@ const ItemForm = props => {
 }
 
 export default reduxForm({
-  form: 'itemForm', //Form name is same
-})(ItemForm)
+  form: 'invoice', //Form name is same
+  destroyOnUnmount: false,
+  forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
+  validate,
+})(InvoiceWizardFormItems)
