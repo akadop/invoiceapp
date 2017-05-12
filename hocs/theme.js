@@ -1,4 +1,6 @@
+import { grey600 } from 'material-ui/styles/colors'
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme'
+import { typography } from 'material-ui/styles'
 
 export default {
   ...lightBaseTheme,
@@ -10,9 +12,10 @@ export default {
   },
   bottomNavigation: {
     backgroundColor: '#fcfdfd',
+    position: 'fixed',
     labelColor: '#333',
     unselectedColor: 'rgba(0, 0, 0, 0.54)',
-    selectedColor: 'rgba(68, 138, 255, 0.89)',
+    selectedColor: 'rgba(68, 138, 255, 1)',
     height: 58,
   },
   datePicker: {
@@ -32,5 +35,23 @@ export default {
     backgroundColor: '#fcfdfd',
     textColor: '#333',
     selectedTextColor: '#222',
+  },
+  paper: {
+    padding: 30,
+  },
+  clear: {
+    clear: 'both',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: typography.fontWeightLight,
+    marginBottom: 20,
+  },
+  navigation: {
+    fontSize: 15,
+    fontWeight: typography.fontWeightLight,
+    color: grey600,
+    paddingBottom: 15,
+    display: 'block',
   },
 }

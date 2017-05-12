@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import Head from 'next/head'
 import { loadGetInitialProps } from 'next/dist/lib/utils'
-import stylesheet from '../styles/vendor.css'
+import stylesheet from '../styles/styles.scss'
 
 // The basic layout that is going to be on every page.
 // No point in repeating the code over and over for each page, just make it a wrapper that goes over every page.
@@ -11,7 +11,6 @@ export default ComposedComponent =>
     static async getInitialProps(ctx) {
       return loadGetInitialProps(ComposedComponent, ctx)
     }
-
     render() {
       return (
         <div>
@@ -59,6 +58,10 @@ export default ComposedComponent =>
             />
             <link
               href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+              rel="stylesheet"
+            />
+            <link
+              href="https://fonts.googleapis.com/icon?family=Material+Icons"
               rel="stylesheet"
             />
             <meta name="theme-color" content="#222" />

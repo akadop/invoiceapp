@@ -4,19 +4,23 @@ import {
   CardHeader,
   CardText,
   Divider,
+  FloatingActionButton,
   MenuItem,
   Paper,
   RaisedButton,
+  Subheader,
 } from 'material-ui'
 import { Field, FieldArray, reduxForm } from 'redux-form'
 import { SelectField, TextField } from 'redux-form-material-ui'
 
+import ContentAdd from 'material-ui/svg-icons/content/add'
 import validate from '../../lib/util/validate'
 
-const style = {
-  marginLeft: 20,
-  marginRight: 20,
-  align: 'center',
+const styles = {
+  form: {
+    display: 'inline-block',
+    padding: 16,
+  },
 }
 
 const renderItems = ({
@@ -24,81 +28,86 @@ const renderItems = ({
   handleExpandChange,
   meta: { error, submitFailed },
 }) => (
-  <Paper zDepth={0}>
-    <RaisedButton
+  <div>
+    <FloatingActionButton
       secondary
       label="Add an Item"
       onTouchTap={() => fields.push({})}
-    />
+      style={{ marginBottom: 8 }}
+    >
+      <ContentAdd />
+    </FloatingActionButton>
+
     {fields.map((item, index) => (
-      <Card style={{ marginBottom: 20 }} key={index}>
-        <CardHeader title={'Invoice Item #' + `${index + 1}`} />
+      <Card style={{ marginBottom: 16 }} key={index}>
+
+        <CardHeader
+          title={'Invoice Item #' + `${index + 1}`}
+          subtitle="Make sure to fill all the fields."
+        />
         <CardText>
+
           <Field
             floatingLabelText="Flooring or Padding"
             name={`${item}.itemType`}
             component={SelectField}
+            underlineShow={false}
             fullWidth
-            style={style}
           >
             <MenuItem value="Flooring" primaryText="Flooring" />
             <MenuItem value="Pad" primaryText="Pad" />
           </Field>
+
           <Field
             floatingLabelText="Item Reference Number"
             name={`${item}.refNumber`}
             component={TextField}
+            underlineShow={false}
             fullWidth
-            underlineDisabledStyle
-            style={style}
           />
+
           <Field
             floatingLabelText="Color"
             name={`${item}.color`}
             component={TextField}
-            underlineDisabledStyle
-            style={style}
+            underlineShow={false}
           />
           <Field
             floatingLabelText="Length (dimension)"
             name={`${item}.dimensionLength`}
             component={TextField}
-            underlineDisabledStyle
-            style={style}
+            underlineShow={false}
           />
           <Field
             floatingLabelText="Width (dimension)"
             name={`${item}.dimensionWidth`}
             component={TextField}
-            underlineDisabledStyle
-            style={style}
+            underlineShow={false}
           />
+          <Divider />
           <Field
             floatingLabelText="Unit Price"
             name={`${item}.unitPrice`}
             component={TextField}
-            style={style}
+            underlineShow={false}
           />
           <Field
             floatingLabelText="Estimated Quantity"
             name={`${item}.estimatedQuantity`}
             component={TextField}
-            underlineDisabledStyle
-            style={style}
-          />
-          <Field
-            floatingLabelText="Estimated Total"
-            name={`${item}.estimatedTotal`}
-            component={TextField}
-            underlineDisabledStyle
-            style={style}
+            underlineShow={false}
           />
           <Field
             floatingLabelText="Extended Price"
             name={`${item}.extendedPrice`}
             component={TextField}
-            underlineDisabledStyle
-            style={style}
+            underlineShow={false}
+          />
+          <Field
+            floatingLabelText="Estimated Total"
+            name={`${item}.estimatedTotal`}
+            component={TextField}
+            underlineShow={false}
           />
           <CardActions>
             <RaisedButton
@@ -111,24 +120,26 @@ const renderItems = ({
         </CardText>
       </Card>
     ))}
-  </Paper>
+  </div>
 )
 
-const MaterialItems = props => {
+const ItemForm = props => {
   const { handleSubmit, handleExpandChange } = props
   return (
-    <form onSubmit={handleSubmit}>
-      <FieldArray name="items" component={renderItems} />
+    <Paper zDepth={2}>
+      <form onSubmit={handleSubmit} style={styles.form}>
+        <FieldArray name="items" component={renderItems} />
+      </form>
       <RaisedButton
         primary
         label="submit"
         type="submit"
         onTouchTap={handleSubmit}
       />
-    </form>
+    </Paper>
   )
 }
 
 export default reduxForm({
   form: 'itemForm', //Form name is same
-})(MaterialItems)
+})(ItemForm)
