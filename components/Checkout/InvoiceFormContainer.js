@@ -1,9 +1,9 @@
-import { Component } from 'react'
 import CreateInvoiceMutation from '../../graphql/CreateInvoiceMutation'
 import InvoiceFormComponent from './InvoiceFormComponent'
+import { PureComponent } from 'react'
 import { graphql } from 'react-apollo'
 
-class InvoiceFormContainer extends Component {
+class InvoiceFormContainer extends PureComponent {
   constructor(props) {
     super(props)
     this.state = { errors: [] }
@@ -30,8 +30,27 @@ class InvoiceFormContainer extends Component {
   }
 }
 
-const InvoiceFormWithGraph = graphql(CreateInvoiceMutation)(
-  InvoiceFormComponent
-)
+const InvoiceFormWithGraph = graphql(CreateInvoiceMutation, {
+  props: ({ mutate }) => ({
+    createInvoice: ({
+      installer,
+      scheduleDate,
+      customer,
+      storeName,
+      items,
+      payment,
+    }) =>
+      mutate({
+        variables: {
+          installer,
+          scheduleDate,
+          customer,
+          storeName,
+          items,
+          payment,
+        },
+      }),
+  }),
+})(InvoiceFormContainer)
 
 export default InvoiceFormWithGraph

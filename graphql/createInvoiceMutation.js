@@ -1,8 +1,8 @@
 import { gql } from 'react-apollo'
 
 export default gql`
-  mutation createInvoice($customer: InvoicecustomerCustomer, $scheduleDate: DateTime!, $storeName: INVOICE_STORE_NAME!, $items: [InvoiceitemsItem!], $payment: InvoicepaymentPayment) {
-      createInvoice(customer: $customer, items: $items, payment: $payment, scheduleDate: $scheduleDate, storeName: $storeName) {
+  mutation createInvoice($customer: InvoicecustomerCustomer, $scheduleDate: DateTime, $installer: String, $storeName: INVOICE_STORE_NAME!, $items: [InvoiceitemsItem!], $payment: InvoicepaymentPayment) {
+      createInvoice(customer: $customer, items: $items, payment: $payment, scheduleDate: $scheduleDate, storeName: $storeName, installer: $installer) {
         id
         storeName
         scheduleDate

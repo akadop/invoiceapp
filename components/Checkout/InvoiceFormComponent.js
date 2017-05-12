@@ -28,9 +28,7 @@ const InvoiceFormComponent = props => {
         <FormSection name="customer">
           <CustomerFormSection />
         </FormSection>
-        <FormSection name="items">
-          <ItemsFormSection />
-        </FormSection>
+        <ItemsFormSection />
         <FormSection name="payment">
           <PaymentFormSection />
         </FormSection>

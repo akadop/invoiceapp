@@ -1,8 +1,12 @@
 import BottomNav from '../components/BottomNav'
 import { Component } from 'react'
 import Head from 'next/head'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import { UserAgent } from './withData'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import { loadGetInitialProps } from 'next/dist/lib/utils'
 import stylesheet from '../styles/styles.scss'
+import theme from './theme'
 
 // The basic layout that is going to be on every page.
 // No point in repeating the code over and over for each page, just make it a wrapper that goes over every page.
@@ -69,9 +73,11 @@ export default ComposedComponent =>
             <meta name="theme-color" content="#222" />
           </Head>
           <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
-          <div>
+          <MuiThemeProvider
+            muiTheme={getMuiTheme(theme, { userAgent: this.props.userAgent })}
+          >
             <ComposedComponent {...this.props} />
-          </div>
+          </MuiThemeProvider>
         </div>
       )
     }

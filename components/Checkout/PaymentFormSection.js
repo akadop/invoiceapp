@@ -28,7 +28,7 @@ const PaymentFormSection = () => (
         <MenuItem value="Visa" primaryText="Visa" />
         <MenuItem value="MasterCard" primaryText="MasterCard" />
         <MenuItem value="Discover" primaryText="Discover" />
-        <MenuItem value="AmericanExpress" primaryText="American Express" />
+        <MenuItem value="AmEx" primaryText="American Express" />
         <MenuItem value="Cash" primaryText="Cash" />
         <MenuItem value="Check" primaryText="Check" />
       </Field>

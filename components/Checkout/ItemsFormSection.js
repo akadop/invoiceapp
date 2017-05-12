@@ -36,8 +36,21 @@ const renderItems = ({ fields, meta: { error } }) => (
             underlineShow={false}
             fullWidth
           >
-            <MenuItem value="Flooring" primaryText="Flooring" />
-            <MenuItem value="Pad" primaryText="Pad" />
+            <MenuItem value="FLOORING" primaryText="Flooring" />
+            <MenuItem value="APPLIANCES_PAD" primaryText="Pad: Appliances" />
+            <MenuItem
+              value="INSTALLATION_PAD"
+              primaryText="Pad: Installation"
+            />
+            <MenuItem value="METAL_PAD" primaryText="Pad: Metal" />
+
+            <MenuItem value="OTHER_PAD" primaryText="Pad: Other" />
+            <MenuItem
+              value="PIANOPOOLTABLE_PAD"
+              primaryText="Pad: Piano Pool Table"
+            />
+            <MenuItem value="STEPS_PAD" primaryText="Pad: Steps" />
+            <MenuItem value="TAKEUP_PAD" primaryText="Pad: Take Up" />
           </Field>
           <Field
             hintText="Item Reference Number"
@@ -110,7 +123,7 @@ const renderItems = ({ fields, meta: { error } }) => (
 )
 
 const ItemsFormSection = () => (
-  <FieldArray name="item" component={renderItems} />
+  <FieldArray name="items" component={renderItems} />
 )
 
 export default ItemsFormSection
