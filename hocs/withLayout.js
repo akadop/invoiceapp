@@ -67,11 +67,10 @@ export default ComposedComponent =>
               rel="stylesheet"
             />
             <meta name="theme-color" content="#222" />
-            <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
           </Head>
+          <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
           <div>
             <ComposedComponent {...this.props} />
-            <BottomNav />
           </div>
         </div>
       )

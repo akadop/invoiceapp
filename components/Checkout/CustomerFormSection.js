@@ -14,18 +14,21 @@ const CustomerFormSection = () => {
           component={TextField}
           hintText="First Name"
           underlineShow={false}
+          fullWidth
         />
         <Field
           name="lastName"
           component={TextField}
           hintText="Last Name"
           underlineShow={false}
+          fullWidth
         />
         <Field
           name="email"
           component={TextField}
           hintText="Email"
           underlineShow={false}
+          fullWidth
         />
         <Divider />
         <Field
@@ -40,6 +43,7 @@ const CustomerFormSection = () => {
           hintText="City"
           underlineShow={false}
         />
+        <Divider />
         <Field
           name="addressState"
           component={TextField}

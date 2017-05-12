@@ -1,5 +1,6 @@
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card'
 import { Field, FieldArray } from 'redux-form'
+import { List, ListItem } from 'material-ui/List'
 import { SelectField, TextField } from 'redux-form-material-ui'
 
 import ContentAdd from 'material-ui/svg-icons/content/add'
@@ -10,15 +11,17 @@ import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
 
 const renderItems = ({ fields, meta: { error } }) => (
-  <div>
-    <FloatingActionButton
-      secondary
-      label="Add an Item"
-      onTouchTap={() => fields.push({})}
-      style={{ marginBottom: 8 }}
-    >
-      <ContentAdd />
-    </FloatingActionButton>
+  <List>
+    <ListItem>
+      <FloatingActionButton
+        secondary
+        label="Add an Item"
+        onTouchTap={() => fields.push({})}
+        style={{ marginBottom: 8 }}
+      >
+        <ContentAdd />
+      </FloatingActionButton>
+    </ListItem>
     {fields.map((item, index) => (
       <Card style={{ marginBottom: 16 }} key={index}>
         <CardHeader
@@ -75,6 +78,12 @@ const renderItems = ({ fields, meta: { error } }) => (
             underlineShow={false}
           />
           <Field
+            hintText="Final Quantity"
+            name={`${item}.finalQuantity`}
+            component={TextField}
+            underlineShow={false}
+          />
+          <Field
             hintText="Extended Price"
             name={`${item}.extendedPrice`}
             component={TextField}
@@ -84,8 +93,6 @@ const renderItems = ({ fields, meta: { error } }) => (
             hintText="Estimated Total"
             name={`${item}.estimatedTotal`}
             component={TextField}
-            type={number}
-            step="any"
             underlineShow={false}
           />
           <CardActions>
@@ -99,15 +106,11 @@ const renderItems = ({ fields, meta: { error } }) => (
         </CardText>
       </Card>
     ))}
-  </div>
+  </List>
 )
 
-const ItemsFormSection = () => {
-  return (
-    <div>
-      <FieldArray name="items" component={renderItems} />
-    </div>
-  )
-}
+const ItemsFormSection = () => (
+  <FieldArray name="item" component={renderItems} />
+)
 
 export default ItemsFormSection
