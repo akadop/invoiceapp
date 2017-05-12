@@ -1,3 +1,4 @@
+import BottomNav from '../components/BottomNav'
 import { Component } from 'react'
 import Head from 'next/head'
 import { loadGetInitialProps } from 'next/dist/lib/utils'
@@ -69,6 +70,7 @@ export default ComposedComponent =>
           </Head>
           <div>
             <ComposedComponent {...this.props} />
+            <ButtonNav />
           </div>
         </div>
       )
