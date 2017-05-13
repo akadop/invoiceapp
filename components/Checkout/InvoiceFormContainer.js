@@ -13,7 +13,7 @@ class InvoiceFormContainer extends Component {
     this.props
       .createInvoice(values)
       .then(response => {
-        console.log(values)
+        Router.push('/success')
       })
       .catch(err => {
         console.error(err)
