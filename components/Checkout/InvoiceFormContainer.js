@@ -1,9 +1,9 @@
+import { Component } from 'react'
 import CreateInvoiceMutation from '../../graphql/CreateInvoiceMutation'
 import InvoiceFormComponent from './InvoiceFormComponent'
-import { PureComponent } from 'react'
 import { graphql } from 'react-apollo'
 
-class InvoiceFormContainer extends PureComponent {
+class InvoiceFormContainer extends Component {
   constructor(props) {
     super(props)
     this.state = { errors: [] }

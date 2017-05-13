@@ -4,18 +4,15 @@ import { DatePicker, SelectField, TextField } from 'redux-form-material-ui'
 import { Field } from 'redux-form'
 import MenuItem from 'material-ui/MenuItem'
 
-const styles = {
-  marginBottom: 8,
-  marginTop: 8,
-}
-
-const InvoiceFormDetailsSection = () => (
-  <Card style={styles}>
+const InvoiceFormDetails = () => (
+  <Card>
     <CardHeader
       title="Order Details"
-      subtitle="Misc. details regarding the invoice"
+      subtitle="Misc. details regarding the invoice. Click anywhere here to expand this section."
+      actAsExpander={true}
+      showExpandableButton={true}
     />
-    <CardText>
+    <CardText expandable>
       <Field
         hintText="The Store Location"
         name="storeName"
@@ -48,4 +45,4 @@ const InvoiceFormDetailsSection = () => (
   </Card>
 )
 
-export default InvoiceFormDetailsSection
+export default InvoiceFormDetails

@@ -1,7 +1,7 @@
 import { FormSection, reduxForm } from 'redux-form'
 
 import CustomerFormSection from './CustomerFormSection'
-import InvoiceFormDetailsSection from './InvoiceFormDetailsSection'
+import InvoiceFormDetails from './InvoiceFormDetails'
 import ItemsFormSection from './ItemsFormSection'
 import Paper from 'material-ui/Paper'
 import PaymentFormSection from './PaymentFormSection'
@@ -17,22 +17,32 @@ const styles = {
     marginRight: 8,
     marginBottom: 8,
   },
+  RaisedButton: {
+    width: '100%',
+  },
 }
 
 const InvoiceFormComponent = props => {
   const { onSubmit, handleSubmit } = props
   return (
-    <Paper zDepth={2} style={styles.Paper}>
+    <Paper zDepth={1} style={styles.Paper}>
       <form onSubmit={onSubmit}>
-        <InvoiceFormDetailsSection />
         <FormSection name="customer">
           <CustomerFormSection />
         </FormSection>
-        <ItemsFormSection />
+        <section style={{ marginTop: 8, marginBottom: 8 }}>
+          <InvoiceFormDetails />
+        </section>
         <FormSection name="payment">
           <PaymentFormSection />
         </FormSection>
-        <RaisedButton primary label="Next" onTouchTap={handleSubmit} />
+        <ItemsFormSection />
+        <RaisedButton
+          primary
+          label="Next"
+          onTouchTap={handleSubmit}
+          style={styles.RaisedButton}
+        />
       </form>
     </Paper>
   )

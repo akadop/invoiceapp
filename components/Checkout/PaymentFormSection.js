@@ -9,8 +9,10 @@ const PaymentFormSection = () => (
     <CardHeader
       title="Payment Information"
       subtitle="payment is not collected through this app, this is for invoice purposes only."
+      actAsExpander={true}
+      showExpandableButton={true}
     />
-    <CardText>
+    <CardText expandable>
       <Field
         name="total"
         component={TextField}

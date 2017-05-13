@@ -2,11 +2,16 @@ const path = require('path')
 const glob = require('glob')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const PurifyCSSPlugin = require('purifycss-webpack')
-//const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const ProgressPlugin = require('webpack/lib/ProgressPlugin')
 const webpack = require('webpack')
 const CompressionPlugin = require('compression-webpack-plugin')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
+
+// Plugin to allow us to exclude `node_modules` packages from the final
+// bundle.  Since we'll be running `server.js` from Node, we'll have access
+// to those modules locally and they don't need to wind up in the bundle file
+
+const nodeModules = require('webpack-node-externals')
 
 module.exports = {
   webpack: (config, { dev }) => {
@@ -43,8 +48,63 @@ module.exports = {
       }
     )
     if (!dev) {
-      // Service Worker
+      config.merge({
+        target: 'node',
+      })
       config.plugins.push(
+        new webpack.DefinePlugin({
+          // We're running on the Node.js server, so set `SERVER` to true
+          SERVER: true,
+
+          // React constantly checking process.env.NODE_ENV causes massive
+          // slowdowns during rendering. Replacing process.env.NODE_ENV
+          // with a string not only removes this expensive check, it allows
+          // a minifier to remove all of React's warnings in production.
+          'process.env': {
+            NODE_ENV: JSON.stringify('production'),
+          },
+        }),
+        new ProgressPlugin(),
+        // Check for errors, and refuse to emit anything with issues
+        new webpack.NoEmitOnErrorsPlugin(),
+        // Minify, optimise
+        new webpack.optimize.UglifyJsPlugin({
+          mangle: true,
+          compress: {
+            warnings: false, // Suppress uglification warnings
+            pure_getters: true,
+            unsafe: true,
+            unsafe_comps: true,
+            screw_ie8: true,
+          },
+          output: {
+            comments: false,
+          },
+          exclude: [/\.min\.js$/gi], // skip pre-minified libs
+        }),
+        // Optimise chunk IDs
+        new webpack.optimize.OccurrenceOrderPlugin(),
+        // A plugin for a more aggressive chunk merging strategy
+        new webpack.optimize.AggressiveMergingPlugin(),
+        // Compress assets into .gz files, so that our express server handler serves those
+        // instead of the fullsized versions
+        new CompressionPlugin({
+          // Overwrite the default 80% compression-- anything is better than
+          // nothing
+          minRatio: 0.99,
+        }),
+        // remove unused css
+        new PurifyCSSPlugin({
+          // Give paths to parse for rules. These should be absolute!
+          moduleExtensions: ['.jsx', '.html', '.js'],
+          paths: glob.sync(
+            path.join(__dirname, 'pages/index.js'),
+            //path.join(__dirname, 'pages/customers.js'),
+            //path.join(__dirname, 'pages/signature.js'),
+            path.join(__dirname, 'node_modules/material-ui/*.js'),
+            path.join(__dirname, 'node_modules/material-ui/**/*.js')
+          ),
+        }),
         // Service Worker
         new SWPrecacheWebpackPlugin({
           filename: 'sw.js',
@@ -65,33 +125,6 @@ module.exports = {
               urlPattern: /^http.*/, //cache all files
             },
           ],
-        }),
-        new ProgressPlugin(),
-        // remove unused css
-        new PurifyCSSPlugin({
-          // Give paths to parse for rules. These should be absolute!
-          moduleExtensions: ['.jsx', '.html', '.js'],
-          paths: glob.sync(
-            path.join(__dirname, 'pages/index.js'),
-            path.join(__dirname, 'pages/customers.js'),
-            path.join(__dirname, 'pages/signature.js'),
-            path.join(
-              __dirname,
-              'node_modules/custom-grommet-package/components/**/*.js'
-            ),
-            path.join(
-              __dirname,
-              'node_modules/custom-grommet-package/components/*.js'
-            )
-          ),
-        }),
-        //new OptimizeCssAssetsPlugin(),
-        new CompressionPlugin({
-          asset: '[path].gz[query]',
-          algorithm: 'gzip',
-          test: /\.(js|html)$/,
-          threshold: 10240,
-          minRatio: 0.8,
         })
       )
     }
