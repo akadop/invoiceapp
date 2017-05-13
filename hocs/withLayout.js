@@ -1,9 +1,6 @@
 import BottomNav from '../components/BottomNav'
 import { Component } from 'react'
 import Head from 'next/head'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import { UserAgent } from './withData'
-import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import { loadGetInitialProps } from 'next/dist/lib/utils'
 import stylesheet from '../styles/styles.scss'
 import theme from './theme'
@@ -73,11 +70,9 @@ export default ComposedComponent =>
             <meta name="theme-color" content="#222" />
           </Head>
           <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
-          <MuiThemeProvider
-            muiTheme={getMuiTheme(theme, { userAgent: this.props.userAgent })}
-          >
+          <div>
             <ComposedComponent {...this.props} />
-          </MuiThemeProvider>
+          </div>
         </div>
       )
     }

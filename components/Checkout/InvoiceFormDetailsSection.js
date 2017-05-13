@@ -12,7 +12,7 @@ const styles = {
 const InvoiceFormDetailsSection = () => (
   <Card style={styles}>
     <CardHeader
-      title="Additional Details"
+      title="Order Details"
       subtitle="Misc. details regarding the invoice"
     />
     <CardText>
@@ -32,10 +32,12 @@ const InvoiceFormDetailsSection = () => (
         component={TextField}
         hintText="Installer"
         underlineShow={false}
+        fullWidth
       />
       <Field
         name="scheduleDate"
         component={DatePicker}
+        fullWidth
         hintText="Scheduled Install Date"
         format={(value, name) =>
           value === ''
