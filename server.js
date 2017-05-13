@@ -1,5 +1,4 @@
 const dev = process.env.NODE_ENV !== 'production'
-const moduleAlias = require('module-alias')
 
 // For the development version, we'll use React.
 // Because, it support react hot loading and so on.

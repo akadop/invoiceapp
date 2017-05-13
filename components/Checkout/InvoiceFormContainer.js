@@ -1,6 +1,6 @@
 import { Component } from 'react'
-import CreateInvoiceMutation from '../../graphql/CreateInvoiceMutation'
 import InvoiceFormComponent from './InvoiceFormComponent'
+import createInvoiceMutation from '../../graphql/createInvoiceMutation'
 import { graphql } from 'react-apollo'
 
 class InvoiceFormContainer extends Component {
@@ -30,7 +30,7 @@ class InvoiceFormContainer extends Component {
   }
 }
 
-const InvoiceFormWithGraph = graphql(CreateInvoiceMutation, {
+const InvoiceFormWithGraph = graphql(createInvoiceMutation, {
   props: ({ mutate }) => ({
     createInvoice: ({
       installer,
