@@ -3,8 +3,12 @@ import 'isomorphic-fetch'
 import { ApolloProvider, getDataFromTree } from 'react-apollo'
 import React, { Component } from 'react'
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import { initClient } from '../lib/initClient'
 import { initStore } from '../lib/initStore'
+import injectTapEventPlugin from 'react-tap-event-plugin'
+import theme from './theme'
 
 /* 
 A hoc is a higher order component. 
@@ -15,10 +19,19 @@ effectively making anything passing through it data-connected.
 thus, we make stateless, informationless base components and pass it into these higher order components.
 */
 
+// Inject only once and prevent errors for Material-ui tap event plugin.
+
+try {
+  injectTapEventPlugin()
+} catch (err) {}
+
 export default ComposedComponent =>
-  class extends React.Component {
+  class WithData extends Component {
     static async getInitialProps(ctx) {
       const headers = ctx.req ? ctx.req.headers : {}
+      const userAgent = ctx.req
+        ? ctx.req.headers['user-agent']
+        : navigator.userAgent
       const client = initClient(headers)
       const store = initStore(client, client.initialState)
 
@@ -34,7 +47,9 @@ export default ComposedComponent =>
       if (!process.browser) {
         const app = (
           <ApolloProvider client={client} store={store}>
-            <ComposedComponent {...props} />
+            <MuiThemeProvider muiTheme={getMuiTheme(theme, { userAgent })}>
+              <ComposedComponent {...props} />
+            </MuiThemeProvider>
           </ApolloProvider>
         )
         await getDataFromTree(app)
@@ -49,6 +64,7 @@ export default ComposedComponent =>
             data: client.getInitialState().data,
           },
         },
+        userAgent,
         headers,
         ...props,
       }
@@ -66,7 +82,11 @@ export default ComposedComponent =>
     render() {
       return (
         <ApolloProvider client={this.client} store={this.store}>
-          <ComposedComponent {...this.props} />
+          <MuiThemeProvider
+            muiTheme={getMuiTheme(theme, { userAgent: this.props.userAgent })}
+          >
+            <ComposedComponent {...this.props} />
+          </MuiThemeProvider>
         </ApolloProvider>
       )
     }

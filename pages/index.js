@@ -1,8 +1,7 @@
 import './sw' // get the service worker on the page.
 
-import CreateCustomerFormContainer
-  from '../modules/Customers/containers/CreateCustomerFormContainer.js'
-import pageWithDataAndLayout from '../hocs/pageWithDataAndLayout'
+import InvoiceFormContainer from '../components/Checkout/InvoiceFormContainer'
+import page from '../hocs/page'
 
 // expose the CreateCustomerFormContainer module wrapped with apollo/redux
-export default pageWithDataAndLayout(() => <CreateCustomerFormContainer />)
+export default page(() => <InvoiceFormContainer />)

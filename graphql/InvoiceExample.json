@@ -1,0 +1,76 @@
+{
+  {
+    "customer": {
+      "firstName": "bob",
+      "lastName": "steve",
+      "email": "bob@bob.com",
+      "address": "3333 lane",
+      "addressZip": "76411",
+      "addressCity": "richardson",
+      "addressState": "tx"
+    },
+    "items": [
+      {
+        "color": "red",
+        "dimensionWidth": 22,
+        "dimensionLength": 22,
+        "extendedPrice": 120.00,
+        "estimatedQuantity": 13,
+        "estimatedTotal": 2221.232,
+        "unitPrice": 233.232,
+        "itemType": "Flooring",
+        "finalQuantity": 1311,
+        "refNumber": "e232d232"
+      }
+    ],
+    "payment": {
+      "paymentBy": "Discover",
+      "balance": 1311.11,
+      "deposit": 200,
+      "total": 23222.2332,
+    },
+    "scheduleDate": "2017-07-24T13:23:15.580Z",
+    "storeName": "Dallas",
+  }
+  {
+    "data": {
+      "createInvoice": {
+        "scheduleDate": "2017-07-24T13:23:15.580Z",
+        "items": [
+          {
+            "dimensionWidth": 22,
+            "dimensionLength": 22,
+            "color": "red",
+            "id": "cj2lmn42xdgmx0125oe3as5rz",
+            "estimatedQuantity": 13,
+            "estimatedTotal": 2221.232,
+            "itemType": "Flooring",
+            "refNumber": "e232d232",
+            "unitPrice": 233.232,
+            "extendedPrice": 120,
+            "finalQuantity": 1311
+          }
+        ],
+        "payment": {
+          "balance": 1311.11,
+          "total": 23222.2332,
+          "id": "cj2lmn42xdgmz0125qcxegg1b",
+          "deposit": 200,
+          "paymentBy": "Discover"
+        },
+        "id": "cj2lmn42xdgmw0125uclwuu6f",
+        "customer": {
+          "email": "bob@bob.com",
+          "addressCity": "richardson",
+          "lastName": "steve",
+          "firstName": "bob",
+          "id": "cj2lmn42xdgmy0125czf9m9lo",
+          "addressState": "tx",
+          "address": "3333 lane",
+          "addressZip": "76411"
+        },
+        "storeName": "Dallas"
+      }
+    }
+  }
+}

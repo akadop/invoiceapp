@@ -1,15 +1,15 @@
-import React, { Component } from 'react'
-
+import BottomNav from '../components/BottomNav'
+import { Component } from 'react'
 import Head from 'next/head'
-import Main from '../modules/Layout/Main'
-import akastyle from 'custom-grommet-package/scss/vanilla/index.scss'
 import { loadGetInitialProps } from 'next/dist/lib/utils'
+import stylesheet from '../styles/styles.scss'
+import theme from './theme'
 
 // The basic layout that is going to be on every page.
 // No point in repeating the code over and over for each page, just make it a wrapper that goes over every page.
 
 export default ComposedComponent =>
-  class WithLayout extends React.Component {
+  class WithLayout extends Component {
     static async getInitialProps(ctx) {
       return loadGetInitialProps(ComposedComponent, ctx)
     }
@@ -41,6 +41,12 @@ export default ComposedComponent =>
             <link
               rel="icon"
               type="image/png"
+              href="/static/img/pwa-192x192.png"
+              sizes="192x192"
+            />
+            <link
+              rel="icon"
+              type="image/png"
               href="/static/img/android-192x192.png"
               sizes="192x192"
             />
@@ -53,12 +59,20 @@ export default ComposedComponent =>
               name="msapplication-config"
               content="/static/img/browserconfig.xml"
             />
+            <link
+              href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+              rel="stylesheet"
+            />
+            <link
+              href="https://fonts.googleapis.com/icon?family=Material+Icons"
+              rel="stylesheet"
+            />
             <meta name="theme-color" content="#222" />
           </Head>
-          <style dangerouslySetInnerHTML={{ __html: akastyle }} />
-          <Main>
+          <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+          <div>
             <ComposedComponent {...this.props} />
-          </Main>
+          </div>
         </div>
       )
     }
