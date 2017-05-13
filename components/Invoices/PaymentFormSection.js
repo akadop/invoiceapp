@@ -16,12 +16,12 @@ const PaymentFormSection = () => (
       <Field
         name="total"
         component={TextField}
-        hintText="Total"
+        floatingLabelText="Total"
         underlineShow={false}
         fullWidth
       />
       <Field
-        hintText="Credit Card Type"
+        floatingLabelText="Payment Type"
         name="paymentBy"
         component={SelectField}
         underlineShow={false}
@@ -37,14 +37,14 @@ const PaymentFormSection = () => (
       <Field
         name="balance"
         component={TextField}
-        hintText="Balance"
+        floatingLabelText="Balance"
         underlineShow={false}
         fullWidth
       />
       <Field
         name="deposit"
         component={TextField}
-        hintText="Deposit"
+        floatingLabelText="Deposit"
         underlineShow={false}
         fullWidth
       />

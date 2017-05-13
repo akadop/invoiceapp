@@ -14,7 +14,7 @@ const InvoiceFormDetails = () => (
     />
     <CardText expandable>
       <Field
-        hintText="The Store Location"
+        floatingLabelText="The Store Location"
         name="storeName"
         component={SelectField}
         underlineShow={false}
@@ -27,7 +27,7 @@ const InvoiceFormDetails = () => (
       <Field
         name="installer"
         component={TextField}
-        hintText="Installer"
+        floatingLabelText="Installer"
         underlineShow={false}
         fullWidth
       />
@@ -35,7 +35,7 @@ const InvoiceFormDetails = () => (
         name="scheduleDate"
         component={DatePicker}
         fullWidth
-        hintText="Scheduled Install Date"
+        floatingLabelText="Scheduled Install Date"
         format={(value, name) =>
           value === ''
             ? null
