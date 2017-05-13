@@ -7,12 +7,6 @@ const webpack = require('webpack')
 const CompressionPlugin = require('compression-webpack-plugin')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 
-// Plugin to allow us to exclude `node_modules` packages from the final
-// bundle.  Since we'll be running `server.js` from Node, we'll have access
-// to those modules locally and they don't need to wind up in the bundle file
-
-const nodeModules = require('webpack-node-externals')
-
 module.exports = {
   webpack: (config, { dev }) => {
     // For the development version, we'll use React.
@@ -48,9 +42,10 @@ module.exports = {
       }
     )
     if (!dev) {
-      config.merge({
-        target: 'node',
-      })
+      if (config.resolve.alias) {
+        delete config.resolve.alias.react
+        delete config.resolve.alias['react-dom']
+      }
       config.plugins.push(
         new webpack.DefinePlugin({
           // We're running on the Node.js server, so set `SERVER` to true
@@ -97,13 +92,7 @@ module.exports = {
         new PurifyCSSPlugin({
           // Give paths to parse for rules. These should be absolute!
           moduleExtensions: ['.jsx', '.html', '.js'],
-          paths: glob.sync(
-            path.join(__dirname, 'pages/index.js'),
-            //path.join(__dirname, 'pages/customers.js'),
-            //path.join(__dirname, 'pages/signature.js'),
-            path.join(__dirname, 'node_modules/material-ui/*.js'),
-            path.join(__dirname, 'node_modules/material-ui/**/*.js')
-          ),
+          paths: glob.sync(path.join(__dirname, 'pages/index.js')),
         }),
         // Service Worker
         new SWPrecacheWebpackPlugin({

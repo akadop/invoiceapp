@@ -22,7 +22,10 @@
 		"react-dom": "15.5.4",
 		"redux": "3.6.0",
 		"redux-form": "6.7.0",
-		"redux-form-material-ui": "4.2.0"
+		"redux-form-material-ui": "4.2.0",
+		"preact": "^8.1.0",
+		"preact-compat": "^3.16.0",
+		"module-alias": "^2.0.0"
 	},
 	"devDependencies": {
 		"autoprefixer": "7.0.1",
