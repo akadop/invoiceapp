@@ -48,9 +48,6 @@ module.exports = {
       }
       config.plugins.push(
         new webpack.DefinePlugin({
-          // We're running on the Node.js server, so set `SERVER` to true
-          SERVER: true,
-
           // React constantly checking process.env.NODE_ENV causes massive
           // slowdowns during rendering. Replacing process.env.NODE_ENV
           // with a string not only removes this expensive check, it allows
