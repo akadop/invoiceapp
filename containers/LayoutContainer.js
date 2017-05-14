@@ -1,11 +1,11 @@
-import Layout from '../components/premice/Layout'
-import authenticatedUser from '../universal/queries/authenticatedUser'
+import Layout from '../components/common/Layout'
+import authenticatedUser from '../lib/queries/authenticatedUser'
 import { compose } from 'ramda'
 import { connect } from 'react-redux'
 import { graphql } from 'react-apollo'
 import { logout } from '../universal/stories/auth'
-import mapActions from '../universal/utils/mapActions'
-import { selectBottomNav } from '../universal/actions/ui'
+import mapActions from '../lib/util/mapActions'
+import { selectBottomNav } from '../lib/actions/ui'
 
 export const mapStateToProps = ({
   auth: { isAuthenticated },

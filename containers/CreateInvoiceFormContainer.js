@@ -13,7 +13,7 @@ export const mapDispatchToProps = mapActions({ setStepCreateInvoice })
 
 export const container = compose(
   connect(mapStateToProps, mapDispatchToProps),
-  reduxForm({ form: 'createInvoiceForm', destroyOnUnmount: fakse })
+  reduxForm({ form: 'createInvoiceForm', destroyOnUnmount: false })
 )
 
 export default container(CreateInvoiceForm)

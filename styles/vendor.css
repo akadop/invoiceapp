@@ -1,4 +1,4 @@
-/**@import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';**/
+@import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
 
 body {
   background-color: #fff;
@@ -27,7 +27,7 @@ input:-webkit-autofill:active {
 }
 
 *::-webkit-scrollbar-thumb {
-  background: #F44336 linear-gradient(145deg,
+  background: #FAFAFA linear-gradient(145deg,
   rgba(255, 255, 255, .2) 25%,
   transparent 25%,
   transparent 50%,
