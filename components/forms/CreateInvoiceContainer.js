@@ -11,7 +11,7 @@ class CreateInvoiceContainer extends Component {
   handleSubmit(values) {
     this.props
       .createInvoice(values)
-      .then(response => {
+      .then(data => {
         Router.push('/success')
       })
       .catch(err => {

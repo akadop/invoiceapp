@@ -1,4 +1,3 @@
-import { FormSection, reduxForm } from 'redux-form'
 import {
   Step,
   StepButton,
@@ -7,6 +6,7 @@ import {
   Stepper,
 } from 'material-ui/Stepper'
 
+import { FormSection } from 'redux-form'
 import InvoiceFormCustomers from './_createInvoiceForm/InvoiceFormCustomers'
 import InvoiceFormDetails from './_createInvoiceForm/InvoiceFormDetails'
 import InvoiceFormItems from './_createInvoiceForm/InvoiceFormItems'
