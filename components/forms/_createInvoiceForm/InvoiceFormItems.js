@@ -4,19 +4,17 @@ import { List, ListItem } from 'material-ui/List'
 import { SelectField, TextField } from 'redux-form-material-ui'
 
 import ContentAdd from 'material-ui/svg-icons/content/add'
+import Divider from 'material-ui/Divider'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import MenuItem from 'material-ui/MenuItem'
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
 
-const styles = {
-  RaisedButton: {
-    display: 'flex',
-    justify: 'center',
-  },
-}
-
 const renderItems = ({ fields, meta: { error }, props }) => {
+  const style = {
+    marginLeft: 20,
+    width: 'calc(100% - 20px)',
+  }
   return (
     <List>
       <ListItem>
@@ -29,8 +27,9 @@ const renderItems = ({ fields, meta: { error }, props }) => {
           <ContentAdd />
         </FloatingActionButton>
       </ListItem>
+
       {fields.map((item, index) => (
-        <Card style={{ marginBottom: 16 }} key={index} initiallyExpanded={true}>
+        <Card key={index} initiallyExpanded={true}>
           <CardHeader
             title={'Invoice Item #' + `${index + 1}`}
             subtitle="Item Type has multiple fields, allowing you to pick a specific type of pad if it's not a flooring product item."
@@ -40,7 +39,9 @@ const renderItems = ({ fields, meta: { error }, props }) => {
           <CardText expandable>
             <Field
               floatingLabelText="Flooring or Padding"
+              hintText="Flooring or Padding"
               name={`${item}.itemType`}
+              style={style}
               component={SelectField}
               underlineShow={false}
               fullWidth
@@ -64,58 +65,78 @@ const renderItems = ({ fields, meta: { error }, props }) => {
             </Field>
             <Field
               floatingLabelText="Item Reference Number"
+              hintText="Item Reference Number"
               name={`${item}.refNumber`}
               component={TextField}
+              style={style}
               underlineShow={false}
               fullWidth
             />
+            <Divider />
             <Field
               floatingLabelText="Color"
+              hintText="Color"
               name={`${item}.color`}
               component={TextField}
+              style={style}
               underlineShow={false}
               fullWidth
             />
             <Field
               floatingLabelText="Length (dimension)"
+              hintText="Length (dimension)"
               name={`${item}.dimensionLength`}
               component={TextField}
+              style={style}
               underlineShow={false}
             />
             <Field
               floatingLabelText="Width (dimension)"
+              hintText="Width (dimension)"
               name={`${item}.dimensionWidth`}
               component={TextField}
+              style={style}
               underlineShow={false}
             />
             <Field
               floatingLabelText="Unit Price"
+              hintText="Unit Price"
               name={`${item}.unitPrice`}
               component={TextField}
+              style={style}
               underlineShow={false}
             />
+            <Divider />
             <Field
               floatingLabelText="Estimated Quantity"
+              hintText="Estimated Quantity"
               name={`${item}.estimatedQuantity`}
               component={TextField}
+              style={style}
               underlineShow={false}
             />
             <Field
               floatingLabelText="Final Quantity"
+              hintText="Final Quantity"
               name={`${item}.finalQuantity`}
               component={TextField}
+              style={style}
               underlineShow={false}
             />
             <Field
               floatingLabelText="Extended Price"
+              hintText="Extended Price"
               name={`${item}.extendedPrice`}
               component={TextField}
+              style={style}
               underlineShow={false}
             />
             <Field
               floatingLabelText="Estimated Total"
+              hintText="Estimated Total"
               name={`${item}.estimatedTotal`}
               component={TextField}
+              style={style}
               underlineShow={false}
             />
             <CardActions>
@@ -124,7 +145,10 @@ const renderItems = ({ fields, meta: { error }, props }) => {
                 labelColor="#FFF"
                 label="Remove"
                 onTouchTap={() => fields.remove(index)}
-                style={styles.RaisedButton}
+                style={{
+                  display: 'flex',
+                  justify: 'center',
+                }}
               />
             </CardActions>
           </CardText>
@@ -134,8 +158,8 @@ const renderItems = ({ fields, meta: { error }, props }) => {
   )
 }
 
-const ItemsFormSection = () => (
+const InvoiceFormItems = () => (
   <FieldArray name="items" component={renderItems} />
 )
 
-export default ItemsFormSection
+export default InvoiceFormItems

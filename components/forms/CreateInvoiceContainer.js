@@ -1,12 +1,11 @@
 import { Component } from 'react'
-import InvoiceFormComponent from './InvoiceFormComponent'
-import createInvoiceMutation from '../../graphql/createInvoiceMutation'
+import createInvoiceForm from './CreateInvoiceForm'
+import createInvoiceMutation from '../../lib/mutations/createInvoiceMutation'
 import { graphql } from 'react-apollo'
 
-class InvoiceFormContainer extends Component {
+class CreateInvoiceContainer extends Component {
   constructor(props) {
     super(props)
-    this.state = { errors: [] }
   }
 
   handleSubmit(values) {
@@ -21,16 +20,11 @@ class InvoiceFormContainer extends Component {
   }
 
   render() {
-    return (
-      <InvoiceFormComponent
-        onSubmit={this.handleSubmit.bind(this)}
-        errors={this.state.errors}
-      />
-    )
+    return <CreateInvoiceForm onSubmit={this.handleSubmit.bind(this)} />
   }
 }
 
-const InvoiceFormWithGraph = graphql(createInvoiceMutation, {
+const CreateInvoiceContainerWithData = graphql(createInvoiceMutation, {
   props: ({ mutate }) => ({
     createInvoice: ({
       installer,
@@ -51,6 +45,6 @@ const InvoiceFormWithGraph = graphql(createInvoiceMutation, {
         },
       }),
   }),
-})(InvoiceFormContainer)
+})(CreateInvoiceContainer)
 
-export default InvoiceFormWithGraph
+export default CreateInvoiceContainerWithData

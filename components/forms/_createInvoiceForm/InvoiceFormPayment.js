@@ -4,7 +4,7 @@ import { SelectField, TextField } from 'redux-form-material-ui'
 import { Field } from 'redux-form'
 import MenuItem from 'material-ui/MenuItem'
 
-const PaymentFormSection = () => (
+const InvoiceFormPayment = () => (
   <Card>
     <CardHeader
       title="Payment Information"
@@ -52,4 +52,4 @@ const PaymentFormSection = () => (
   </Card>
 )
 
-export default PaymentFormSection
+export default InvoiceFormPayment
