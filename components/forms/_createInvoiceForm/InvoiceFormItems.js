@@ -1,14 +1,19 @@
-import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card'
+import {
+  Card,
+  CardActions,
+  CardHeader,
+  CardText,
+  ContentAdd,
+  Divider,
+  FloatingActionButton,
+  List,
+  ListItem,
+  MenuItem,
+  Paper,
+  RaisedButton,
+} from 'material-ui'
 import { Field, FieldArray } from 'redux-form'
-import { List, ListItem } from 'material-ui/List'
 import { SelectField, TextField } from 'redux-form-material-ui'
-
-import ContentAdd from 'material-ui/svg-icons/content/add'
-import Divider from 'material-ui/Divider'
-import FloatingActionButton from 'material-ui/FloatingActionButton'
-import MenuItem from 'material-ui/MenuItem'
-import Paper from 'material-ui/Paper'
-import RaisedButton from 'material-ui/RaisedButton'
 
 const renderItems = ({ fields, meta: { error }, props }) => {
   const style = {

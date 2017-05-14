@@ -1,8 +1,7 @@
-import { Card, CardHeader, CardText } from 'material-ui/Card'
+import { Card, CardHeader, CardText, MenuItem } from 'material-ui'
 import { SelectField, TextField } from 'redux-form-material-ui'
 
 import { Field } from 'redux-form'
-import MenuItem from 'material-ui/MenuItem'
 
 const InvoiceFormPayment = () => (
   <Card>
