@@ -13,14 +13,9 @@ const addLoaders = (...args) => config => {
   return config
 }
 
-const devPlugins = [
-  // When we use Moment, ignore locale. We need to save bundle size.
-  new IgnorePlugin(/^\.\/locale$/, /moment$/),
-]
+const devPlugins = []
 
 const prodPlugins = [
-  // When we use Moment, ignore locale. We need to save bundle size.
-  new IgnorePlugin(/^\.\/locale$/, /moment$/),
   new SWPrecacheWebpackPlugin({
     filename: 'sw.js',
     minify: true,
