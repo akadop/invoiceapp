@@ -87,7 +87,7 @@ export default ({ actions: { login }, submitting, isLoading }) => (
       </form>
       <RaisedButton
         disabled={submitting || isLoading}
-        label="Connection"
+        label="Login"
         style={{ width: '100%' }}
         primary={true}
         keyboardFocused={true}

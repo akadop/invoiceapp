@@ -3,7 +3,7 @@ import authenticatedUser from '../lib/queries/authenticatedUser'
 import { compose } from 'ramda'
 import { connect } from 'react-redux'
 import { graphql } from 'react-apollo'
-import { logout } from '../universal/stories/auth'
+import { logout } from '../lib/stories/auth'
 import mapActions from '../lib/util/mapActions'
 import { selectBottomNav } from '../lib/actions/ui'
 

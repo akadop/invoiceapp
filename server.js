@@ -83,7 +83,7 @@ const auth = (req, res) => {
     method: 'POST',
     url: API_AUTH_URL,
     qs: { format: 'json' },
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    headers: { 'Content-Type': 'application/json' },
     form: { login: email, password, format: 'json', remind: 'true' },
     jar,
   }

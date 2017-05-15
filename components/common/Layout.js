@@ -1,5 +1,5 @@
 import BottomNavigation from '../navs/BottomNavigation'
-import Loader from '../premice/Loader'
+import Loader from './Loader'
 import Navbar from '../navs/Navbar'
 import PromotionNavigationContainer
   from '../../containers/PromotionNavigationContainer'
@@ -73,9 +73,7 @@ export default ({
       <main
         className="right-side"
         style={{
-          background: isAuthenticated && user
-            ? '#FAFAFA'
-            : 'url("static/bg.svg") no-repeat center/cover',
+          background: isAuthenticated && user ? '#FAFAFA' : '#FAFAFA',
         }}
       >
         {children}
