@@ -3,7 +3,6 @@ import {
   CardActions,
   CardHeader,
   CardText,
-  ContentAdd,
   Divider,
   FloatingActionButton,
   List,
@@ -14,6 +13,8 @@ import {
 } from 'material-ui'
 import { Field, FieldArray } from 'redux-form'
 import { SelectField, TextField } from 'redux-form-material-ui'
+
+import ContentAdd from 'material-ui/svg-icons/content/add'
 
 const renderItems = ({ fields, meta: { error }, props }) => {
   const style = {

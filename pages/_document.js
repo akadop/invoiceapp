@@ -1,5 +1,6 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 
+import { loadGetInitialProps } from 'next/dist/lib/utils'
 import stylesheet from '../styles/vendor.css'
 
 export default class extends Document {

@@ -88,20 +88,6 @@ const auth = (req, res) => {
     form: { login: email, password, format: 'json', remind: 'true' },
     jar,
   }
-
-  future(options)
-    .then(JSON.parse)
-    .then(me => {
-      if (hasApiError(me)) {
-        return res.status(401).json({ err: 'Invalid email or password !' })
-      }
-      const token = serializeToken(jar)
-      return res.json({ token, me })
-    })
-    .catch(err => {
-      console.log(err)
-      res.status(401).json({ err: 'Please provide email and password !' })
-    })
 }
 
 // Serve the application.
@@ -148,7 +134,6 @@ const serve = (argv, { version, description, name }) => {
             .use(authenticator)
             .get('/sw.js', provideServiceWorker)
             .post('/api/auth', auth)
-            .get('/api/me', me)
             .get('*', (req, res) => {
               cookie.plugToRequest(req, res)
 

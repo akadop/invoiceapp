@@ -1,8 +1,8 @@
 {
 	"name": "cpa-invoice",
-	"version": "0.0.6",
+	"version": "1.0.3",
 	"private": true,
-	"description": "",
+	"description": "Invoice App",
 	"scripts": {
 		"dev": "cross-env NODE_ENV=development node server.js start 3000",
 		"start": "cross-env NODE_ENV=production node server.js start 3000",

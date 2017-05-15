@@ -2,11 +2,11 @@ import AuthFormContainer from '../containers/AuthFormContainer'
 import LayoutContainer from '../containers/LayoutContainer'
 import React from 'react'
 import { compose } from 'ramda'
-import withCore from '../lib/hocs/withData'
-import withGuestGuard from '../lib/hocs/withGuestGuard'
+import withData from '../lib/hocs/withData'
+import withGuest from '../lib/hocs/withGuest'
 import withServiceWorker from '../lib/hocs/withServiceWorker'
 
-export const page = compose(withServiceWorker, withGuestGuard, withCore)
+export const page = compose(withServiceWorker, withGuest, withData)
 
 export default page(props => (
   <LayoutContainer {...props}>

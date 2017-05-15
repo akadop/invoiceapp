@@ -1,8 +1,8 @@
 import BottomNavigation from '../navs/BottomNavigation'
+import InvoiceNavigationContainer
+  from '../../containers/InvoiceNavigationContainer'
 import Loader from './Loader'
 import Navbar from '../navs/Navbar'
-import PromotionNavigationContainer
-  from '../../containers/PromotionNavigationContainer'
 
 /**
  * We want to get this layout when user is authenticated :
@@ -43,7 +43,7 @@ export default ({
   isLoading,
   data: { user },
   actions: { logout, selectBottomNav },
-  AsideComponent = PromotionNavigationContainer,
+  AsideComponent = InvoiceNavigationContainer,
 }) => (
   <div>
     <Navbar
