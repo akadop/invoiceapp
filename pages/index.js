@@ -1,7 +1,21 @@
-import './sw' // get the service worker on the page.
+import CreateInvoiceDialogContainer
+  from '../containers/CreateInvoiceDialogContainer'
+import InvoiceListContainer from '../containers/InvoiceListContainer'
+import LayoutContainer from '../containers/LayoutContainer'
+import React from 'react'
+import SearchInvoiceFormContainer
+  from '../containers/SearchInvoiceFormContainer'
+import { compose } from 'ramda'
+import withAuth from '../lib/hocs/withAuth'
+import withData from '../lib/hocs/withCore'
+import withServiceWorker from '../lib/hocs/withServiceWorker'
 
-import InvoiceFormContainer from '../components/Invoices/InvoiceFormContainer'
-import page from '../hocs/page'
+export const page = compose(withServiceWorker, withAuthGuard, withData)
 
-// expose the CreateCustomerFormContainer module wrapped with apollo/redux
-export default page(() => <InvoiceFormContainer />)
+export default page(props => (
+  <LayoutContainer {...props}>
+    <SearchEventFormContainer />
+    <EventListContainer />
+    <CreateEventDialogContainer />
+  </LayoutContainer>
+))

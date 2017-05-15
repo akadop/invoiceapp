@@ -16,6 +16,7 @@ const { or } = require('ramda')
 const { version, description, name } = require('./package')
 const { API_AUTH_URL, API_AUTH_TOKEN_SECRET } = require('./metadata')
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+
 // Request module is the easiest way to perform HTTP request with cookies plug.
 // future :: FetchOptions a -> Promise b
 const future = options =>
