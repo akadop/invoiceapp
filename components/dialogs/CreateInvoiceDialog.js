@@ -17,6 +17,7 @@ export default ({
   actions: {
     createInvoice,
     closeCreateInvoiceDialog,
+    openCreateInvoiceDialog,
     prevStepCreateInvoice,
     nextStepCreateInvoice,
   },

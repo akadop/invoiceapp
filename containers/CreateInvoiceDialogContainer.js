@@ -14,7 +14,7 @@ import { graphql } from 'react-apollo'
 import mapActions from '../lib/util/mapActions'
 
 export const mapStateToProps = ({
-  ui: { createInvoideDialogOpened, createInvoiceStep },
+  ui: { createInvoiceDialogOpened, createInvoiceStep },
 }) => ({ createInvoiceStep, createInvoiceDialogOpened })
 
 export const mapDispatchToProps = mapActions({

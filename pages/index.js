@@ -14,8 +14,8 @@ export const page = compose(withServiceWorker, withAuth, withData)
 
 export default page(props => (
   <LayoutContainer {...props}>
-    <SearchEventFormContainer />
-    <EventListContainer />
-    <CreateEventDialogContainer />
+    <SearchInvoiceFormContainer />
+    <InvoiceListContainer />
+    <CreateInvoiceDialogContainer />
   </LayoutContainer>
 ))

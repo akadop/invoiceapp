@@ -15,7 +15,7 @@ export default ({
 }) => {
   const isSelected = equals(selectedInvoice)
 
-  const mapInvoices = map(({ id, storeLocation, createdAt }) => (
+  const mapInvoices = map(({ id, storeName, createdAt }) => (
     <ListItem
       key={id}
       style={{
@@ -23,7 +23,7 @@ export default ({
         borderLeft: `5px solid ${isSelected(id) ? '#64FFDA' : 'transparent'}`,
       }}
       value={id}
-      primaryText={`${storeLocation} - ${createdAt}`}
+      primaryText={`${storeName} - ${createdAt}`}
       leftIcon={<EventIcon />}
     />
   ))
@@ -49,7 +49,7 @@ export default ({
         onChange={(_, selectedInvoice) => selectInvoice({ selectedInvoice })}
         value={selectedInvoice}
       >
-        {mapPromotions(allInvoices)}
+        {mapInvoices(allInvoices)}
       </SelectableList>
       <style jsx>{`
       .root {

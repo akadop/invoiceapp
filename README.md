@@ -80,7 +80,6 @@ type Payment implements Node {
 }
 
 type User implements Node {
-  auth0UserId: String @isUnique
   createdAt: DateTime!
   email: String @isUnique
   firstName: String!
@@ -88,6 +87,7 @@ type User implements Node {
   invoices: [Invoice!]! @relation(name: "SalesPerson")
   lastName: String!
   password: String
+  role: USER_ROLE!
   updatedAt: DateTime!
 }
 ```

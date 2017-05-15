@@ -29,7 +29,7 @@ export default ({ actions: { searchInvoice } }) => (
       labelPosition="after"
       icon={<SearchIcon />}
       label="Search Again"
-      onTouchTap={searchEvent}
+      onTouchTap={searchInvoice}
       style={{ position: 'absolute', right: '0', height: 53 }}
     />
   </Paper>
