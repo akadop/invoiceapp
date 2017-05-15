@@ -78,14 +78,14 @@ const provideServiceWorker = (req, res) =>
 // API Auth0 /auth route
 // auth :: Request a, Response b -> Response b
 const auth = (req, res) => {
-  const { email, password } = req.body
+  const { username, password, API_CLIENT_ID } = req.body
   const jar = attachment()
   const options = {
     method: 'POST',
     url: API_AUTH_URL,
     qs: { format: 'json' },
     headers: { 'Content-Type': 'application/json' },
-    form: { login: email, password, format: 'json', remind: 'true' },
+    form: { login: username, password, format: 'json', remind: 'true' },
     jar,
   }
 }

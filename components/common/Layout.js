@@ -73,7 +73,7 @@ export default ({
       <main
         className="right-side"
         style={{
-          background: isAuthenticated && user ? '#FAFAFA' : '#FAFAFA',
+          background: isAuthenticated && user ? '#FFF' : '#FFF',
         }}
       >
         {children}

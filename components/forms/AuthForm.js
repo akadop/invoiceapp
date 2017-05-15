@@ -25,76 +25,47 @@ export default ({ actions: { login }, submitting, isLoading }) => (
       margin: '0 auto',
       minWidth: '300px',
       width: '33%',
-      marginTop: '300px',
-      transform: 'translate3d(0, -50%, 0)',
-      paddingTop: '20px',
-      backgroundColor: '#FAFAFA',
+      marginTop: '150px',
+      backgroundColor: '#FFF',
     }}
-    zDepth={1}
+    zDepth={2}
   >
-    <section style={{ position: 'relative', margin: '15px', height: '128px' }}>
-      <KeyIcon
-        width="128px"
-        height="128px"
-        display="block"
-        margin="0 auto"
-        style={{
-          position: 'absolute',
-          right: '40%',
-          top: '0%',
-          fill: theme.palette.primary1Color,
-        }}
-        transform="rotateY(180deg)"
+    <form>
+      <Field
+        id="email"
+        hintText="Email Address"
+        fullWidth
+        floatingLabelText="Email Address"
+        style={{ marginLeft: '20px' }}
+        component={TextField}
+        underlineShow={false}
+        name="email"
+        validate={[email, required]}
       />
-      <KeyIcon
-        width="128px"
-        height="128px"
-        display="block"
-        margin="0 auto"
-        style={{
-          position: 'absolute',
-          left: '40%',
-          top: '0%',
-          fill: theme.palette.accent1Color,
-        }}
+      <Divider />
+      <Field
+        id="password"
+        type="password"
+        fullWidth
+        hintText="Password"
+        floatingLabelText="Password"
+        style={{ marginLeft: '20px' }}
+        component={TextField}
+        underlineShow={false}
+        name="password"
+        validate={[required]}
       />
-    </section>
-    <Paper zDepth={1}>
-      <form>
-        <Field
-          id="email"
-          hintText="Email Address"
-          floatingLabelText="Email Address"
-          style={{ marginLeft: '20px' }}
-          component={TextField}
-          underlineShow={false}
-          name="email"
-          validate={[email, required]}
-        />
-        <Divider />
-        <Field
-          id="password"
-          type="password"
-          hintText="Password"
-          floatingLabelText="Password"
-          style={{ marginLeft: '20px' }}
-          component={TextField}
-          underlineShow={false}
-          name="password"
-          validate={[required]}
-        />
-        <Divider />
-      </form>
-      <RaisedButton
-        disabled={submitting || isLoading}
-        label="Login"
-        style={{ width: '100%' }}
-        primary={true}
-        keyboardFocused={true}
-        labelPosition="after"
-        icon={<LockIcon />}
-        onTouchTap={login}
-      />
-    </Paper>
+      <Divider />
+    </form>
+    <RaisedButton
+      disabled={submitting || isLoading}
+      label="Login"
+      style={{ width: '100%' }}
+      primary={true}
+      keyboardFocused={true}
+      labelPosition="after"
+      icon={<LockIcon />}
+      onTouchTap={login}
+    />
   </Paper>
 )

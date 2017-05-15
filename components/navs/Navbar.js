@@ -20,7 +20,7 @@ import { toastr } from 'react-redux-toastr'
 export default ({ isAuthenticated, user, actions: { logout } }) => (
   <div>
     <AppBar
-      style={{ background: theme.palette.accent1Color }}
+      style={{ background: '#fafafa' }}
       title={
         isAuthenticated &&
           user &&
