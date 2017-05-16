@@ -9,8 +9,8 @@ import { graphql } from 'react-apollo'
 import mapActions from '../lib/util/mapActions'
 
 export const mapStateToProps = ({
-  ui: { selectedInvoice, filteredInvoiceName },
-}) => ({ selectedInvoice, filteredInvoiceName })
+  ui: { selectedInvoice, filteredInvoiceCustomer },
+}) => ({ selectedInvoice, filteredInvoiceCustomer })
 
 export const mapDispatchToProps = mapActions({
   openInvoiceDialog,
@@ -20,10 +20,10 @@ export const mapDispatchToProps = mapActions({
 export const container = compose(
   connect(mapStateToProps, mapDispatchToProps),
   graphql(allInvoicesFromAuthenticatedUser, {
-    options: ({ selectedInvoice, filteredInvoiceName }) => ({
+    options: ({ selectedInvoice, filteredInvoiceCustomer }) => ({
       variables: {
         invoiceId: or(selectedInvoice, ''),
-        invoiceName: or(filteredInvoiceName, ''),
+        invoiceCustomer: or(filteredInvoiceCustomer, ''),
       },
       fetchPolicy: 'network-only',
     }),

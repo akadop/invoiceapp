@@ -55,9 +55,7 @@ export default ({
       style={{
         display: 'flex',
         width: '100%',
-        height: isAuthenticated && user
-          ? 'calc(100vh - (66px + 56px))'
-          : 'calc(100vh - 66px)',
+        height: isAuthenticated && user ? '100vh' : '100vh',
       }}
     >
       {isAuthenticated &&
@@ -79,20 +77,11 @@ export default ({
         {children}
       </main>
     </section>
-    {isAuthenticated &&
-      user &&
-      <BottomNavigation
-        pathname={url.pathname}
-        selectedBottomNav={selectedBottomNav}
-        user={user}
-        actions={{ selectBottomNav }}
-      />}
     <Loader isLoading={isLoading} />
     <style jsx>{`
       .right-side {
         position: relative;
         overflow-y: auto;
-        height: 100%;
         flex: 6;
       }
 
@@ -102,15 +91,15 @@ export default ({
         height: 100%;
         min-width: 250px;
         flex: 1;
-        color: #fff;
-        background: #424242;
+        color: #222;
+        background: #fff;
       }
 
       .left-side-aside-top {
         position: relative;
         height: 65%;
         flex: 1;
-        border-bottom: 2px solid #fff;
+        border-bottom: 1px solid #fff;
       }
 
       .left-side-aside-top::before {
@@ -118,14 +107,10 @@ export default ({
         content: '';
         pointer-events: none;
         left: 50%;
-        bottom: -20px;
-        width: 100px;
-        height: 100px;
-        transform: translate3d(-50%, 20px, 0) rotate(45deg);
-        background: #3F51B5;
-        border-bottom: 2px solid #fff;
-        border-right: 2px solid #fff;
-        z-index: 5;
+        background: rgba(68, 138, 255, 0.89);
+        border-bottom: 1px solid #fff;
+        border-right: 1px solid #fff;
+        z-index: 3;
       }
 
       .left-side-aside-bot {
@@ -168,3 +153,16 @@ export default ({
     `}</style>
   </div>
 )
+
+/**
+ *     
+ * {isAuthenticated &&
+      user &&
+      <BottomNavigation
+        pathname={url.pathname}
+        selectedBottomNav={selectedBottomNav}
+        user={user}
+        actions={{ selectBottomNav }}
+      />}
+
+ */

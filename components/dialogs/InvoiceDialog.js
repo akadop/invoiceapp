@@ -43,7 +43,12 @@ export default ({
         open={invoiceDialogOpened}
         onRequestClose={closeInvoiceDialog}
         background="#FAFAFA"
-        bodyStyle={{ margin: 0, marginBottom: '5px', padding: 0 }}
+        bodyStyle={{
+          display: 'flex',
+          margin: 0,
+          marginBottom: '5px',
+          padding: 0,
+        }}
         titleStyle={{
           textAlign: 'center',
           color: '#fff',
@@ -52,7 +57,7 @@ export default ({
           marginBottom: '20px',
         }}
       >
-        <div dangerouslySetInnerHTML={{ __html: Invoice.storeName }} />
+        <div dangerouslySetInnerHTML={{ __html: Invoice.customer }} />
       </Dialog>
     </div>
   )

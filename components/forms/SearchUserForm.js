@@ -7,7 +7,7 @@ import theme from '../../universal/utils/theme'
 
 export default ({ actions: { searchUser } }) => (
   <Paper
-    zDepth={2}
+    zDepth={1}
     style={{
       background: theme.palette.dark2Color,
       position: 'relative',

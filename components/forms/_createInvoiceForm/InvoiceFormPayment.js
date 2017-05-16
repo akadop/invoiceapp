@@ -4,7 +4,7 @@ import { SelectField, TextField } from 'redux-form-material-ui'
 import { Field } from 'redux-form'
 
 const InvoiceFormPayment = () => (
-  <Card>
+  <Card initiallyExpanded={true}>
     <CardHeader
       title="Payment Information"
       subtitle="payment is not collected through this app, this is for invoice purposes only."

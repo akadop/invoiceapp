@@ -10,7 +10,7 @@ import SupervisorAccountIcon
 export default ({ user, pathname, actions: { selectBottomNav } }) => {
   const routeSelectedIndex = pathname === '/'
     ? 0
-    : pathname === '/my-invoices' || pathname === '/create-invoice' ? 1 : 2
+    : pathname === '/my-invoices' || pathname === '/invoices' ? 1 : 2
 
   return (
     <div>
@@ -37,7 +37,7 @@ export default ({ user, pathname, actions: { selectBottomNav } }) => {
               icon={<GroupWorkIcon />}
               onTouchTap={() => {
                 selectBottomNav({ selectedBottomNav: 1 })
-                Router.push('/create-invoice')
+                Router.push('/invoices')
               }}
             />}
         {user.role === 'ADMIN'
@@ -46,7 +46,7 @@ export default ({ user, pathname, actions: { selectBottomNav } }) => {
               icon={<SupervisorAccountIcon />}
               onTouchTap={() => {
                 selectBottomNav({ selectedBottomNav: 2 })
-                Router.push('/view-employees')
+                Router.push('/invoices')
               }}
             />
           : <BottomNavigationItem style={{ display: 'none' }} />}

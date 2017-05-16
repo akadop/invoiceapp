@@ -10,7 +10,7 @@ const style = {
 
 const InvoiceFormCustomers = () => (
   <div>
-    <Card>
+    <Card initiallyExpanded={true}>
       <CardHeader
         title="Customer Information"
         subtitle="Make sure the customer email is correct, as a copy of this invoice will automatically be emailed to them."

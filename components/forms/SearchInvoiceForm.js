@@ -7,7 +7,7 @@ import theme from '../../lib/hocs/theme'
 
 export default ({ actions: { searchInvoice } }) => (
   <Paper
-    zDepth={2}
+    zDepth={1}
     style={{
       background: theme.palette.dark2Color,
       position: 'relative',

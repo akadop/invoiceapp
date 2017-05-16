@@ -21,25 +21,14 @@ import { map } from 'ramda'
 
 export default ({ data: { allInvoices = [] } }) => {
   const mapInvoices = map(
-    ({
-      id,
-      createdAt,
-      customer,
-      _itemsMeta,
-      payment,
-      scheduleDate,
-      storeName,
-    }) => (
+    ({ id, createdAt, customer, items, payment, scheduleDate, storeName }) => (
       <TableRow key={id} hoverable={true}>
-        <TableRowColumn>{id}</TableRowColumn>
         <TableRowColumn>{createdAt}</TableRowColumn>
         <TableRowColumn>{storeName}</TableRowColumn>
-        <TableRowColumn>{scheduleDate}</TableRowColumn>
+        <TableRowColumn>{payment.paymentBy}</TableRowColumn>
         <TableRowColumn>
           {customer.lastName}, {customer.firstName}
         </TableRowColumn>
-        <TableRowColumn>{_itemsMeta.count}</TableRowColumn>
-        <TableRowColumn>{payment.balance}</TableRowColumn>
       </TableRow>
     )
   )
@@ -49,13 +38,10 @@ export default ({ data: { allInvoices = [] } }) => {
       <Table selectable={false} showRowHover={true}>
         <TableHeader>
           <TableRow>
-            <TableHeaderColumn>Invoice ID</TableHeaderColumn>
             <TableHeaderColumn>Created</TableHeaderColumn>
             <TableHeaderColumn>Store Location</TableHeaderColumn>
-            <TableHeaderColumn>Install Schedule Date</TableHeaderColumn>
+            <TableHeaderColumn>Paid with:</TableHeaderColumn>
             <TableHeaderColumn>Customer</TableHeaderColumn>
-            <TableHeaderColumn># Items Ordered</TableHeaderColumn>
-            <TableHeaderColumn>Balance</TableHeaderColumn>
           </TableRow>
         </TableHeader>
         <TableBody>

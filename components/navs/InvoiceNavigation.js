@@ -15,12 +15,14 @@ export default ({
 }) => {
   const isSelected = equals(selectedInvoice)
 
-  const mapInvoices = map(({ id, storeName, createdAt }) => (
+  const mapInvoices = map(({ id, storeName, createdAt, customer }) => (
     <ListItem
       key={id}
       style={{
-        color: '#fff',
-        borderLeft: `5px solid ${isSelected(id) ? '#64FFDA' : 'transparent'}`,
+        color: '#222',
+        borderLeft: `2px solid ${isSelected(id) ? '#64FFDA' : 'transparent'}`,
+        display: 'flex',
+        fontSize: '14px',
       }}
       value={id}
       primaryText={`${storeName} - ${createdAt}`}
@@ -37,13 +39,13 @@ export default ({
           transition: 'opacity .15s linear',
           left: '50%',
           transform: 'translate3d(-50%, 0, 0)',
-          width: 96,
-          height: 96,
-          color: '#fff',
+          width: 46,
+          height: 46,
+          color: '#222222',
         }}
         onTouchTap={() => selectInvoice({ selectedInvoice: '' })}
       >
-        <CloseButton color="#fff" />
+        <CloseButton color="#222" />
       </IconButton>
       <SelectableList
         onChange={(_, selectedInvoice) => selectInvoice({ selectedInvoice })}
@@ -53,11 +55,11 @@ export default ({
       </SelectableList>
       <style jsx>{`
       .root {
-        height: 100%;
         overflow-y: auto;
-        z-index: 5;
+        z-index: 6;
+        color: #333;
         position: relative;
-        background-color: #3F51B5;
+        background-color: #fff;
       }
     `}</style>
     </div>

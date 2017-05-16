@@ -43,13 +43,13 @@ export default ({
       keyboardFocused={true}
       style={{ margin: 2 }}
       onTouchTap={
-        createInvoiceStep === 2 ? createInvoice : nextStepCreateInvoice
+        createInvoiceStep === 3 ? createInvoice : nextStepCreateInvoice
       }
     />,
   ]
 
   return (
-    <div>
+    <div style={{ display: 'flex', display: '-webkit-flex' }}>
       <FloatingActionButton
         secondary={true}
         style={{
@@ -71,10 +71,10 @@ export default ({
       <Dialog
         title="Create an Invoice"
         contentStyle={{
-          position: 'absolute',
-          left: '50%',
-          top: '50%',
-          transform: 'translate(-50%, -50%)',
+          //position: 'fixed',
+          alignSelf: 'top',
+          justifySelf: 'center',
+          //transform: 'translate(-50%, -50%)',
         }}
         actions={actions}
         modal={false}
