@@ -39,7 +39,8 @@ export default ({
     />,
     <RaisedButton
       label={createInvoiceStep === 3 ? 'Submit' : 'Next'}
-      secondary={true}
+      backgroundColor="#2ecc71"
+      labelColor="#fff"
       keyboardFocused={true}
       style={{ margin: 2 }}
       onTouchTap={
@@ -64,7 +65,7 @@ export default ({
           baseType="plus"
           hoverType="plusSparks"
           size={56}
-          thickness={3}
+          thickness={4}
           color="#fff"
         />
       </FloatingActionButton>
@@ -88,7 +89,7 @@ export default ({
           textAlign: 'center',
           color: '#fff',
           borderBottom: `5px solid ${theme.palette.accent2Color}`,
-          backgroundColor: theme.palette.accent1Color,
+          backgroundColor: '#2196F3',
           marginBottom: '20px',
         }}
       >

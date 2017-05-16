@@ -39,11 +39,9 @@ export default ({
   children,
   isAuthenticated,
   url,
-  selectedBottomNav,
   isLoading,
   data: { user },
   actions: { logout, selectBottomNav },
-  AsideComponent = InvoiceNavigationContainer,
 }) => (
   <div>
     <Navbar
@@ -61,9 +59,6 @@ export default ({
       {isAuthenticated &&
         user &&
         <aside className="left-side">
-          <header className="left-side-aside-top">
-            <AsideComponent />
-          </header>
           <footer className="left-side-aside-bot">
             <div className="left-side-aside-bot-figure" />
           </footer>
@@ -149,6 +144,7 @@ export default ({
       }
       body {
         margin: 0;
+        display: 'flex'
       }
     `}</style>
   </div>

@@ -4,7 +4,6 @@ import {
   CardHeader,
   CardText,
   Divider,
-  FloatingActionButton,
   List,
   ListItem,
   MenuItem,
@@ -14,8 +13,6 @@ import {
 import { Field, FieldArray } from 'redux-form'
 import { SelectField, TextField } from 'redux-form-material-ui'
 
-import ContentAdd from 'material-ui/svg-icons/content/add'
-
 const renderItems = ({ fields, meta: { error }, props }) => {
   const style = {
     marginLeft: 20,
@@ -24,14 +21,12 @@ const renderItems = ({ fields, meta: { error }, props }) => {
   return (
     <List>
       <ListItem>
-        <FloatingActionButton
-          secondary
+        <RaisedButton
           label="Add an Item"
+          labelColor="#fff"
           onTouchTap={() => fields.push({})}
-          style={{ marginBottom: 8 }}
-        >
-          <ContentAdd />
-        </FloatingActionButton>
+          backgroundColor="#3F51B5"
+        />
       </ListItem>
 
       {fields.map((item, index) => (

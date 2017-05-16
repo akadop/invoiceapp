@@ -34,7 +34,7 @@ export default ({ data: { allInvoices = [] } }) => {
   )
 
   return (
-    <Paper zDepth={1} style={{ margin: 20 }}>
+    <Paper zDepth={2} style={{ margin: 20 }}>
       <Table selectable={false} showRowHover={true}>
         <TableHeader>
           <TableRow>
