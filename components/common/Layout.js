@@ -13,27 +13,28 @@ export default ({
   data: { user },
   actions: { logout, toggleSidebarOpen },
 }) => {
-  let withSidebarOpened = sidebarOpen ? 254 : 0
-  let paddingLeftDrawerOpen = 236
+  let marginLeftDrawerOpen = 256
+  let styles = {
+    baseContainer: {
+      marginLeft: sidebarOpen ? marginLeftDrawerOpen : 0,
+      clear: 'both',
+    },
+  }
   return (
-    <div
-      style={{
-        marginLeft: withSidebarOpened,
-      }}
-      className="Grid -top -center"
-    >
-      <Header
-        isAuthenticated={isAuthenticated}
-        user={user}
-        actions={{ logout }}
-        handleToggleSidebarOpen={toggleSidebarOpen}
-        styles={{ paddingLeft: sidebarOpen ? paddingLeftDrawerOpen : 0 }}
-      />
+    <div className="Grid -top -center">
       <Sidebar isAuthenticated={isAuthenticated} sidebarOpen={sidebarOpen} />
-      <div className="Cell -12of12">
-        {children}
+      <div style={styles.baseContainer}>
+        <Header
+          isAuthenticated={isAuthenticated}
+          user={user}
+          actions={{ logout }}
+          handleToggleSidebarOpen={toggleSidebarOpen}
+        />
+        <div className="Cell -12of12">
+          {children}
+        </div>
+        <Loader isLoading={isLoading} />
       </div>
-      <Loader isLoading={isLoading} />
     </div>
   )
 }

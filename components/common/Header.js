@@ -38,8 +38,9 @@ export default ({
           <IconButton
             style={styled.menuButton}
             onTouchTap={handleToggleSidebarOpen}
+            color="222"
           >
-            <Menu color="fff" />
+            <Menu />
           </IconButton>
         }
         iconElementRight={

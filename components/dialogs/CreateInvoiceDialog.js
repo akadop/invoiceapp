@@ -53,6 +53,7 @@ export default ({
       <FloatingActionButton
         secondary={true}
         onTouchTap={openCreateInvoiceDialog}
+        style={{ marginLeft: 22 }}
       >
         <HoverMorphIcon
           baseType="plus"
