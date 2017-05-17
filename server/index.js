@@ -13,8 +13,8 @@ const request = require('request')
 const bodyParser = require('body-parser')
 const { or } = require('ramda')
 
-const { version, description, name } = require('./package')
-const { API_AUTH_URL, API_AUTH_TOKEN_SECRET } = require('./metadata')
+const { version, description, name } = require('../package')
+const { API_AUTH_URL, API_AUTH_TOKEN_SECRET } = require('../metadata')
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 
 // Request module is the easiest way to perform HTTP request with cookies plug.
@@ -32,29 +32,14 @@ const future = options =>
     }
   })
 
-// Serialize real request cookies to string.
-// serializeToken :: RequestCookie a -> String b
-const serializeToken = attachment =>
-  jwt.sign(
-    JSON.stringify(attachment.getCookieString(API_AUTH_URL)),
-    API_AUTH_TOKEN_SECRET
-  )
-
-// Deserialize request authorization header token into JWT decoded string.
-// deserializeToken :: String b ->
-const deserializeToken = token =>
-  JSON.parse(jwt.decode(token.replace('Bearer ', '')))
-
 // Transform serialized cookies into real request cookies
 // mapCookiesToAttachment :: RequestCookie a, String b -> RequestCookie a
 const mapCookiesToAttachment = (attachment, cookies) => {
-  cookies
-    .split('; ')
-    .forEach(cookie => attachment.setCookie(cookie, API_AUTH_URL))
+  cookies.split('; ').forEach(cookie => attachment.setCookie(cookie))
 
   return attachment
 }
-// Check if Epitech API has error on response.
+
 // hasApiError :: Response a -> Boolean b
 const hasApiError = response => response.message
 
@@ -70,6 +55,7 @@ const authenticator = (err, req, res, next) => {
   }
   next()
 }
+
 // Service worker route (service worker work only in browser and need to be fetch).
 // provideServiceWorker :: Request a, Response b -> Response b
 const provideServiceWorker = (req, res) =>
@@ -78,11 +64,10 @@ const provideServiceWorker = (req, res) =>
 // API Auth0 /auth route
 // auth :: Request a, Response b -> Response b
 const auth = (req, res) => {
-  const { username, password, API_CLIENT_ID } = req.body
+  const { username, password } = req.body
   const jar = attachment()
   const options = {
     method: 'POST',
-    url: API_AUTH_URL,
     qs: { format: 'json' },
     headers: { 'Content-Type': 'application/json' },
     form: { login: username, password, format: 'json', remind: 'true' },

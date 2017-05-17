@@ -3,6 +3,8 @@ import Loader from './Loader'
 import Sidebar from './Sidebar'
 import { toggleSidebarOpen } from '../../lib/actions/ui'
 
+// the layout that's going to wrap our individual pages
+
 export default ({
   children,
   isAuthenticated,
@@ -11,25 +13,26 @@ export default ({
   data: { user },
   actions: { logout, toggleSidebarOpen },
 }) => {
-  let withSidebarOpened = sidebarOpen ? 260 : 0
+  let withSidebarOpened = sidebarOpen ? 254 : 0
+  let paddingLeftDrawerOpen = 236
   return (
-    <div>
+    <div
+      style={{
+        marginLeft: withSidebarOpened,
+      }}
+      className="Grid -top -center"
+    >
+      <Header
+        isAuthenticated={isAuthenticated}
+        user={user}
+        actions={{ logout }}
+        handleToggleSidebarOpen={toggleSidebarOpen}
+        styles={{ paddingLeft: sidebarOpen ? paddingLeftDrawerOpen : 0 }}
+      />
       <Sidebar isAuthenticated={isAuthenticated} sidebarOpen={sidebarOpen} />
-      <main
-        style={{
-          marginLeft: withSidebarOpened,
-          paddingBottom: 250,
-          background: 'F7F7F7',
-        }}
-      >
-        <Header
-          isAuthenticated={isAuthenticated}
-          user={user}
-          actions={{ logout }}
-          handleToggleSidebarOpen={toggleSidebarOpen}
-        />
+      <div className="Cell -12of12">
         {children}
-      </main>
+      </div>
       <Loader isLoading={isLoading} />
     </div>
   )

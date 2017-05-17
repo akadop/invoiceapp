@@ -7,21 +7,19 @@ import Router from 'next/router'
 
 export default ({ isAuthenticated, sidebarOpen }) => {
   return (
-    <div>
-      <Drawer open={sidebarOpen}>
-        <Menu>
-          <MenuItem
-            primaryText="Create Invoice"
-            leftIcon={<PersonAdd />}
-            onTouchTap={() => Router.push('/')}
-          />
-          <MenuItem
-            primaryText="Employee Manual"
-            leftIcon={<ContentLink />}
-            onTouchTap={() => Router.push('/employee-manual')}
-          />
-        </Menu>
-      </Drawer>
-    </div>
+    <Drawer open={sidebarOpen}>
+      <Menu>
+        <MenuItem
+          primaryText="Create Invoice"
+          leftIcon={<PersonAdd />}
+          onTouchTap={() => Router.push('/')}
+        />
+        <MenuItem
+          primaryText="Employee Manual"
+          leftIcon={<ContentLink />}
+          onTouchTap={() => Router.push('/employee-manual')}
+        />
+      </Menu>
+    </Drawer>
   )
 }

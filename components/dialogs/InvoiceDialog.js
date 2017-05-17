@@ -32,7 +32,7 @@ export default ({
           baseType="plus"
           hoverType="plusSparks"
           size={56}
-          thickness={3}
+          thickness={4}
           color="#ffffff"
         />
       </FloatingActionButton>

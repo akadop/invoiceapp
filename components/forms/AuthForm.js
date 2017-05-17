@@ -9,7 +9,7 @@ export default ({ actions: { login }, submitting, isLoading }) => (
   <Paper
     style={{
       margin: '0 auto',
-      minWidth: '300px',
+      minWidth: '400px',
       width: '33%',
       marginTop: '150px',
       backgroundColor: '#FFF',

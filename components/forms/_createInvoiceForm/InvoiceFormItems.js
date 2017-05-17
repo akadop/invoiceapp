@@ -28,7 +28,6 @@ const renderItems = ({ fields, meta: { error }, props }) => {
           backgroundColor="#3F51B5"
         />
       </ListItem>
-
       {fields.map((item, index) => (
         <Card key={index} initiallyExpanded={true}>
           <CardHeader

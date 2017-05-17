@@ -1,37 +1,105 @@
 @import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
 
 body {
-  background-color: #fff;
-  font-family: 'Roboto', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: antialiased;
+    background-color: #fff;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+    margin-top: 0,
 }
-
+.Grid {
+    display: flex;
+    flex-wrap: wrap
+}
+.Grid.\-top {
+    align-items: flex-start
+}
+.Grid.\-middle {
+    align-items: center
+}
+.Grid.\-bottom {
+    align-items: flex-end
+}
+.Grid.\-stretch {
+    align-items: stretch
+}
+.Grid.\-baseline {
+    align-items: baseline
+}
+.Grid.\-left {
+    justify-content: flex-start
+}
+.Grid.\-center {
+    justify-content: center
+}
+.Grid.\-right {
+    justify-content: flex-end
+}
+.Grid.\-between {
+    justify-content: space-between
+}
+.Grid.\-around {
+    justify-content: space-around
+}
+.Cell {
+    box-sizing: border-box;
+    flex-shrink: 0
+}
+.Cell.\-fill {
+    width: 0;
+    min-width: 0;
+    flex-grow: 1
+}
+.Cell.\-1of12 {
+    width: 8.33333%
+}
+.Cell.\-2of12 {
+    width: 16.66667%
+}
+.Cell.\-3of12 {
+    width: 25%
+}
+.Cell.\-4of12 {
+    width: 33.33333%
+}
+.Cell.\-5of12 {
+    width: 41.66667%
+}
+.Cell.\-6of12 {
+    width: 50%
+}
+.Cell.\-7of12 {
+    width: 58.33333%
+}
+.Cell.\-8of12 {
+    width: 66.66667%
+}
+.Cell.\-9of12 {
+    width: 75%
+}
+.Cell.\-10of12 {
+    width: 83.33333%
+}
+.Cell.\-11of12 {
+    width: 91.66667%
+}
+.Cell.\-12of12 {
+    width: 100%
+}
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
-  transition-delay: background-color 5000s, color 5000s;
+    transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
+    transition-delay: background-color 5000s, color 5000s;
 }
-
 *::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, .1);
-  background-color: #f5f5f5;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .1);
+    background-color: #f5f5f5;
 }
-
 *::-webkit-scrollbar {
-  width: 10px;
-  background-color: #f5f5f5;
+    width: 10px;
+    background-color: #f5f5f5;
 }
-
 *::-webkit-scrollbar-thumb {
-  background: #FAFAFA linear-gradient(145deg,
-  rgba(255, 255, 255, .2) 25%,
-  transparent 25%,
-  transparent 50%,
-  rgba(255, 255, 255, .2) 50%,
-  rgba(255, 255, 255, .2) 75%,
-  transparent 75%,
-  transparent);
-}
+    background: #FAFAFA linear-gradient(145deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);}
