@@ -21,7 +21,7 @@ export default ({
     },
   }
   return (
-    <div className="Grid -top -center">
+    <div>
       <Sidebar isAuthenticated={isAuthenticated} sidebarOpen={sidebarOpen} />
       <div style={styles.baseContainer}>
         <Header
@@ -30,9 +30,7 @@ export default ({
           actions={{ logout }}
           handleToggleSidebarOpen={toggleSidebarOpen}
         />
-        <div className="Cell -12of12">
-          {children}
-        </div>
+        {children}
         <Loader isLoading={isLoading} />
       </div>
     </div>

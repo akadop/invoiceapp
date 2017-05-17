@@ -30,29 +30,27 @@ export default ({
     },
   }
   return (
-    <div className="Cell -12of12">
-      <AppBar
-        title={<span style={styled.title}>Invoice App</span>}
-        style={(styled.appBar, { ...styles })}
-        iconElementLeft={
-          <IconButton
-            style={styled.menuButton}
-            onTouchTap={handleToggleSidebarOpen}
-            color="222"
-          >
-            <Menu />
-          </IconButton>
-        }
-        iconElementRight={
-          isAuthenticated && user
-            ? <FlatButton
-                label={isAuthenticated ? 'Logout' : 'Login'}
-                onTouchTap={isAuthenticated ? logout : null}
-                onMouseEnter={() => Router.prefetch('/auth')}
-              />
-            : null
-        }
-      />
-    </div>
+    <AppBar
+      title={<span style={styled.title}>Invoice App</span>}
+      style={(styled.appBar, { ...styles })}
+      iconElementLeft={
+        <IconButton
+          style={styled.menuButton}
+          onTouchTap={handleToggleSidebarOpen}
+          color="222"
+        >
+          <Menu />
+        </IconButton>
+      }
+      iconElementRight={
+        isAuthenticated && user
+          ? <FlatButton
+              label={isAuthenticated ? 'Logout' : 'Login'}
+              onTouchTap={isAuthenticated ? logout : null}
+              onMouseEnter={() => Router.prefetch('/auth')}
+            />
+          : null
+      }
+    />
   )
 }
