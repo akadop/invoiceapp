@@ -14,7 +14,6 @@
 	"author": "Ahmed Alahmady",
 	"license": "ISC",
 	"dependencies": {
-		"auth0-lock": "10.16.0",
 		"body-parser": "^1.17.1",
 		"cookie-parser": "^1.4.3",
 		"dompurify": "^0.8.9",
@@ -42,9 +41,9 @@
 		"request": "^2.81.0"
 	},
 	"devDependencies": {
-		"autoprefixer": "7.0.1",
+		"autoprefixer": "7.1.0",
 		"babel-plugin-material-ui": "^0.3.1",
-		"babel-plugin-module-resolver": "2.7.0",
+		"babel-plugin-module-resolver": "2.7.1",
 		"babel-plugin-ramda": "^1.2.0",
 		"babel-plugin-transform-define": "^1.2.0",
 		"babel-plugin-wrap-in-js": "^1.1.1",
@@ -53,7 +52,7 @@
 		"caporal": "0.5.0",
 		"compression-webpack-plugin": "0.4.0",
 		"compression": "^1.6.2",
-		"cross-env": "^4.0.0",
+		"cross-env": "^5.0.0",
 		"css-loader": "0.28.1",
 		"extract-text-webpack-plugin": "^2.1.0",
 		"glob": "7.1.1",

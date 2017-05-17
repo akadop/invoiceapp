@@ -3,7 +3,6 @@ import { Divider, Paper, RaisedButton } from 'material-ui'
 import { Field } from 'redux-form'
 import SearchIcon from 'material-ui/svg-icons/action/search'
 import { TextField } from 'redux-form-material-ui'
-import theme from '../../lib/hocs/theme'
 
 // Search Invoices
 
@@ -15,7 +14,7 @@ export default ({ actions: { searchInvoice } }) => (
       position: 'relative',
       color: 'black',
       height: 58,
-      borderBottom: `5px solid ${theme.palette.accent1Color}`,
+      borderBottom: `linear-gradient(120deg, #a6c0fe 0%, #f68084 100%)`,
     }}
   >
     <Field

@@ -1,5 +1,3 @@
-import InvoiceNavigationContainer
-  from '../../containers/InvoiceNavigationContainer'
 import Loader from './Loader'
 import Navbar from '../navs/Navbar'
 
