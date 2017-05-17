@@ -56,16 +56,16 @@ export default ({ actions: { login }, submitting, isLoading }) => (
         validate={[required]}
       />
       <Divider />
+      <RaisedButton
+        disabled={submitting || isLoading}
+        label="Login"
+        style={{ width: '100%' }}
+        primary={true}
+        keyboardFocused={true}
+        labelPosition="after"
+        icon={<LockIcon />}
+        onTouchTap={login}
+      />
     </form>
-    <RaisedButton
-      disabled={submitting || isLoading}
-      label="Login"
-      style={{ width: '100%' }}
-      primary={true}
-      keyboardFocused={true}
-      labelPosition="after"
-      icon={<LockIcon />}
-      onTouchTap={login}
-    />
   </Paper>
 )

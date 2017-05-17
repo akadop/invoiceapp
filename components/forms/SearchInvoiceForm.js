@@ -5,6 +5,8 @@ import SearchIcon from 'material-ui/svg-icons/action/search'
 import { TextField } from 'redux-form-material-ui'
 import theme from '../../lib/hocs/theme'
 
+// Search Invoices
+
 export default ({ actions: { searchInvoice } }) => (
   <Paper
     zDepth={1}
@@ -20,7 +22,7 @@ export default ({ actions: { searchInvoice } }) => (
       id="search"
       hintText="Search Invoices"
       name="name"
-      style={{ marginLeft: '20px', width: 'calc(90% - (130px + 20px))' }}
+      style={{ marginLeft: '16px', width: 'calc(90% - (130px + 20px))' }}
       underlineShow={false}
       component={TextField}
     />

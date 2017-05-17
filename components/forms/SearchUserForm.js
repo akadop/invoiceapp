@@ -5,6 +5,7 @@ import SearchIcon from 'material-ui/svg-icons/action/search'
 import { TextField } from 'redux-form-material-ui'
 import theme from '../../universal/utils/theme'
 
+// Search User Forms
 export default ({ actions: { searchUser } }) => (
   <Paper
     zDepth={1}
@@ -12,15 +13,15 @@ export default ({ actions: { searchUser } }) => (
       background: theme.palette.dark2Color,
       position: 'relative',
       color: 'black',
-      height: 58,
-      borderBottom: `5px solid ${theme.palette.accent1Color}`,
+      height: 32,
+      borderBottom: `2px solid ${theme.palette.accent1Color}`,
     }}
   >
     <Field
       id="search"
       hintText="Search Users"
       name="name"
-      style={{ marginLeft: '20px' }}
+      style={{ marginLeft: '16px' }}
       underlineShow={false}
       component={TextField}
     />
@@ -30,7 +31,7 @@ export default ({ actions: { searchUser } }) => (
       icon={<SearchIcon />}
       label="Search Again"
       onTouchTap={searchUser}
-      style={{ position: 'absolute', right: '0', height: 53 }}
+      style={{ position: 'absolute', right: '0', height: 24 }}
     />
   </Paper>
 )

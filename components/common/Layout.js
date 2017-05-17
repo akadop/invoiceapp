@@ -1,39 +1,7 @@
-import BottomNavigation from '../navs/BottomNavigation'
 import InvoiceNavigationContainer
   from '../../containers/InvoiceNavigationContainer'
 import Loader from './Loader'
 import Navbar from '../navs/Navbar'
-
-/**
- * We want to get this layout when user is authenticated :
- *
- * |-------------------------------------------|
- * |                  Navbar                   |
- * |-------------------------------------------|
- * |    Side     |                             |
- * |             |                             |
- * |             |           Main              |
- * |             |                             |
- * |-------------|                             |
- * |             |                             |
- * | Bottom-Side |-----------------------------|
- * |             |       Bottom Navbar         |
- * |-------------------------------------------|
- *
- * Don't forget to hide Side + Bottom-side on mobile.
- *
- * When user is not authenticated, we need this :
- *
- * |-------------------------------------------|
- * |                  Navbar                   |
- * |-------------------------------------------|
- * |                                           |
- * |                                           |
- * |                   Main                    |
- * |                                           |
- * |                                           |
- * |-------------------------------------------|
- */
 
 export default ({
   children,
@@ -41,7 +9,7 @@ export default ({
   url,
   isLoading,
   data: { user },
-  actions: { logout, selectBottomNav },
+  actions: { logout },
 }) => (
   <div>
     <Navbar
@@ -53,7 +21,7 @@ export default ({
       style={{
         display: 'flex',
         width: '100%',
-        height: isAuthenticated && user ? '100vh' : '100vh',
+        height: isAuthenticated && user ? '90vh' : '92vh',
       }}
     >
       {isAuthenticated &&
@@ -76,14 +44,14 @@ export default ({
     <style jsx>{`
       .right-side {
         position: relative;
-        overflow-y: auto;
+        overflow-y: hidden;
+        justifySelf: middle;
         flex: 6;
       }
 
       .left-side {
         display: none;
         position: relative;
-        height: 100%;
         min-width: 250px;
         flex: 1;
         color: #222;
@@ -144,21 +112,9 @@ export default ({
       }
       body {
         margin: 0;
-        display: 'flex'
+        display: 'flex';
+        height: '100vh';
       }
     `}</style>
   </div>
 )
-
-/**
- *     
- * {isAuthenticated &&
-      user &&
-      <BottomNavigation
-        pathname={url.pathname}
-        selectedBottomNav={selectedBottomNav}
-        user={user}
-        actions={{ selectBottomNav }}
-      />}
-
- */

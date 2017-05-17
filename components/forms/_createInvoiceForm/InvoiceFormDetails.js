@@ -16,6 +16,7 @@ const InvoiceFormDetails = () => (
       name="storeName"
       component={SelectField}
       underlineShow={false}
+      style={style}
       fullWidth
     >
       <MenuItem value="Dallas" primaryText="Dallas" />

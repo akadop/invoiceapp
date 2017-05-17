@@ -50,15 +50,9 @@ export default ({
   ]
 
   return (
-    <div style={{ display: 'flex', display: '-webkit-flex' }}>
+    <div>
       <FloatingActionButton
         secondary={true}
-        style={{
-          position: 'fixed',
-          right: '15px',
-          bottom: '85px',
-          marginRight: '20px',
-        }}
         onTouchTap={openCreateInvoiceDialog}
       >
         <HoverMorphIcon
@@ -71,27 +65,14 @@ export default ({
       </FloatingActionButton>
       <Dialog
         title="Create an Invoice"
-        contentStyle={{
-          //position: 'fixed',
-          alignSelf: 'top',
-          justifySelf: 'center',
-          //transform: 'translate(-50%, -50%)',
-        }}
         actions={actions}
         modal={false}
+        bodyStyle={{ top: '5%' }}
         open={createInvoiceDialogOpened}
         onRequestClose={closeCreateInvoiceDialog}
         background="#FAFAFA"
         autoScrollBodyContent={true}
         autoDetectWindowHeight={false}
-        bodyStyle={{ margin: 0, marginBottom: '5px', padding: 0 }}
-        titleStyle={{
-          textAlign: 'center',
-          color: '#fff',
-          borderBottom: `5px solid ${theme.palette.accent2Color}`,
-          backgroundColor: '#2196F3',
-          marginBottom: '20px',
-        }}
       >
         <CreateInvoiceFormContainer />
       </Dialog>
