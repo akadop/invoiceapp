@@ -59,7 +59,7 @@ export default ({
           baseType="plus"
           hoverType="plusSparks"
           size={56}
-          thickness={4}
+          thickness={3}
           color="#fff"
         />
       </FloatingActionButton>
@@ -67,12 +67,12 @@ export default ({
         title="Create an Invoice"
         actions={actions}
         modal={false}
-        bodyStyle={{ top: '5%' }}
         open={createInvoiceDialogOpened}
         onRequestClose={closeCreateInvoiceDialog}
         background="#FAFAFA"
         autoScrollBodyContent={true}
-        autoDetectWindowHeight={false}
+        autoDetectWindowHeight={true}
+        repositionOnUpdate={false}
       >
         <CreateInvoiceFormContainer />
       </Dialog>
