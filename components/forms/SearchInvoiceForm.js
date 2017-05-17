@@ -10,7 +10,7 @@ export default ({ actions: { searchInvoice } }) => (
   <Paper
     zDepth={1}
     style={{
-      background: theme.palette.dark2Color,
+      background: 'FFF',
       position: 'relative',
       color: 'black',
       height: 58,

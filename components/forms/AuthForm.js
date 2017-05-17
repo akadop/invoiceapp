@@ -1,23 +1,9 @@
-import {
-  Card,
-  CardActions,
-  CardHeader,
-  CardMedia,
-  CardText,
-  CardTitle,
-  Divider,
-  FlatButton,
-  Paper,
-  RaisedButton,
-} from 'material-ui'
+import { Divider, FlatButton, Paper, RaisedButton } from 'material-ui'
 import { email, required } from '../../lib/util/validators'
 
 import { Field } from 'redux-form'
-import KeyIcon from '../icons/KeyIcon'
 import LockIcon from 'material-ui/svg-icons/action/lock'
 import { TextField } from 'redux-form-material-ui'
-import { fade } from 'material-ui/utils/colorManipulator'
-import theme from '../../lib/hocs/theme'
 
 export default ({ actions: { login }, submitting, isLoading }) => (
   <Paper

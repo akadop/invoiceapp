@@ -56,7 +56,7 @@ const mapCookiesToAttachment = (attachment, cookies) => {
 }
 // Check if Epitech API has error on response.
 // hasApiError :: Response a -> Boolean b
-const hasApiError = response => response.office_auth_uri && response.message
+const hasApiError = response => response.message
 
 // Provide a new cookie request.
 // attachement :: _ -> RequestCookie a

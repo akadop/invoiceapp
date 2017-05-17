@@ -1,6 +1,5 @@
 import AuthFormContainer from '../containers/AuthFormContainer'
 import LayoutContainer from '../containers/LayoutContainer'
-import React from 'react'
 import { compose } from 'ramda'
 import withData from '../lib/hocs/withData'
 import withGuest from '../lib/hocs/withGuest'
