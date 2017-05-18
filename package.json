@@ -4,11 +4,10 @@
   "private": true,
   "description": "Invoice App",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development node server/index.js start 3000",
-    "start": "cross-env NODE_ENV=production node server/index.js start 3000",
-    "build": "cross-env NODE_ENV=production next build",
-    "deploy": "cross-env NODE_ENV=production npm run now",
-    "heroku-postbuild": "npm run build ; npm start",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "heroku-postbuild": "npm run build",
     "cross-env": "cross-env",
     "now": "now"
   },
