@@ -38,7 +38,7 @@ export default ({
   }
   return (
     <AppBar
-      title={<span style={styled.title}>Invoice App</span>}
+      title={<span style={styled.title}>Demo</span>}
       style={(styled.appBar, { ...styles })}
       iconElementLeft={
         <IconButton
