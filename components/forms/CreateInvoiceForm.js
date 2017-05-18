@@ -24,7 +24,7 @@ export default ({ createInvoiceStep, actions: { setStepCreateInvoice } }) => {
       >
         <Step>
           <StepButton onTouchTap={() => setStepCreateInvoice({ step: 0 })}>
-            New Invoice: Customer Information
+            Customer Information
           </StepButton>
           <StepContent>
             <FormSection name="customer">
@@ -34,7 +34,7 @@ export default ({ createInvoiceStep, actions: { setStepCreateInvoice } }) => {
         </Step>
         <Step>
           <StepButton onTouchTap={() => setStepCreateInvoice({ step: 1 })}>
-            New Invoice: Add Items
+            Add Items
           </StepButton>
           <StepContent>
             <InvoiceFormItems />

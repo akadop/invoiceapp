@@ -48,23 +48,39 @@ export default ({
     />,
   ]
 
+  const styles = {
+    InvoicePopUp: {
+      display: 'flex',
+      alignItems: 'flex-start',
+      justifyContent: 'center',
+    },
+    customContentStyle: {
+      width: '85%',
+    },
+  }
+
   return (
-    <div>
+    <div style={styles.InvoicePopUp}>
       <FloatingActionButton
         secondary={true}
         onTouchTap={openCreateInvoiceDialog}
-        style={{ marginLeft: 22 }}
       >
         <HoverMorphIcon
           baseType="plus"
           hoverType="plusSparks"
           size={56}
           thickness={3}
-          color="#fff"
+          color="#f9f9f9"
         />
       </FloatingActionButton>
       <Dialog
         title="Create an Invoice"
+        titleStyle={{ borderBottom: '4px solid #ff4081' }}
+        contentStyle={{
+          width: '85%',
+          maxWidth: '1440px',
+          transform: 'translate(0px, 32px)',
+        }}
         actions={actions}
         modal={true}
         open={createInvoiceDialogOpened}
