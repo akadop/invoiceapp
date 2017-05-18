@@ -38,7 +38,7 @@ export default ({
     />,
     <RaisedButton
       label={createInvoiceStep === 3 ? 'Submit' : 'Next'}
-      backgroundColor="#2ecc71"
+      backgroundColor="#19B5FE"
       labelColor="#fff"
       keyboardFocused={true}
       style={{ margin: 2 }}
@@ -71,7 +71,7 @@ export default ({
         onRequestClose={closeCreateInvoiceDialog}
         background="#FAFAFA"
         autoScrollBodyContent={true}
-        autoDetectWindowHeight={true}
+        autoDetectWindowHeight={false}
         repositionOnUpdate={false}
       >
         <CreateInvoiceFormContainer />

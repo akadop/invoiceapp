@@ -25,7 +25,7 @@ const renderItems = ({ fields, meta: { error }, props }) => {
           label="Add an Item"
           labelColor="#fff"
           onTouchTap={() => fields.push({})}
-          backgroundColor="#3F51B5"
+          secondary
         />
       </ListItem>
       {fields.map((item, index) => (

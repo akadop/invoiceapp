@@ -11,20 +11,18 @@ const styles = {
   logo: {
     cursor: 'pointer',
     fontSize: 22,
-    color: typography.textFullWhite,
+    color: '#333',
     lineHeight: `${spacing.desktopKeylineIncrement}px`,
     fontWeight: typography.fontWeightLight,
-    backgroundColor: '#222',
-    paddingLeft: 40,
+    paddingLeft: 30,
     height: 56,
   },
   menuItem: {
-    color: '#ffffff',
     fontSize: 14,
   },
   menu: {
-    width: 223,
-    backgroundColor: '#333',
+    width: 220,
+    marginLeft: 10,
   },
 }
 
@@ -37,13 +35,13 @@ export default ({ isAuthenticated, sidebarOpen }) => {
       <Menu style={styles.menu}>
         <MenuItem
           primaryText="Create Invoice"
-          leftIcon={<Web color="#2ecc71" />}
+          leftIcon={<Web />}
           onTouchTap={() => Router.push('/')}
           style={styles.menuItem}
         />
         <MenuItem
           primaryText="Employee Manual"
-          leftIcon={<ContentLink color="#2ecc71" />}
+          leftIcon={<ContentLink />}
           onTouchTap={() => Router.push('/employee-manual')}
           style={styles.menuItem}
         />
