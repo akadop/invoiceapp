@@ -48,9 +48,7 @@
     "redux-logger": "3.0.6",
     "redux-thunk": "2.2.0",
     "request": "^2.81.0",
-    "sw-precache-webpack-plugin": "0.11.0"
-  },
-  "devDependencies": {
+    "sw-precache-webpack-plugin": "0.11.0",
     "autoprefixer": "7.1.0",
     "caporal": "0.5.0",
     "compression": "^1.6.2",
@@ -66,5 +64,6 @@
     "raw-loader": "^0.5.1",
     "recompose": "^0.23.4",
     "style-loader": "0.17.0"
-  }
+  },
+  "devDependencies": {}
 }
