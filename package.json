@@ -7,7 +7,6 @@
     "dev": "next",
     "start": "next start",
     "build": "next build",
-    "deploy": "next deploy",
     "cross-env": "cross-env",
     "now": "now"
   },

@@ -66,12 +66,12 @@ export default ({
       <Dialog
         title="Create an Invoice"
         actions={actions}
-        modal={false}
+        modal={true}
         open={createInvoiceDialogOpened}
         onRequestClose={closeCreateInvoiceDialog}
         background="#FAFAFA"
         autoScrollBodyContent={true}
-        autoDetectWindowHeight={false}
+        autoDetectWindowHeight={true}
         repositionOnUpdate={false}
       >
         <CreateInvoiceFormContainer />

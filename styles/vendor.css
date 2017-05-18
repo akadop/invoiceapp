@@ -7,7 +7,7 @@ body {
     margin: 0;
     background-color: #FEFEFE;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body, html, #app, #app > div{

@@ -1,7 +1,7 @@
 import { DatePicker, SelectField, TextField } from 'redux-form-material-ui'
+import { Divider, MenuItem } from 'material-ui'
 
 import { Field } from 'redux-form'
-import { MenuItem } from 'material-ui'
 
 const style = {
   marginLeft: 20,
@@ -23,6 +23,7 @@ const InvoiceFormDetails = () => (
       <MenuItem value="Arlington" primaryText="Arlington" />
       <MenuItem value="Houston" primaryText="Houston" />
     </Field>
+    <Divider />
     <Field
       name="installer"
       component={TextField}
@@ -32,6 +33,7 @@ const InvoiceFormDetails = () => (
       style={style}
       fullWidth
     />
+    <Divider />
     <Field
       name="scheduleDate"
       component={DatePicker}

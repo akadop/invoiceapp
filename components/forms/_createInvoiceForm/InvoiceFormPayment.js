@@ -1,7 +1,7 @@
+import { Divider, MenuItem } from 'material-ui'
 import { SelectField, TextField } from 'redux-form-material-ui'
 
 import { Field } from 'redux-form'
-import { MenuItem } from 'material-ui'
 
 const InvoiceFormPayment = () => (
   <div>
@@ -12,6 +12,7 @@ const InvoiceFormPayment = () => (
       underlineShow={false}
       fullWidth
     />
+    <Divider />
     <Field
       floatingLabelText="Payment Type"
       name="paymentBy"
@@ -26,6 +27,7 @@ const InvoiceFormPayment = () => (
       <MenuItem value="Cash" primaryText="Cash" />
       <MenuItem value="Check" primaryText="Check" />
     </Field>
+    <Divider />
     <Field
       name="balance"
       component={TextField}
@@ -33,6 +35,7 @@ const InvoiceFormPayment = () => (
       underlineShow={false}
       fullWidth
     />
+    <Divider />
     <Field
       name="deposit"
       component={TextField}

@@ -103,7 +103,6 @@ const serve = (argv, { version, description, name }) => {
               '/create-invoice',
               '/my-invoices',
               '/',
-              '/sw.js',
               '/favicon.ico',
               /\/_next/,
               /\/static/,
@@ -117,7 +116,6 @@ const serve = (argv, { version, description, name }) => {
               expressJwt({ secret: API_AUTH_TOKEN_SECRET }).unless(isAuthorized)
             )
             .use(authenticator)
-            .get('/sw.js', provideServiceWorker)
             .post('/api/auth', auth)
             .get('*', (req, res) => {
               cookie.plugToRequest(req, res)

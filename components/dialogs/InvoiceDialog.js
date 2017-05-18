@@ -15,6 +15,10 @@ export default ({
     <FlatButton label="Close" primary={true} onTouchTap={closeInvoiceDialog} />,
   ]
 
+  const customContentStyle = {
+    width: '85%',
+  }
+
   return (
     Invoice &&
     <div>
@@ -42,10 +46,9 @@ export default ({
         modal={false}
         open={invoiceDialogOpened}
         onRequestClose={closeInvoiceDialog}
+        contentStyle={style.customContentStyle}
         background="#FAFAFA"
         bodyStyle={{
-          display: 'flex',
-          margin: 0,
           marginBottom: '5px',
           padding: 0,
         }}

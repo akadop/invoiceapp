@@ -15,10 +15,6 @@ import InvoiceFormPayment from './_createInvoiceForm/InvoiceFormPayment'
 // Invoice Form
 
 export default ({ createInvoiceStep, actions: { setStepCreateInvoice } }) => {
-  const style = {
-    marginLeft: 20,
-    width: 'calc(100% - 20px)',
-  }
   return (
     <div style={{ maxWidth: '100%', maxHeight: '100%', margin: 'auto' }}>
       <Stepper
