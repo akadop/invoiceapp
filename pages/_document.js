@@ -1,18 +1,22 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 
-import React from 'react'
-import stylesheet from '../styles/styles.scss'
+import { loadGetInitialProps } from 'next/dist/lib/utils'
+import stylesheet from '../styles/vendor.css'
 
-export default class MyDocument extends Document {
+export default class extends Document {
+  static async getInitialProps(ctx) {
+    return { ...(await loadGetInitialProps(Document, ctx)) }
+  }
+
   render() {
     return (
       <html>
         <Head>
-          <meta charSet="utf-8" />
           <title>Demo Invoice</title>
+          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta
             name="viewport"
-            content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui"
+            content="width=device-width,initial-scale=1.0"
           />
           <link rel="manifest" href="static/manifest.json" />
           <meta name="mobile-web-app-capable" content="yes" />
@@ -57,7 +61,6 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/icon?family=Material+Icons"
             rel="stylesheet"
           />
-          <meta name="theme-color" content="#222" />
           <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
         </Head>
         <body>

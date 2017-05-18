@@ -1,7 +1,7 @@
+const { IgnorePlugin } = require('webpack')
+
 const path = require('path')
 const glob = require('glob')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const PurifyCSSPlugin = require('purifycss-webpack')
 const ProgressPlugin = require('webpack/lib/ProgressPlugin')
 const webpack = require('webpack')
 const CompressionPlugin = require('compression-webpack-plugin')
@@ -22,23 +22,6 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['babel-loader', 'raw-loader', 'postcss-loader'],
-      },
-      {
-        test: /\.s(a|c)ss$/,
-        use: [
-          'babel-loader',
-          'raw-loader',
-          'postcss-loader',
-          {
-            loader: 'sass-loader',
-            options: {
-              includePaths: ['styles', 'node_modules']
-                .map(d => path.join(__dirname, d))
-                .map(g => glob.sync(g))
-                .reduce((a, c) => a.concat(c), []),
-            },
-          },
-        ],
       }
     )
     if (!dev) {
@@ -85,12 +68,6 @@ module.exports = {
           // nothing
           minRatio: 0.99,
         }),
-        // remove unused css
-        new PurifyCSSPlugin({
-          // Give paths to parse for rules. These should be absolute!
-          moduleExtensions: ['.jsx', '.html', '.js'],
-          paths: glob.sync(path.join(__dirname, 'pages/index.js')),
-        }),
         // Service Worker
         new SWPrecacheWebpackPlugin({
           filename: 'sw.js',
@@ -101,14 +78,13 @@ module.exports = {
           ],
           forceDelete: true,
           runtimeCaching: [
-            // Example with different handlers
             {
               handler: 'fastest',
               urlPattern: /[.](png|jpg|css)/,
             },
             {
               handler: 'networkFirst',
-              urlPattern: /^http.*/, //cache all files
+              urlPattern: /^http.*/, // cache all files
             },
           ],
         })
