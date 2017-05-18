@@ -1,8 +1,18 @@
-import AppBar from 'material-ui/AppBar'
-import FlatButton from 'material-ui/FlatButton'
-import IconButton from 'material-ui/IconButton'
+import {
+  AppBar,
+  Divider,
+  FlatButton,
+  IconButton,
+  IconMenu,
+  MenuItem,
+} from 'material-ui'
+
+import AccountIcon from 'material-ui/svg-icons/action/account-circle'
+import LogoutIcon from 'material-ui/svg-icons/communication/vpn-key'
 import Menu from 'material-ui/svg-icons/navigation/menu'
+import PeopleIcon from 'material-ui/svg-icons/social/people'
 import Router from 'next/router'
+import { toastr } from 'react-redux-toastr'
 
 // top nav bar
 export default ({
@@ -22,9 +32,6 @@ export default ({
     menuButton: {
       marginLeft: 16,
     },
-    iconsRightContainer: {
-      marginLeft: 24,
-    },
     title: {
       cursor: 'pointer',
     },
@@ -43,13 +50,32 @@ export default ({
         </IconButton>
       }
       iconElementRight={
-        isAuthenticated && user
-          ? <FlatButton
-              label={isAuthenticated ? 'Logout' : 'Login'}
-              onTouchTap={isAuthenticated ? logout : null}
-              onMouseEnter={() => Router.prefetch('/auth')}
-            />
-          : null
+        <IconMenu
+          iconButtonElement={
+            <IconButton>
+              <AccountIcon color="#fff" />
+            </IconButton>
+          }
+          targetOrigin={{ horizontal: 'right', vertical: 'top' }}
+          anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+        >
+          <MenuItem
+            leftIcon={<PeopleIcon />}
+            primaryText="My Account"
+            onTouchTap={() =>
+              toastr.warning(
+                'My Account',
+                'This feature is not yet available !'
+              )}
+          />
+          <Divider />
+          <MenuItem
+            leftIcon={<LogoutIcon />}
+            primaryText="Disconnect"
+            onTouchTap={logout}
+            onMouseEnter={() => Router.prefetch('/auth')}
+          />
+        </IconMenu>
       }
     />
   )

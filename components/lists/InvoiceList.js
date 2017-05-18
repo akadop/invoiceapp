@@ -26,6 +26,7 @@ export default ({ data: { allInvoices = [] } }) => {
         <TableRowColumn>{createdAt}</TableRowColumn>
         <TableRowColumn>{storeName}</TableRowColumn>
         <TableRowColumn>{payment.paymentBy}</TableRowColumn>
+        <TableRowColumn>{payment.balance}</TableRowColumn>
         <TableRowColumn>
           {customer.lastName}, {customer.firstName}
         </TableRowColumn>
@@ -35,12 +36,13 @@ export default ({ data: { allInvoices = [] } }) => {
 
   return (
     <Paper zDepth={2} style={{ margin: 20 }}>
-      <Table selectable={false} showRowHover={true}>
+      <Table selectable={false} showRowHover={true} stripedRows={true}>
         <TableHeader>
           <TableRow>
             <TableHeaderColumn>Created</TableHeaderColumn>
             <TableHeaderColumn>Store Location</TableHeaderColumn>
-            <TableHeaderColumn>Paid with:</TableHeaderColumn>
+            <TableHeaderColumn>Paid with</TableHeaderColumn>
+            <TableHeaderColumn>Balance</TableHeaderColumn>
             <TableHeaderColumn>Customer</TableHeaderColumn>
           </TableRow>
         </TableHeader>
