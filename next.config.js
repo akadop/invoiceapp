@@ -2,8 +2,6 @@ const { IgnorePlugin } = require('webpack')
 
 const path = require('path')
 const glob = require('glob')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const PurifyCSSPlugin = require('purifycss-webpack')
 const ProgressPlugin = require('webpack/lib/ProgressPlugin')
 const webpack = require('webpack')
 const CompressionPlugin = require('compression-webpack-plugin')
@@ -24,23 +22,6 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['babel-loader', 'raw-loader', 'postcss-loader'],
-      },
-      {
-        test: /\.s(a|c)ss$/,
-        use: [
-          'babel-loader',
-          'raw-loader',
-          'postcss-loader',
-          {
-            loader: 'sass-loader',
-            options: {
-              includePaths: ['styles', 'node_modules']
-                .map(d => path.join(__dirname, d))
-                .map(g => glob.sync(g))
-                .reduce((a, c) => a.concat(c), []),
-            },
-          },
-        ],
       }
     )
     if (!dev) {
@@ -86,12 +67,6 @@ module.exports = {
           // Overwrite the default 80% compression-- anything is better than
           // nothing
           minRatio: 0.99,
-        }),
-        // remove unused css
-        new PurifyCSSPlugin({
-          // Give paths to parse for rules. These should be absolute!
-          moduleExtensions: ['.jsx', '.html', '.js'],
-          paths: glob.sync(path.join(__dirname, 'pages/index.js')),
         }),
         // Service Worker
         new SWPrecacheWebpackPlugin({
