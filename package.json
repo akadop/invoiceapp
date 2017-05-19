@@ -25,7 +25,6 @@
     "material-ui": "0.18.1",
     "next": "2.4.0",
     "prop-types": "15.5.10",
-    "ramda": "0.23.0",
     "raw-loader": "^0.5.1",
     "react-apollo": "1.2.0",
     "react-cookie": "^1.0.5",
@@ -37,7 +36,6 @@
     "react": "15.5.4",
     "redux-form-material-ui": "4.2.0",
     "redux-form": "6.7.0",
-    "redux-logger": "3.0.6",
     "redux-thunk": "2.2.0",
     "redux": "3.6.0",
     "request": "^2.81.0",
@@ -45,7 +43,6 @@
   },
   "devDependencies": {
     "autoprefixer": "7.1.0",
-    "cross-env": "^5.0.0",
     "babel-plugin-material-ui": "^0.3.1",
     "babel-plugin-module-resolver": "2.7.1",
     "babel-plugin-ramda": "^1.2.0",
@@ -54,16 +51,19 @@
     "babel-preset-react-optimize": "^1.0.1",
     "babel-preset-react": "^6.24.1",
     "caporal": "0.5.0",
+    "cross-env": "^5.0.0",
     "css-loader": "0.28.1",
     "extract-text-webpack-plugin": "^2.1.0",
     "is-date-object": "1.0.1",
     "module-alias": "^2.0.0",
     "now": "5.3.1",
-    "offline-plugin": "^4.7.0",
+    "offline-plugin": "^4.8.0",
     "postcss-easy-import": "2.0.0",
     "postcss-loader": "2.0.5",
-    "style-loader": "0.17.0",
     "preload-webpack-plugin": "^1.2.2",
-    "recompose": "^0.23.4"
+    "ramda": "0.23.0",
+    "recompose": "^0.23.4",
+    "redux-logger": "3.0.6",
+    "style-loader": "0.17.0"
   }
 }
