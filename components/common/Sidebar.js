@@ -32,7 +32,7 @@ export default ({ isAuthenticated, sidebarOpen }) => {
       <div style={styles.logo}>
         Invoice App
       </div>
-      <Menu style={styles.menu}>
+      <Menu style={styles.menu} disableAutoFocus>
         <MenuItem
           primaryText="Create Invoice"
           leftIcon={<Web />}
