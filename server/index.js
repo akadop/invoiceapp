@@ -56,11 +56,6 @@ const authenticator = (err, req, res, next) => {
   next()
 }
 
-// Service worker route (service worker work only in browser and need to be fetch).
-// provideServiceWorker :: Request a, Response b -> Response b
-const provideServiceWorker = (req, res) =>
-  res.sendFile(path.resolve('./.next/sw.js'))
-
 // API Auth0 /auth route
 // auth :: Request a, Response b -> Response b
 const auth = (req, res) => {

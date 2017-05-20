@@ -10,15 +10,19 @@ import Web from 'material-ui/svg-icons/av/web'
 const styles = {
   logo: {
     cursor: 'pointer',
-    fontSize: 22,
-    color: '#333',
+    backgroundColor: '#fff',
     lineHeight: `${spacing.desktopKeylineIncrement}px`,
     fontWeight: typography.fontWeightLight,
-    paddingLeft: 30,
-    height: 56,
+    fontSize: 18,
+    color: '#333',
+    height: 150,
+    display: 'flex',
   },
   menuItem: {
     fontSize: 14,
+    textAlign: 'center',
+    fontWeight: typography.fontWeightLight,
+    width: '100%',
   },
   menu: {
     width: 220,
@@ -30,18 +34,22 @@ export default ({ isAuthenticated, sidebarOpen }) => {
   return (
     <Drawer open={sidebarOpen}>
       <div style={styles.logo}>
-        Invoice App
+        <img
+          src="../../static/logo2.svg"
+          alt="Carpet Mills of America"
+          width="100%"
+        />
       </div>
       <Menu style={styles.menu} disableAutoFocus>
         <MenuItem
           primaryText="Create Invoice"
-          leftIcon={<Web />}
+          leftIcon={<Web color="#7e57c2" />}
           onTouchTap={() => Router.push('/')}
           style={styles.menuItem}
         />
         <MenuItem
           primaryText="Employee Manual"
-          leftIcon={<ContentLink />}
+          leftIcon={<ContentLink color="#7e57c2" />}
           onTouchTap={() => Router.push('/employee-manual')}
           style={styles.menuItem}
         />
