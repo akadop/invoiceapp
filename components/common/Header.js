@@ -1,11 +1,4 @@
-import {
-  AppBar,
-  Divider,
-  FlatButton,
-  IconButton,
-  IconMenu,
-  MenuItem,
-} from 'material-ui'
+import { AppBar, FlatButton, IconButton, IconMenu, MenuItem } from 'material-ui'
 
 import AccountIcon from 'material-ui/svg-icons/action/account-circle'
 import LogoutIcon from 'material-ui/svg-icons/communication/vpn-key'
@@ -44,38 +37,39 @@ export default ({
         <IconButton
           style={styled.menuButton}
           onTouchTap={handleToggleSidebarOpen}
-          color="222"
+          color="#fff"
         >
           <Menu />
         </IconButton>
       }
       iconElementRight={
-        <IconMenu
-          iconButtonElement={
-            <IconButton>
-              <AccountIcon color="#fff" />
-            </IconButton>
-          }
-          targetOrigin={{ horizontal: 'right', vertical: 'top' }}
-          anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
-        >
-          <MenuItem
-            leftIcon={<PeopleIcon />}
-            primaryText="My Account"
-            onTouchTap={() =>
-              toastr.warning(
-                'My Account',
-                'This feature is not yet available !'
-              )}
-          />
-          <Divider />
-          <MenuItem
-            leftIcon={<LogoutIcon />}
-            primaryText="Disconnect"
-            onTouchTap={logout}
-            onMouseEnter={() => Router.prefetch('/auth')}
-          />
-        </IconMenu>
+        isAuthenticated && user
+          ? <IconMenu
+              iconButtonElement={
+                <IconButton>
+                  <AccountIcon color="#fff" />
+                </IconButton>
+              }
+              targetOrigin={{ horizontal: 'right', vertical: 'top' }}
+              anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+            >
+              <MenuItem
+                leftIcon={<PeopleIcon />}
+                primaryText="My Account"
+                onTouchTap={() =>
+                  toastr.warning(
+                    'My Account',
+                    'This feature is not yet available !'
+                  )}
+              />
+              <MenuItem
+                leftIcon={<LogoutIcon />}
+                primaryText="Disconnect"
+                onTouchTap={logout}
+                onMouseEnter={() => Router.prefetch('/auth')}
+              />
+            </IconMenu>
+          : null
       }
     />
   )

@@ -11,8 +11,6 @@ const styles = {
   logo: {
     cursor: 'pointer',
     backgroundColor: '#fff',
-    lineHeight: `${spacing.desktopKeylineIncrement}px`,
-    fontWeight: typography.fontWeightLight,
     fontSize: 18,
     color: '#333',
     height: 150,
@@ -20,12 +18,14 @@ const styles = {
   },
   menuItem: {
     fontSize: 14,
-    fontWeight: 400,
-    textAlign: 'center',
+    lineHeight: `${spacing.desktopKeylineIncrement}px`,
+    fontWeight: typography.fontWeightMedium,
     width: '100%',
+    color: '#222',
   },
   menu: {
     width: 220,
+    backgroundColor: '#fff',
     marginLeft: 10,
   },
 }
@@ -43,13 +43,13 @@ export default ({ isAuthenticated, sidebarOpen }) => {
       <Menu style={styles.menu} disableAutoFocus>
         <MenuItem
           primaryText="Create Invoice"
-          leftIcon={<Web color="#7e57c2" />}
+          leftIcon={<Web color={'ff4081'} />}
           onTouchTap={() => Router.push('/')}
           style={styles.menuItem}
         />
         <MenuItem
           primaryText="Employee Manual"
-          leftIcon={<ContentLink color="#7e57c2" />}
+          leftIcon={<ContentLink color="#ff4081" />}
           onTouchTap={() => Router.push('/employee-manual')}
           style={styles.menuItem}
         />
