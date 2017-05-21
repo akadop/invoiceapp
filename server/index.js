@@ -14,7 +14,9 @@ const bodyParser = require('body-parser')
 const { or } = require('ramda')
 
 const { version, description, name } = require('../package')
+
 const { API_AUTH_URL, API_AUTH_TOKEN_SECRET } = require('../metadata')
+
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 
 // Request module is the easiest way to perform HTTP request with cookies plug.
@@ -51,7 +53,9 @@ const attachment = () => request.jar()
 // authenticator :: Error a, Request b, Response c, Function d -> _
 const authenticator = (err, req, res, next) => {
   if (err.name === 'UnauthorizedError') {
-    return res.status(401).json({ err: 'Invalid authorization via JWT token.' })
+    return res.status(401).json({
+      err: 'Invalid authorization via JWT token.',
+    })
   }
   next()
 }
@@ -63,9 +67,18 @@ const auth = (req, res) => {
   const jar = attachment()
   const options = {
     method: 'POST',
-    qs: { format: 'json' },
-    headers: { 'Content-Type': 'application/json' },
-    form: { login: username, password, format: 'json', remind: 'true' },
+    qs: {
+      format: 'json',
+    },
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    form: {
+      ogin: username,
+      password,
+      format: 'json',
+      remind: 'true',
+    },
     jar,
   }
 }

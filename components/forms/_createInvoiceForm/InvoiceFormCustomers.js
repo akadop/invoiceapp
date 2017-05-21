@@ -22,6 +22,14 @@ const InvoiceFormCustomers = () => {
       />
       <Divider />
       <Field
+        name="driversLisc"
+        component={TextField}
+        floatingLabelText="Drivers Liscence #"
+        fullWidth
+        underlineShow={false}
+      />
+      <Divider />
+      <Field
         name="email"
         component={TextField}
         underlineShow={false}

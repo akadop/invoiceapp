@@ -20,8 +20,8 @@ const styles = {
   },
   menuItem: {
     fontSize: 14,
+    fontWeight: 400,
     textAlign: 'center',
-    fontWeight: typography.fontWeightLight,
     width: '100%',
   },
   menu: {
