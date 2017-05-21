@@ -9,15 +9,13 @@ const InvoiceFormCustomers = () => {
         name="firstName"
         component={TextField}
         floatingLabelText="First Name"
-        fullWidth
+        style={{ marginLeft: 20, width: '50%' }}
         underlineShow={false}
       />
-      <Divider />
       <Field
         name="lastName"
         component={TextField}
         floatingLabelText="Last Name"
-        fullWidth
         underlineShow={false}
       />
       <Divider />
@@ -25,31 +23,27 @@ const InvoiceFormCustomers = () => {
         name="driversLisc"
         component={TextField}
         floatingLabelText="Drivers Liscence #"
-        fullWidth
+        style={{ marginLeft: 20, width: '50%' }}
         underlineShow={false}
       />
-      <Divider />
       <Field
         name="email"
         component={TextField}
         underlineShow={false}
         floatingLabelText="Email"
-        fullWidth
       />
       <Divider />
       <Field
         name="address"
         component={TextField}
         floatingLabelText="Address"
-        fullWidth
+        style={{ marginLeft: 20, width: '50%' }}
         underlineShow={false}
       />
-      <Divider />
       <Field
         name="addressCity"
         component={TextField}
         floatingLabelText="City"
-        fullWidth
         underlineShow={false}
       />
       <Divider />
@@ -57,15 +51,13 @@ const InvoiceFormCustomers = () => {
         name="addressState"
         component={TextField}
         floatingLabelText="State"
-        fullWidth
+        style={{ marginLeft: 20, width: '50%' }}
         underlineShow={false}
       />
-      <Divider />
       <Field
         name="addressZip"
         component={TextField}
         floatingLabelText="Zipcode"
-        fullWidth
         underlineShow={false}
       />
     </div>
