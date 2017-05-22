@@ -65,16 +65,14 @@ const renderItems = ({ fields, meta: { error }, props }) => {
               name={`${item}.refNumber`}
               component={TextField}
               underlineShow={false}
-              fullWidth
+              style={{ marginLeft: 20, width: '50%' }}
             />
-            <Divider />
             <Field
               floatingLabelText="Color"
               hintText="Color"
               name={`${item}.color`}
               component={TextField}
               underlineShow={false}
-              fullWidth
             />
             <Divider />
             <Field
@@ -83,8 +81,8 @@ const renderItems = ({ fields, meta: { error }, props }) => {
               name={`${item}.dimensionLength`}
               component={TextField}
               underlineShow={false}
+              style={{ marginLeft: 20, width: '50%' }}
             />
-            <Divider />
             <Field
               floatingLabelText="Width (dimension)"
               hintText="Width (dimension)"
@@ -99,8 +97,8 @@ const renderItems = ({ fields, meta: { error }, props }) => {
               name={`${item}.unitPrice`}
               component={TextField}
               underlineShow={false}
+              style={{ marginLeft: 20, width: '50%' }}
             />
-            <Divider />
             <Field
               floatingLabelText="Estimated Quantity"
               hintText="Estimated Quantity"
@@ -115,8 +113,8 @@ const renderItems = ({ fields, meta: { error }, props }) => {
               name={`${item}.finalQuantity`}
               component={TextField}
               underlineShow={false}
+              style={{ marginLeft: 20, width: '50%' }}
             />
-            <Divider />
             <Field
               floatingLabelText="Extended Price"
               hintText="Extended Price"
