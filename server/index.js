@@ -74,7 +74,7 @@ const auth = (req, res) => {
       'Content-Type': 'application/json',
     },
     form: {
-      ogin: username,
+      login: username,
       password,
       format: 'json',
       remind: 'true',
