@@ -20,6 +20,7 @@ export default class extends Document {
           />
           <link rel="manifest" href="static/manifest.json" />
           <meta name="mobile-web-app-capable" content="yes" />
+          <meta name="theme-color" content="#7e57c2" />
           <link
             rel="icon"
             type="image/png"
