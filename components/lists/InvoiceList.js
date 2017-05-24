@@ -12,6 +12,7 @@ import {
   TableRowColumn,
 } from 'material-ui'
 
+import InvoiceDialogContainer from '../../containers/InvoiceDialogContainer'
 import ModeEditIcon from 'material-ui/svg-icons/editor/mode-edit'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import SecurityIcon from 'material-ui/svg-icons/hardware/security'
@@ -19,7 +20,10 @@ import { map } from 'ramda'
 
 // use allInvoices query and sort the data into a table
 
-export default ({ data: { allInvoices = [] } }) => {
+export default ({
+  actions: { openInvoiceDialog, selectInvoice },
+  data: { allInvoices = [] },
+}) => {
   const mapInvoices = map(
     ({ id, createdAt, customer, items, payment, scheduleDate, storeName }) => (
       <TableRow key={id} hoverable={true}>
@@ -29,6 +33,17 @@ export default ({ data: { allInvoices = [] } }) => {
         <TableRowColumn>{payment.balance}</TableRowColumn>
         <TableRowColumn>
           {customer.lastName}, {customer.firstName}
+        </TableRowColumn>
+        <TableRowColumn>
+          <IconMenu
+            iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+            anchorOrigin={{ horizontal: 'left', vertical: 'top' }}
+            targetOrigin={{ horizontal: 'left', vertical: 'top' }}
+            onTouchTap={() => {
+              selectInvoice({ selectedInvoice: id })
+              openInvoiceDialog()
+            }}
+          />
         </TableRowColumn>
       </TableRow>
     )
@@ -44,13 +59,14 @@ export default ({ data: { allInvoices = [] } }) => {
             <TableHeaderColumn>Paid with</TableHeaderColumn>
             <TableHeaderColumn>Balance</TableHeaderColumn>
             <TableHeaderColumn>Customer</TableHeaderColumn>
+            <TableHeaderColumn>Full Invoice</TableHeaderColumn>
           </TableRow>
         </TableHeader>
         <TableBody>
           {mapInvoices(allInvoices)}
         </TableBody>
       </Table>
-
+      <InvoiceDialogContainer />
     </Paper>
   )
 }

@@ -54,9 +54,6 @@ export default ({
       alignItems: 'flex-start',
       justifyContent: 'center',
     },
-    customContentStyle: {
-      width: '85%',
-    },
   }
 
   return (

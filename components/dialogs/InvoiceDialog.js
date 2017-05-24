@@ -4,7 +4,6 @@ import FlatButton from 'material-ui/FlatButton'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import { HoverMorphIcon } from 'react-svg-buttons'
 import RaisedButton from 'material-ui/RaisedButton'
-import theme from '../../lib/util/theme'
 
 export default ({
   data: { Invoice },
@@ -15,48 +14,32 @@ export default ({
     <FlatButton label="Close" primary={true} onTouchTap={closeInvoiceDialog} />,
   ]
 
-  const customContentStyle = {
-    width: '85%',
+  const styles = {
+    InvoiceView: {
+      display: 'flex',
+      alignItems: 'flex-start',
+      justifyContent: 'center',
+    },
   }
 
   return (
     Invoice &&
-    <div>
-      <FloatingActionButton
-        secondary={true}
-        style={{
-          position: 'fixed',
-          right: '15px',
-          bottom: '85px',
-          marginRight: '20px',
-        }}
-        onTouchTap={openInvoiceDialog}
-      >
-        <HoverMorphIcon
-          baseType="plus"
-          hoverType="plusSparks"
-          size={56}
-          thickness={3}
-          color="#ffffff"
-        />
-      </FloatingActionButton>
+    <div style={styles.InvoiceView}>
       <Dialog
         title={Invoice.id}
         actions={actions}
         modal={false}
         open={invoiceDialogOpened}
         onRequestClose={closeInvoiceDialog}
-        contentStyle={style.customContentStyle}
         background="#FAFAFA"
-        bodyStyle={{
-          marginBottom: '5px',
-          padding: 0,
+        contentStyle={{
+          width: '85%',
+          maxWidth: '1440px',
+          transform: 'translate(0px, 32px)',
         }}
         titleStyle={{
           textAlign: 'center',
-          color: '#fff',
-          borderBottom: `5px solid ${theme.palette.accent2Color}`,
-          backgroundColor: theme.palette.accent1Color,
+          borderBottom: '4px solid #ff4081',
           marginBottom: '20px',
         }}
       >
