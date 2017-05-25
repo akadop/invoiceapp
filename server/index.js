@@ -67,12 +67,8 @@ const auth = (req, res) => {
   const jar = attachment()
   const options = {
     method: 'POST',
-    qs: {
-      format: 'json',
-    },
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    qs: { format: 'json' },
+    headers: { 'Content-Type': 'application/json' },
     form: {
       login: username,
       password,
@@ -117,8 +113,8 @@ const serve = (argv, { version, description, name }) => {
             ],
           }
           server
-            .use(cookieParser())
             .use(compression())
+            .use(cookieParser())
             .use(bodyParser.json({ limit: '3mb' }))
             .use(
               expressJwt({ secret: API_AUTH_TOKEN_SECRET }).unless(isAuthorized)
