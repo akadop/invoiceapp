@@ -1,7 +1,7 @@
 import { closeInvoiceDialog, openInvoiceDialog } from '../lib/actions/ui'
+import { compose, or } from 'ramda'
 
 import InvoiceDialog from '../components/dialogs/InvoiceDialog'
-import { compose } from 'ramda'
 import { connect } from 'react-redux'
 import { graphql } from 'react-apollo'
 import mapActions from '../lib/util/mapActions'

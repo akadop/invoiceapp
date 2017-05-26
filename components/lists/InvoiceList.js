@@ -4,6 +4,7 @@ import {
   IconMenu,
   MenuItem,
   Paper,
+  RaisedButton,
   Table,
   TableBody,
   TableHeader,
@@ -12,6 +13,7 @@ import {
   TableRowColumn,
 } from 'material-ui'
 
+import InvoiceDialogContainer from '../../containers/InvoiceDialogContainer'
 import ModeEditIcon from 'material-ui/svg-icons/editor/mode-edit'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import SecurityIcon from 'material-ui/svg-icons/hardware/security'
@@ -33,13 +35,22 @@ export default ({
         <TableRowColumn>
           {customer.lastName}, {customer.firstName}
         </TableRowColumn>
+        <TableRowColumn>
+          <RaisedButton
+            secondary
+            label="view details"
+            onTouchTap={() => {
+              selectInvoice({ selectedInvoice: id }), openInvoiceDialog()
+            }}
+          />
+        </TableRowColumn>
       </TableRow>
     )
   )
 
   return (
     <Paper zDepth={2} style={{ margin: 20 }}>
-      <Table selectable={false} showRowHover={true} stripedRows={true}>
+      <Table selectable={false} showRowHover={true} stripedRows={false}>
         <TableHeader>
           <TableRow>
             <TableHeaderColumn>Created</TableHeaderColumn>
@@ -47,12 +58,14 @@ export default ({
             <TableHeaderColumn>Paid with</TableHeaderColumn>
             <TableHeaderColumn>Balance</TableHeaderColumn>
             <TableHeaderColumn>Customer</TableHeaderColumn>
+            <TableHeaderColumn>Full Invoice</TableHeaderColumn>
           </TableRow>
         </TableHeader>
         <TableBody>
           {mapInvoices(allInvoices)}
         </TableBody>
       </Table>
+      <InvoiceDialogContainer />
     </Paper>
   )
 }
