@@ -1,8 +1,6 @@
 import {
   Divider,
   IconButton,
-  IconMenu,
-  MenuItem,
   Paper,
   RaisedButton,
   Table,
@@ -14,9 +12,6 @@ import {
 } from 'material-ui'
 
 import InvoiceDialogContainer from '../../containers/InvoiceDialogContainer'
-import ModeEditIcon from 'material-ui/svg-icons/editor/mode-edit'
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
-import SecurityIcon from 'material-ui/svg-icons/hardware/security'
 import { map } from 'ramda'
 
 // use allInvoices query and sort the data into a table
@@ -32,7 +27,6 @@ export default ({
         <TableRowColumn>{createdAt}</TableRowColumn>
         <TableRowColumn>{storeName}</TableRowColumn>
         <TableRowColumn>{payment.paymentBy}</TableRowColumn>
-        <TableRowColumn>{payment.balance}</TableRowColumn>
         <TableRowColumn>
           {customer.lastName}, {customer.firstName}
         </TableRowColumn>
@@ -51,13 +45,12 @@ export default ({
 
   return (
     <Paper zDepth={2} style={{ margin: 20 }}>
-      <Table selectable={false} showRowHover={true} stripedRows={false}>
+      <Table selectable={false} showRowHover={false} stripedRows={true}>
         <TableHeader>
           <TableRow>
             <TableHeaderColumn>Created</TableHeaderColumn>
             <TableHeaderColumn>Store Location</TableHeaderColumn>
             <TableHeaderColumn>Paid with</TableHeaderColumn>
-            <TableHeaderColumn>Balance</TableHeaderColumn>
             <TableHeaderColumn>Customer</TableHeaderColumn>
             <TableHeaderColumn>Full Invoice</TableHeaderColumn>
           </TableRow>
