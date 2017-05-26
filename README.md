@@ -1,7 +1,6 @@
 # invoice app
 
 - Progressive web app with Next.js (server rendered node.js), React, Redux (state management), Apollo (graphql client).
-- Universal rendering with 100/100 on Google Lighthouse quality test.
 - Service-worker, lazy-loading, code-splitting, server-side rendering, offline support.
 - Hard-caching policy, Gzip compression, HTTP/2, SSL, home-screen installer, manifest.
 - Small client-side foot-print & latency for the best experience (0kb/350ms cache/offline, 100kb/500ms first render).

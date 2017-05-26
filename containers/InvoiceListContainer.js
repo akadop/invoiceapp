@@ -19,7 +19,7 @@ export const mapDispatchToProps = mapActions({
 export const container = compose(
   connect(mapStateToProps, mapDispatchToProps),
   graphql(allInvoices, {
-    options: ({ selectedInvoice, filteredInvoiceCustomer }) => ({
+    options: ({ selectedInvoice }) => ({
       variables: {
         invoiceId: or(selectedInvoice, ''),
       },
