@@ -20,7 +20,7 @@ export const container = compose(
   graphql(retrieveInvoiceById, {
     options: ({ selectedInvoice }) => ({
       variables: {
-        invoiceId: selectedInvoice,
+        invoiceId: or(selectedInvoice, ''),
       },
       cache: 'network-only',
     }),

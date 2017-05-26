@@ -60,25 +60,6 @@ const authenticator = (err, req, res, next) => {
   next()
 }
 
-// API Auth0 /auth route
-// auth :: Request a, Response b -> Response b
-const auth = (req, res) => {
-  const { username, password } = req.body
-  const jar = attachment()
-  const options = {
-    method: 'POST',
-    qs: { format: 'json' },
-    headers: { 'Content-Type': 'application/json' },
-    form: {
-      login: username,
-      password,
-      format: 'json',
-      remind: 'true',
-    },
-    jar,
-  }
-}
-
 // Serve the application.
 // serve :: [String a], AppPackage b -> _
 const serve = (argv, { version, description, name }) => {

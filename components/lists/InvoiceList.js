@@ -23,6 +23,7 @@ import { map } from 'ramda'
 
 export default ({
   actions: { openInvoiceDialog, selectInvoice },
+  selectedInvoice,
   data: { allInvoices = [] },
 }) => {
   const mapInvoices = map(

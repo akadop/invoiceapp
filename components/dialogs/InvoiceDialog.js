@@ -6,6 +6,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 export default ({
   data: { Invoice },
   invoiceDialogOpened,
+  selectedInvoice,
   actions: { closeInvoiceDialog, openInvoiceDialog },
 }) => {
   const actions = [
@@ -19,34 +20,33 @@ export default ({
       justifyContent: 'center',
     },
   }
-
-  return (
-    <div style={styles.InvoiceView}>
-      <Dialog
-        title="Invoice Details"
-        actions={actions}
-        modal={false}
-        open={invoiceDialogOpened}
-        onRequestClose={closeInvoiceDialog}
-        background="#FAFAFA"
-        contentStyle={{
-          width: '85%',
-          maxWidth: '1440px',
-          transform: 'translate(0px, 32px)',
-          textSize: '14px',
-        }}
-        titleStyle={{
-          textAlign: 'center',
-          borderBottom: '4px solid #ff4081',
-        }}
-      >
-        <h4>Invoice ID</h4>
-        <p>{Invoice.id}</p>
-        <h4>Customer First Name:</h4>
-        <p>{Invoice.customer.firstName}</p>
-        <h4>Customer Last Name:</h4>
-        <p>{Invoice.customer.lastName}</p>
-      </Dialog>
-    </div>
-  )
+  if (selectedInvoice) {
+    return (
+      <div style={styles.InvoiceView}>
+        <Dialog
+          title="Invoice Details"
+          actions={actions}
+          modal={false}
+          open={invoiceDialogOpened}
+          onRequestClose={closeInvoiceDialog}
+          background="#FAFAFA"
+          contentStyle={{
+            width: '85%',
+            maxWidth: '1440px',
+            transform: 'translate(0px, 32px)',
+            textSize: '14px',
+          }}
+          titleStyle={{
+            textAlign: 'center',
+            borderBottom: '4px solid #ff4081',
+          }}
+        >
+          <h4>Customer First Name:</h4>
+          <p>{Invoice.customer.firstName}</p>
+          <h4>Customer Last Name:</h4>
+          <p>{Invoice.customer.lastName}</p>
+        </Dialog>
+      </div>
+    )
+  } else return null
 }
