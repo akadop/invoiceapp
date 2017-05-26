@@ -76,7 +76,7 @@ export default ({
         contentStyle={{
           width: '85%',
           maxWidth: '1440px',
-          transform: 'translate(10px, 32px)',
+          transform: 'translate(0px, 32px)',
         }}
         actions={actions}
         modal={true}

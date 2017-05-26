@@ -33,16 +33,19 @@ export default ({
           width: '85%',
           maxWidth: '1440px',
           transform: 'translate(0px, 32px)',
+          textSize: '14px',
         }}
         titleStyle={{
           textAlign: 'center',
           borderBottom: '4px solid #ff4081',
-          marginBottom: '20px',
         }}
       >
-        <h4>Invoice ID: {Invoice.id}</h4>
-        <p>Customer First Name: {Invoice.firstName}</p>
-        <p>Customer Last Name: {Invoice.lastName}</p>
+        <h4>Invoice ID</h4>
+        <p>{Invoice.id}</p>
+        <h4>Customer First Name:</h4>
+        <p>{Invoice.customer.firstName}</p>
+        <h4>Customer Last Name:</h4>
+        <p>{Invoice.customer.lastName}</p>
       </Dialog>
     </div>
   )
