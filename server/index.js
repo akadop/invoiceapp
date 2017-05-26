@@ -102,6 +102,9 @@ const serve = (argv, { version, description, name }) => {
             )
             .use(authenticator)
             .post('/api/auth', auth)
+            .get('/sw.js', (req, res) =>
+              res.sendFile(path.resolve('./.next/sw.js'))
+            )
             .get('*', (req, res) => {
               cookie.plugToRequest(req, res)
 

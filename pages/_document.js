@@ -10,7 +10,7 @@ export default class extends Document {
 
   render() {
     return (
-      <html>
+      <html lang="en">
         <Head>
           <title>Demo Invoice</title>
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />

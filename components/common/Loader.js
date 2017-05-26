@@ -3,7 +3,7 @@ export default ({ isLoading }) => {
     <div>
       <div className={isLoading ? 'container with-opacity' : 'container'}>
         <div className="loader-container">
-          <img src="/static/three-dots.svg" width="55" />
+          <img src="/static/three-dots.svg" width="55" alt="Loading" />
         </div>
       </div>
       <style jsx>{`
