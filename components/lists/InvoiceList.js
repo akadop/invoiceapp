@@ -1,6 +1,4 @@
 import {
-  Divider,
-  IconButton,
   Paper,
   RaisedButton,
   Table,
