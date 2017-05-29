@@ -22,7 +22,7 @@ export default ({
   }
   return (
     <div>
-      <Sidebar isAuthenticated={isAuthenticated} sidebarOpen={sidebarOpen} />
+      <Sidebar sidebarOpen={sidebarOpen} />
       <div style={styles.baseContainer}>
         <Header
           isAuthenticated={isAuthenticated}

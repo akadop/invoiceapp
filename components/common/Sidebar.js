@@ -30,7 +30,7 @@ const styles = {
   },
 }
 
-export default ({ isAuthenticated, sidebarOpen }) => {
+export default ({ sidebarOpen }) => {
   return (
     <Drawer open={sidebarOpen}>
       <div style={styles.logo}>

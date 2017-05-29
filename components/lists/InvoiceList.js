@@ -9,14 +9,14 @@ import {
   TableRowColumn,
 } from 'material-ui'
 
-import InvoiceDialogContainer from '../../containers/InvoiceDialogContainer'
 import { map } from 'ramda'
 
 // use allInvoices query and sort the data into a table
 
 export default ({
-  actions: { openInvoiceDialog, selectInvoice },
+  actions: { openInvoiceDialog, selectInvoice, closeInvoiceDialog },
   selectedInvoice,
+  invoiceDialogOpened,
   data: { allInvoices = [] },
 }) => {
   const mapInvoices = map(
@@ -41,9 +41,51 @@ export default ({
     )
   )
 
+  const styles = {
+    InvoiceView: {
+      display: 'flex',
+      alignItems: 'flex-start',
+      justifyContent: 'center',
+    },
+  }
+
+  const actions = [
+    <FlatButton label="Close" primary={true} onTouchTap={closeInvoiceDialog} />,
+  ]
+
+  const InvoiceDialog = () => {
+    return (
+      <div style={styles.InvoiceView}>
+        <Dialog
+          title="Invoice Details"
+          actions={actions}
+          modal={true}
+          open={invoiceDialogOpened}
+          onRequestClose={closeInvoiceDialog}
+          background="#FAFAFA"
+          contentStyle={{
+            width: '85%',
+            maxWidth: '1440px',
+            transform: 'translate(0px, 32px)',
+            textSize: '14px',
+          }}
+          titleStyle={{
+            textAlign: 'center',
+            borderBottom: '4px solid #ff4081',
+          }}
+        >
+          <h4>Customer First Name:</h4>
+          <p>{Invoice.customer.firstName}</p>
+          <h4>Customer Last Name:</h4>
+          <p>{Invoice.customer.lastName}</p>
+        </Dialog>
+      </div>
+    )
+  }
+
   return (
     <Paper zDepth={2} style={{ margin: 20 }}>
-      <Table selectable={false} showRowHover={false} stripedRows={true}>
+      <Table selectable={true} showRowHover={true}>
         <TableHeader>
           <TableRow>
             <TableHeaderColumn>Created</TableHeaderColumn>
@@ -57,7 +99,7 @@ export default ({
           {mapInvoices(allInvoices)}
         </TableBody>
       </Table>
-      <InvoiceDialogContainer />
+      <InvoiceDialog />
     </Paper>
   )
 }

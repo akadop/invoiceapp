@@ -1,127 +1,27 @@
-const path = require('path')
-const fs = require('fs')
-const https = require('https')
-const prog = require('caporal')
 const express = require('express')
-const compression = require('compression')
+const path = require('path')
 const next = require('next')
-const cookie = require('react-cookie')
-const cookieParser = require('cookie-parser')
-const jwt = require('jsonwebtoken')
-const expressJwt = require('express-jwt')
-const request = require('request')
-const bodyParser = require('body-parser')
-const { or } = require('ramda')
 
-const { version, description, name } = require('../package')
+const dev = process.env.NODE_ENV !== 'production'
+const app = next({ dir: '.', dev })
+const handle = app.getRequestHandler()
 
-const { API_AUTH_URL, API_AUTH_TOKEN_SECRET } = require('../metadata')
+const PORT = process.env.PORT || 3000
 
-// Request module is the easiest way to perform HTTP request with cookies plug.
-// future :: FetchOptions a -> Promise b
-const future = options =>
-  new Promise((resolve, reject) => {
-    try {
-      request(
-        options,
-        (err, response, body) =>
-          or(err, !body) ? reject(or(err, 'Empty response')) : resolve(body)
-      )
-    } catch (err) {
-      reject(err)
-    }
+app.prepare().then(_ => {
+  const server = express()
+
+  // serve service worker
+  server
+    .use(compression())
+    .use(bodyParser.json())
+    .use(bodyParser.urlencoded({ extended: true }))
+    .get('/sw.js', (req, res) => res.sendFile(path.resolve('./.next/sw.js')))
+    .get('*', (req, res) => handle(req, res))
+
+  server.listen(PORT, err => {
+    if (err) throw error
+
+    console.log(`> App running on port ${PORT}`)
   })
-
-// Transform serialized cookies into real request cookies
-// mapCookiesToAttachment :: RequestCookie a, String b -> RequestCookie a
-const mapCookiesToAttachment = (attachment, cookies) => {
-  cookies.split('; ').forEach(cookie => attachment.setCookie(cookie))
-
-  return attachment
-}
-
-// hasApiError :: Response a -> Boolean b
-const hasApiError = response => response.message
-
-// Provide a new cookie request.
-// attachement :: _ -> RequestCookie a
-const attachment = () => request.jar()
-
-// JWT Express middleware.
-// authenticator :: Error a, Request b, Response c, Function d -> _
-const authenticator = (err, req, res, next) => {
-  if (err.name === 'UnauthorizedError') {
-    return res.status(401).json({
-      err: 'Invalid authorization via JWT token.',
-    })
-  }
-  next()
-}
-
-// Serve the application.
-// serve :: [String a], AppPackage b -> _
-const serve = (argv, { version, description, name }) => {
-  prog
-    .name(name)
-    .bin('node server.js')
-    .description(description)
-    .version(version)
-    .command('start', 'Start app')
-    .argument('<port>', 'App server port, API route will be available as /api')
-    .action(({ port }) => {
-      const app = next({
-        dev: process.env.NODE_ENV === 'development',
-        dir: process.cwd(),
-      })
-      const handle = app.getRequestHandler()
-      const server = express()
-      app
-        .prepare()
-        .then(() => {
-          const isAuthorized = {
-            path: [
-              '/api/auth',
-              '/auth',
-              '/users',
-              '/create-invoice',
-              '/sw.js',
-              '/',
-              '/favicon.ico',
-              /\/_next/,
-              /\/static/,
-            ],
-          }
-          server
-            .use(compression())
-            .use(cookieParser())
-            .use(bodyParser.json({ limit: '3mb' }))
-            .use(
-              expressJwt({ secret: API_AUTH_TOKEN_SECRET }).unless(isAuthorized)
-            )
-            .use(authenticator)
-            .post('/api/auth', auth)
-            .get('/sw.js', (req, res) =>
-              res.sendFile(path.resolve('./.next/sw.js'))
-            )
-            .get('*', (req, res) => {
-              cookie.plugToRequest(req, res)
-
-              return handle(req, res)
-            })
-        })
-        .then(() => {
-          server.listen(port, err => {
-            if (err) {
-              throw err
-            }
-
-            console.log(`> Ready on https://localhost:${port}`)
-          })
-        })
-        .catch(err => console.error(err))
-    })
-
-  prog.parse(argv)
-}
-
-serve(process.argv, { version, description, name })
+})
