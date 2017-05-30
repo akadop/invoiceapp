@@ -7,11 +7,7 @@ import { logout } from '../lib/stories/auth'
 import mapActions from '../lib/util/mapActions'
 import { toggleSidebarOpen } from '../lib/actions/ui'
 
-export const mapStateToProps = ({
-  auth: { isAuthenticated },
-  ui: { isLoading, sidebarOpen },
-}) => ({
-  isAuthenticated,
+export const mapStateToProps = ({ ui: { isLoading, sidebarOpen } }) => ({
   isLoading,
   sidebarOpen,
 })

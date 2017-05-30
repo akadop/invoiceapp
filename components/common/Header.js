@@ -9,7 +9,6 @@ import { toastr } from 'react-redux-toastr'
 
 // top nav bar
 export default ({
-  isAuthenticated,
   handleToggleSidebarOpen,
   styles,
   user,
@@ -43,7 +42,7 @@ export default ({
         </IconButton>
       }
       iconElementRight={
-        isAuthenticated && user
+        user
           ? <IconMenu
               iconButtonElement={
                 <IconButton>
@@ -52,6 +51,7 @@ export default ({
               }
               targetOrigin={{ horizontal: 'right', vertical: 'top' }}
               anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+              disableAutoFocus
             >
               <MenuItem
                 leftIcon={<PeopleIcon />}

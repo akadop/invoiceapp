@@ -7,7 +7,6 @@ import { toggleSidebarOpen } from '../../lib/actions/ui'
 
 export default ({
   children,
-  isAuthenticated,
   isLoading,
   sidebarOpen,
   data: { user },
@@ -25,7 +24,6 @@ export default ({
       <Sidebar sidebarOpen={sidebarOpen} />
       <div style={styles.baseContainer}>
         <Header
-          isAuthenticated={isAuthenticated}
           user={user}
           actions={{ logout }}
           handleToggleSidebarOpen={toggleSidebarOpen}

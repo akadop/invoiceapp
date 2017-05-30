@@ -17,6 +17,7 @@
     "compression": "^1.6.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.15.3",
+    "js-cookie": "2.1.4",
     "isomorphic-fetch": "^2.2.1",
     "material-ui": "0.18.1",
     "next": "2.4.0",

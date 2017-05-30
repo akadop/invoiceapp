@@ -13,6 +13,27 @@ export default ({
     <FlatButton label="Close" primary={true} onTouchTap={closeInvoiceDialog} />,
   ]
 
+  const mapInvoiceDetails = ({
+    id,
+    createdAt,
+    customer,
+    items,
+    payment,
+    scheduleDate,
+    storeName,
+  }) => (
+    <div>
+      <h4>Customer First Name:</h4>
+      <p>{customer.firstName}</p>
+      <h4>Customer Last Name:</h4>
+      <p>{customer.lastName}</p>
+      <h4>Street Address:</h4>
+      <p>{customer.address}</p>
+      <h4>City:</h4>
+      <p>{customer.addressCity}</p>
+    </div>
+  )
+
   const styles = {
     InvoiceView: {
       display: 'flex',
@@ -40,12 +61,8 @@ export default ({
             textAlign: 'center',
             borderBottom: '4px solid #ff4081',
           }}
-        >
-          <h4>Customer First Name:</h4>
-          <p>{Invoice.customer.firstName}</p>
-          <h4>Customer Last Name:</h4>
-          <p>{Invoice.customer.lastName}</p>
-        </Dialog>
+        />
+        {mapInvoiceDetails(Invoice)}
       </div>
     )
   } else return null
