@@ -1,38 +1,16 @@
+import { Dialog, FlatButton, Paper, RaisedButton } from 'material-ui'
+
 import { Component } from 'react'
-import Dialog from 'material-ui/Dialog'
-import FlatButton from 'material-ui/FlatButton'
-import RaisedButton from 'material-ui/RaisedButton'
 
 export default ({
-  data: { Invoice = [] },
+  data: { Invoice },
   invoiceDialogOpened,
   selectedInvoice,
-  actions: { closeInvoiceDialog, openInvoiceDialog },
+  actions: { closeInvoiceDialog },
 }) => {
   const actions = [
     <FlatButton label="Close" primary={true} onTouchTap={closeInvoiceDialog} />,
   ]
-
-  const mapInvoiceDetails = ({
-    id,
-    createdAt,
-    customer,
-    items,
-    payment,
-    scheduleDate,
-    storeName,
-  }) => (
-    <div>
-      <h4>Customer First Name:</h4>
-      <p>{customer.firstName}</p>
-      <h4>Customer Last Name:</h4>
-      <p>{customer.lastName}</p>
-      <h4>Street Address:</h4>
-      <p>{customer.address}</p>
-      <h4>City:</h4>
-      <p>{customer.addressCity}</p>
-    </div>
-  )
 
   const styles = {
     InvoiceView: {
@@ -61,8 +39,18 @@ export default ({
             textAlign: 'center',
             borderBottom: '4px solid #ff4081',
           }}
-        />
-        {mapInvoiceDetails(Invoice)}
+        >
+          <div>
+            <h4>Customer First Name:</h4>
+            <p>{Invoice.customer.firstName}</p>
+            <h4>Customer Last Name:</h4>
+            <p>{Invoice.customer.lastName}</p>
+            <h4>Street Address:</h4>
+            <p>{Invoice.customer.address}</p>
+            <h4>City:</h4>
+            <p>{Invoice.customer.addressCity}</p>
+          </div>
+        </Dialog>
       </div>
     )
   } else return null

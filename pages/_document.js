@@ -4,6 +4,7 @@ import { loadGetInitialProps } from 'next/dist/lib/utils'
 import stylesheet from '../styles/vendor.css'
 
 export default class extends Document {
+  static displayName = 'pageWithHeader'
   static async getInitialProps(ctx) {
     return { ...(await loadGetInitialProps(Document, ctx)) }
   }

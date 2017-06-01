@@ -1,9 +1,5 @@
-import {
-  closeInvoiceDialog,
-  openInvoiceDialog,
-  selectInvoice,
-} from '../lib/actions/ui'
 import { compose, or } from 'ramda'
+import { openInvoiceDialog, selectInvoice } from '../lib/actions/ui'
 
 import InvoiceList from '../components/lists/InvoiceList'
 import allInvoices from '../lib/queries/allInvoices'
@@ -21,18 +17,12 @@ export const mapStateToProps = ({
 export const mapDispatchToProps = mapActions({
   openInvoiceDialog,
   selectInvoice,
-  closeInvoiceDialog,
 })
 
 export const container = compose(
   connect(mapStateToProps, mapDispatchToProps),
   graphql(allInvoices, {
-    options: ({ selectedInvoice }) => ({
-      variables: {
-        invoiceId: selectedInvoice,
-      },
-      fetchPolicy: 'network-only',
-    }),
+    options: { fetchPolicy: 'network-only' },
   })
 )
 
