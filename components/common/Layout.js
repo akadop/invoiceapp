@@ -9,7 +9,7 @@ export default ({
   children,
   isLoading,
   sidebarOpen,
-  data: { user },
+  data: { user, isAuthenticated },
   actions: { logout, toggleSidebarOpen },
 }) => {
   let marginLeftDrawerOpen = 256
@@ -24,6 +24,7 @@ export default ({
       <Sidebar sidebarOpen={sidebarOpen} />
       <div style={styles.baseContainer}>
         <Header
+          isAuthenticated={isAuthenticated}
           user={user}
           actions={{ logout }}
           handleToggleSidebarOpen={toggleSidebarOpen}

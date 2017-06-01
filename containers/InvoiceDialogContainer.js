@@ -22,7 +22,7 @@ export const container = compose(
       variables: {
         invoiceId: selectedInvoice,
       },
-      cache: 'cache-first',
+      cache: 'network-only',
     }),
   })
 )

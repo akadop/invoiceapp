@@ -12,6 +12,7 @@ export default ({
   handleToggleSidebarOpen,
   styles,
   user,
+  isAuthenticated,
   actions: { logout },
 }) => {
   const styled = {

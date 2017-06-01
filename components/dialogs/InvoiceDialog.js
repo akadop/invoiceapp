@@ -4,7 +4,7 @@ import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
 
 export default ({
-  data: { Invoice },
+  data: { Invoice = [] },
   invoiceDialogOpened,
   selectedInvoice,
   actions: { closeInvoiceDialog, openInvoiceDialog },
