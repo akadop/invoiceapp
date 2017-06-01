@@ -12,10 +12,11 @@ const PORT = process.env.PORT || 3000
 app.prepare().then(_ => {
   const server = express()
 
-  // serve service worker
   server
     .use(compression())
     .use(bodyParser.json())
+    .use(bodyParser.urlencoded({ extended: true }))
+    // serve service worker
     .get('/sw.js', (req, res) => res.sendFile(path.resolve('./.next/sw.js')))
     .get('*', (req, res) => handle(req, res))
 
