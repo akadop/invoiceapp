@@ -10,40 +10,46 @@ import Web from 'material-ui/svg-icons/av/web'
 const styles = {
   logo: {
     cursor: 'pointer',
-    fontSize: 22,
-    color: typography.textFullWhite,
-    lineHeight: `${spacing.desktopKeylineIncrement}px`,
-    fontWeight: typography.fontWeightLight,
-    backgroundColor: '#222',
-    paddingLeft: 40,
-    height: 56,
+    backgroundColor: '#fff',
+    fontSize: 18,
+    color: '#333',
+    height: 150,
+    display: 'flex',
   },
   menuItem: {
-    color: '#ffffff',
     fontSize: 14,
+    lineHeight: `${spacing.desktopKeylineIncrement}px`,
+    fontWeight: typography.fontWeightMedium,
+    width: '100%',
+    color: '#222',
   },
   menu: {
-    width: 223,
-    backgroundColor: '#333',
+    width: 220,
+    backgroundColor: '#fff',
+    marginLeft: 10,
   },
 }
 
-export default ({ isAuthenticated, sidebarOpen }) => {
+export default ({ sidebarOpen }) => {
   return (
     <Drawer open={sidebarOpen}>
       <div style={styles.logo}>
-        Invoice App
+        <img
+          src="../../static/logo2.svg"
+          alt="Carpet Mills of America"
+          width="100%"
+        />
       </div>
-      <Menu style={styles.menu}>
+      <Menu style={styles.menu} disableAutoFocus>
         <MenuItem
           primaryText="Create Invoice"
-          leftIcon={<Web color="#2ecc71" />}
+          leftIcon={<Web color={'ff4081'} />}
           onTouchTap={() => Router.push('/')}
           style={styles.menuItem}
         />
         <MenuItem
           primaryText="Employee Manual"
-          leftIcon={<ContentLink color="#2ecc71" />}
+          leftIcon={<ContentLink color="#ff4081" />}
           onTouchTap={() => Router.push('/employee-manual')}
           style={styles.menuItem}
         />

@@ -1,6 +1,5 @@
-import { closeInvoiceDialog, openInvoiceDialog } from '../lib/actions/ui'
-
 import InvoiceDialog from '../components/dialogs/InvoiceDialog'
+import { closeInvoiceDialog } from '../lib/actions/ui'
 import { compose } from 'ramda'
 import { connect } from 'react-redux'
 import { graphql } from 'react-apollo'
@@ -12,7 +11,6 @@ export const mapStateToProps = ({
 }) => ({ invoiceDialogOpened, selectedInvoice })
 export const mapDispatchToProps = mapActions({
   closeInvoiceDialog,
-  openInvoiceDialog,
 })
 
 export const container = compose(
@@ -20,9 +18,9 @@ export const container = compose(
   graphql(retrieveInvoiceById, {
     options: ({ selectedInvoice }) => ({
       variables: {
-        eventId: selectedInvoice,
+        invoiceId: selectedInvoice,
       },
-      cache: 'network-only',
+      cache: 'cache-and-network',
     }),
   })
 )

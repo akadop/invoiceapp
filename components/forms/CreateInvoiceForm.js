@@ -15,10 +15,6 @@ import InvoiceFormPayment from './_createInvoiceForm/InvoiceFormPayment'
 // Invoice Form
 
 export default ({ createInvoiceStep, actions: { setStepCreateInvoice } }) => {
-  const style = {
-    marginLeft: 20,
-    width: 'calc(100% - 20px)',
-  }
   return (
     <div style={{ maxWidth: '100%', maxHeight: '100%', margin: 'auto' }}>
       <Stepper
@@ -28,7 +24,7 @@ export default ({ createInvoiceStep, actions: { setStepCreateInvoice } }) => {
       >
         <Step>
           <StepButton onTouchTap={() => setStepCreateInvoice({ step: 0 })}>
-            New Invoice: Customer Information
+            Customer Information
           </StepButton>
           <StepContent>
             <FormSection name="customer">
@@ -38,7 +34,7 @@ export default ({ createInvoiceStep, actions: { setStepCreateInvoice } }) => {
         </Step>
         <Step>
           <StepButton onTouchTap={() => setStepCreateInvoice({ step: 1 })}>
-            New Invoice: Add Items
+            Add Items
           </StepButton>
           <StepContent>
             <InvoiceFormItems />

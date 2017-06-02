@@ -1,9 +1,6 @@
 import {
-  Divider,
-  IconButton,
-  IconMenu,
-  MenuItem,
   Paper,
+  RaisedButton,
   Table,
   TableBody,
   TableHeader,
@@ -12,45 +9,100 @@ import {
   TableRowColumn,
 } from 'material-ui'
 
-import ModeEditIcon from 'material-ui/svg-icons/editor/mode-edit'
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
-import SecurityIcon from 'material-ui/svg-icons/hardware/security'
+import InvoiceDialogContainer from '../../containers/InvoiceDialogContainer'
+import List from 'material-ui/svg-icons/action/list'
 import { map } from 'ramda'
 
 // use allInvoices query and sort the data into a table
 
-export default ({ data: { allInvoices = [] } }) => {
+export default ({
+  actions: { openInvoiceDialog, selectInvoice },
+  selectedInvoice,
+  invoiceDialogOpened,
+  data: { allInvoices = [] },
+}) => {
   const mapInvoices = map(
     ({ id, createdAt, customer, items, payment, scheduleDate, storeName }) => (
-      <TableRow key={id} hoverable={true}>
-        <TableRowColumn>{createdAt}</TableRowColumn>
-        <TableRowColumn>{storeName}</TableRowColumn>
-        <TableRowColumn>{payment.paymentBy}</TableRowColumn>
-        <TableRowColumn>{payment.balance}</TableRowColumn>
-        <TableRowColumn>
+      <TableRow key={id} showCheckboxes={false}>
+        <TableRowColumn style={{ textAlign: 'center' }}>
+          {createdAt}
+        </TableRowColumn>
+        <TableRowColumn style={{ textAlign: 'center' }}>
           {customer.lastName}, {customer.firstName}
+        </TableRowColumn>
+        <TableRowColumn style={{ textAlign: 'center' }}>
+          {storeName}
+        </TableRowColumn>
+        <TableRowColumn style={{ textAlign: 'center' }}>
+          {payment.paymentBy}
+        </TableRowColumn>
+        <TableRowColumn style={{ textAlign: 'center' }}>
+          <RaisedButton
+            backgroundColor="#03A9F4"
+            labelColor="#fff"
+            icon={<List />}
+            label="view details"
+            onTouchTap={() => {
+              selectInvoice({ selectedInvoice: id }), openInvoiceDialog()
+            }}
+          />
         </TableRowColumn>
       </TableRow>
     )
   )
 
   return (
-    <Paper zDepth={2} style={{ margin: 20 }}>
-      <Table selectable={false} showRowHover={true} stripedRows={true}>
-        <TableHeader>
+    <Paper zDepth={3} style={{ margin: 20 }}>
+      <Table
+        selectable={false}
+        showRowHover={true}
+        fixedHeader={true}
+        maxHeight="300px"
+      >
+        <TableHeader adjustForCheckbox>
           <TableRow>
-            <TableHeaderColumn>Created</TableHeaderColumn>
-            <TableHeaderColumn>Store Location</TableHeaderColumn>
-            <TableHeaderColumn>Paid with</TableHeaderColumn>
-            <TableHeaderColumn>Balance</TableHeaderColumn>
-            <TableHeaderColumn>Customer</TableHeaderColumn>
+            <TableHeaderColumn
+              colSpan="3"
+              tooltip="Created At"
+              style={{ textAlign: 'center' }}
+            >
+              Created
+            </TableHeaderColumn>
+            <TableHeaderColumn
+              colSpan="3"
+              style={{ textAlign: 'center' }}
+              tooltip="Customer Name"
+            >
+              Customer
+            </TableHeaderColumn>
+            <TableHeaderColumn
+              colSpan="3"
+              tooltip="store location order was placed for"
+              style={{ textAlign: 'center' }}
+            >
+              Store Location
+            </TableHeaderColumn>
+            <TableHeaderColumn
+              colSpan="3"
+              tooltip="customer's payment method"
+              style={{ textAlign: 'center' }}
+            >
+              Paid with
+            </TableHeaderColumn>
+            <TableHeaderColumn
+              colSpan="3"
+              style={{ textAlign: 'center' }}
+              tooltip="view full invoice"
+            >
+              Full Invoice
+            </TableHeaderColumn>
           </TableRow>
         </TableHeader>
-        <TableBody>
+        <TableBody showRowHover={true}>
           {mapInvoices(allInvoices)}
         </TableBody>
       </Table>
-
+      <InvoiceDialogContainer />
     </Paper>
   )
 }

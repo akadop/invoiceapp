@@ -15,7 +15,8 @@
     },
     "production": {
       "presets": [
-        "next/babel"
+        "next/babel",
+        "react-optimize"
       ],
       "plugins": [
         "ramda",
@@ -44,8 +45,7 @@
       "wrap-in-js",
       {
         "extensions": [
-          "css$",
-          "scss$"
+          "css$"
         ]
       }
     ]

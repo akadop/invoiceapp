@@ -9,8 +9,9 @@ export default ({ actions: { login }, submitting, isLoading }) => (
   <Paper
     style={{
       margin: '0 auto',
+      alignSelf: 'center',
       minWidth: '400px',
-      width: '33%',
+      width: '40%',
       marginTop: '150px',
       backgroundColor: '#FFF',
     }}

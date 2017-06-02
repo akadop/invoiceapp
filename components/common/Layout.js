@@ -7,10 +7,9 @@ import { toggleSidebarOpen } from '../../lib/actions/ui'
 
 export default ({
   children,
-  isAuthenticated,
   isLoading,
   sidebarOpen,
-  data: { user },
+  data: { user, isAuthenticated },
   actions: { logout, toggleSidebarOpen },
 }) => {
   let marginLeftDrawerOpen = 256
@@ -22,7 +21,7 @@ export default ({
   }
   return (
     <div>
-      <Sidebar isAuthenticated={isAuthenticated} sidebarOpen={sidebarOpen} />
+      <Sidebar sidebarOpen={sidebarOpen} />
       <div style={styles.baseContainer}>
         <Header
           isAuthenticated={isAuthenticated}

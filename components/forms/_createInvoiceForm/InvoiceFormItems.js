@@ -14,10 +14,6 @@ import { Field, FieldArray } from 'redux-form'
 import { SelectField, TextField } from 'redux-form-material-ui'
 
 const renderItems = ({ fields, meta: { error }, props }) => {
-  const style = {
-    marginLeft: 20,
-    width: 'calc(100% - 20px)',
-  }
   return (
     <List>
       <ListItem>
@@ -25,7 +21,7 @@ const renderItems = ({ fields, meta: { error }, props }) => {
           label="Add an Item"
           labelColor="#fff"
           onTouchTap={() => fields.push({})}
-          backgroundColor="#3F51B5"
+          secondary
         />
       </ListItem>
       {fields.map((item, index) => (
@@ -41,7 +37,6 @@ const renderItems = ({ fields, meta: { error }, props }) => {
               floatingLabelText="Flooring or Padding"
               hintText="Flooring or Padding"
               name={`${item}.itemType`}
-              style={style}
               component={SelectField}
               underlineShow={false}
               fullWidth
@@ -63,80 +58,76 @@ const renderItems = ({ fields, meta: { error }, props }) => {
               <MenuItem value="STEPS_PAD" primaryText="Pad: Steps" />
               <MenuItem value="TAKEUP_PAD" primaryText="Pad: Take Up" />
             </Field>
+            <Divider />
             <Field
               floatingLabelText="Item Reference Number"
               hintText="Item Reference Number"
               name={`${item}.refNumber`}
               component={TextField}
-              style={style}
               underlineShow={false}
-              fullWidth
+              style={{ marginLeft: 20, width: '50%' }}
             />
-            <Divider />
             <Field
               floatingLabelText="Color"
               hintText="Color"
               name={`${item}.color`}
               component={TextField}
-              style={style}
               underlineShow={false}
-              fullWidth
             />
+            <Divider />
             <Field
               floatingLabelText="Length (dimension)"
               hintText="Length (dimension)"
               name={`${item}.dimensionLength`}
               component={TextField}
-              style={style}
               underlineShow={false}
+              style={{ marginLeft: 20, width: '50%' }}
             />
             <Field
               floatingLabelText="Width (dimension)"
               hintText="Width (dimension)"
               name={`${item}.dimensionWidth`}
               component={TextField}
-              style={style}
               underlineShow={false}
             />
+            <Divider />
             <Field
               floatingLabelText="Unit Price"
               hintText="Unit Price"
               name={`${item}.unitPrice`}
               component={TextField}
-              style={style}
               underlineShow={false}
+              style={{ marginLeft: 20, width: '50%' }}
             />
-            <Divider />
             <Field
               floatingLabelText="Estimated Quantity"
               hintText="Estimated Quantity"
               name={`${item}.estimatedQuantity`}
               component={TextField}
-              style={style}
               underlineShow={false}
             />
+            <Divider />
             <Field
               floatingLabelText="Final Quantity"
               hintText="Final Quantity"
               name={`${item}.finalQuantity`}
               component={TextField}
-              style={style}
               underlineShow={false}
+              style={{ marginLeft: 20, width: '50%' }}
             />
             <Field
               floatingLabelText="Extended Price"
               hintText="Extended Price"
               name={`${item}.extendedPrice`}
               component={TextField}
-              style={style}
               underlineShow={false}
             />
+            <Divider />
             <Field
               floatingLabelText="Estimated Total"
               hintText="Estimated Total"
               name={`${item}.estimatedTotal`}
               component={TextField}
-              style={style}
               underlineShow={false}
             />
             <CardActions>

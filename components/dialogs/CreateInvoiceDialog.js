@@ -38,7 +38,7 @@ export default ({
     />,
     <RaisedButton
       label={createInvoiceStep === 3 ? 'Submit' : 'Next'}
-      backgroundColor="#2ecc71"
+      backgroundColor="#19B5FE"
       labelColor="#fff"
       keyboardFocused={true}
       style={{ margin: 2 }}
@@ -48,25 +48,38 @@ export default ({
     />,
   ]
 
+  const styles = {
+    InvoicePopUp: {
+      display: 'flex',
+      alignItems: 'flex-start',
+      justifyContent: 'center',
+    },
+  }
+
   return (
-    <div>
+    <div style={styles.InvoicePopUp}>
       <FloatingActionButton
         secondary={true}
         onTouchTap={openCreateInvoiceDialog}
-        style={{ marginLeft: 22 }}
       >
         <HoverMorphIcon
           baseType="plus"
           hoverType="plusSparks"
           size={56}
           thickness={3}
-          color="#fff"
+          color="#f9f9f9"
         />
       </FloatingActionButton>
       <Dialog
         title="Create an Invoice"
+        titleStyle={{ borderBottom: '4px solid #ff4081' }}
+        contentStyle={{
+          width: '85%',
+          maxWidth: '1440px',
+          transform: 'translate(0px, 32px)',
+        }}
         actions={actions}
-        modal={false}
+        modal={true}
         open={createInvoiceDialogOpened}
         onRequestClose={closeCreateInvoiceDialog}
         background="#FAFAFA"

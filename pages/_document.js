@@ -4,13 +4,14 @@ import { loadGetInitialProps } from 'next/dist/lib/utils'
 import stylesheet from '../styles/vendor.css'
 
 export default class extends Document {
+  static displayName = 'pageWithHeader'
   static async getInitialProps(ctx) {
     return { ...(await loadGetInitialProps(Document, ctx)) }
   }
 
   render() {
     return (
-      <html>
+      <html lang="en">
         <Head>
           <title>Demo Invoice</title>
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -20,6 +21,7 @@ export default class extends Document {
           />
           <link rel="manifest" href="static/manifest.json" />
           <meta name="mobile-web-app-capable" content="yes" />
+          <meta name="theme-color" content="#7e57c2" />
           <link
             rel="icon"
             type="image/png"
