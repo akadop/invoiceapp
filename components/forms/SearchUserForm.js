@@ -6,7 +6,7 @@ import { TextField } from 'redux-form-material-ui'
 import theme from '../../universal/utils/theme'
 
 // Search User Forms
-export default ({ actions: { searchUser } }) => (
+export default ({ actions: { searchUser } }) =>
   <Paper
     zDepth={1}
     style={{
@@ -34,4 +34,3 @@ export default ({ actions: { searchUser } }) => (
       style={{ position: 'absolute', right: '0', height: 24 }}
     />
   </Paper>
-)

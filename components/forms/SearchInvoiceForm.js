@@ -6,7 +6,7 @@ import { TextField } from 'redux-form-material-ui'
 
 // Search Invoices
 
-export default ({ actions: { searchInvoice } }) => (
+export default ({ actions: { searchInvoice } }) =>
   <Paper
     zDepth={1}
     style={{
@@ -34,4 +34,3 @@ export default ({ actions: { searchInvoice } }) => (
       style={{ position: 'absolute', right: '0', height: 53 }}
     />
   </Paper>
-)

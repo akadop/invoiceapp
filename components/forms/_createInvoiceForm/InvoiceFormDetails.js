@@ -8,7 +8,7 @@ const style = {
   width: 'calc(100% - 20px)',
 }
 
-const InvoiceFormDetails = () => (
+const InvoiceFormDetails = () =>
   <div>
     <Field
       floatingLabelText="Store Location"
@@ -48,6 +48,5 @@ const InvoiceFormDetails = () => (
           : typeof value === 'string' ? new Date(value) : value}
     />
   </div>
-)
 
 export default InvoiceFormDetails

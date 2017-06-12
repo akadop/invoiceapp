@@ -5,7 +5,7 @@ import { Field } from 'redux-form'
 import LockIcon from 'material-ui/svg-icons/action/lock'
 import { TextField } from 'redux-form-material-ui'
 
-export default ({ actions: { login }, submitting, isLoading }) => (
+export default ({ actions: { login }, submitting, isLoading }) =>
   <Paper
     style={{
       margin: '0 auto',
@@ -55,4 +55,3 @@ export default ({ actions: { login }, submitting, isLoading }) => (
       />
     </form>
   </Paper>
-)

@@ -22,7 +22,7 @@ export default ({
   data: { allInvoices = [] },
 }) => {
   const mapInvoices = map(
-    ({ id, createdAt, customer, items, payment, scheduleDate, storeName }) => (
+    ({ id, createdAt, customer, items, payment, scheduleDate, storeName }) =>
       <TableRow key={id} showCheckboxes={false}>
         <TableRowColumn style={{ textAlign: 'center' }}>
           {createdAt}
@@ -48,7 +48,6 @@ export default ({
           />
         </TableRowColumn>
       </TableRow>
-    )
   )
 
   return (
