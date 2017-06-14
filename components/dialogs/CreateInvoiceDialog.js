@@ -6,8 +6,7 @@ import {
 } from 'material-ui'
 
 import { Component } from 'react'
-import CreateInvoiceFormContainer
-  from '../../containers/CreateInvoiceFormContainer'
+import CreateInvoiceFormContainer from '../../containers/CreateInvoiceFormContainer'
 import { HoverMorphIcon } from 'react-svg-buttons'
 
 export default ({

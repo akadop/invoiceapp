@@ -8,8 +8,8 @@ import withGuest from '../lib/hocs/withGuest'
 
 export const page = compose(withGuest, withData)
 
-export default page(props => (
+export default page(props =>
   <LayoutContainer {...props}>
     <AuthFormContainer />
   </LayoutContainer>
-))
+)

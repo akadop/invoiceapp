@@ -19,7 +19,7 @@ import { map } from 'ramda'
 
 export default ({ data: { allUsers = [] } }) => {
   const mapUsers = map(
-    ({ id, email, firstname, lastname, bob, _invoiceMeta, role }) => (
+    ({ id, email, firstname, lastname, bob, _invoiceMeta, role }) =>
       <TableRow key={id} hoverable={true}>
         <TableRowColumn>{firstName}</TableRowColumn>
         <TableRowColumn>{lastName}</TableRowColumn>
@@ -38,7 +38,6 @@ export default ({ data: { allUsers = [] } }) => {
           </IconMenu>
         </TableRowColumn>
       </TableRow>
-    )
   )
 
   return (
