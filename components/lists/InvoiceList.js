@@ -24,19 +24,19 @@ export default ({
   const mapInvoices = map(
     ({ id, createdAt, customer, items, payment, scheduleDate, storeName }) =>
       <TableRow key={id} showCheckboxes={false}>
-        <TableRowColumn style={{ textAlign: 'center' }}>
+        <TableRowColumn>
           {createdAt}
         </TableRowColumn>
-        <TableRowColumn style={{ textAlign: 'center' }}>
+        <TableRowColumn>
           {customer.lastName}, {customer.firstName}
         </TableRowColumn>
-        <TableRowColumn style={{ textAlign: 'center' }}>
+        <TableRowColumn>
           {storeName}
         </TableRowColumn>
-        <TableRowColumn style={{ textAlign: 'center' }}>
+        <TableRowColumn>
           {payment.paymentBy}
         </TableRowColumn>
-        <TableRowColumn style={{ textAlign: 'center' }}>
+        <TableRowColumn>
           <RaisedButton
             backgroundColor="#03A9F4"
             labelColor="#fff"
@@ -60,39 +60,22 @@ export default ({
       >
         <TableHeader adjustForCheckbox>
           <TableRow>
-            <TableHeaderColumn
-              colSpan="3"
-              tooltip="Created At"
-              style={{ textAlign: 'center' }}
-            >
+            <TableHeaderColumn colSpan="3" tooltip="Created At">
               Created
             </TableHeaderColumn>
-            <TableHeaderColumn
-              colSpan="3"
-              style={{ textAlign: 'center' }}
-              tooltip="Customer Name"
-            >
+            <TableHeaderColumn colSpan="3" tooltip="Customer Name">
               Customer
             </TableHeaderColumn>
             <TableHeaderColumn
               colSpan="3"
-              tooltip="store location order was placed for"
-              style={{ textAlign: 'center' }}
+              tooltip="store location order placed at"
             >
               Store Location
             </TableHeaderColumn>
-            <TableHeaderColumn
-              colSpan="3"
-              tooltip="customer's payment method"
-              style={{ textAlign: 'center' }}
-            >
+            <TableHeaderColumn colSpan="3" tooltip="customer's payment method">
               Paid with
             </TableHeaderColumn>
-            <TableHeaderColumn
-              colSpan="3"
-              style={{ textAlign: 'center' }}
-              tooltip="view full invoice"
-            >
+            <TableHeaderColumn colSpan="3" tooltip="view full invoice">
               Full Invoice
             </TableHeaderColumn>
           </TableRow>

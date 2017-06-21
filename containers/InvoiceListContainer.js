@@ -1,8 +1,8 @@
-import { compose, or } from 'ramda'
 import { openInvoiceDialog, selectInvoice } from '../lib/actions/ui'
 
 import InvoiceList from '../components/lists/InvoiceList'
 import allInvoices from '../lib/queries/allInvoices'
+import { compose } from 'ramda'
 import { connect } from 'react-redux'
 import { graphql } from 'react-apollo'
 import mapActions from '../lib/util/mapActions'

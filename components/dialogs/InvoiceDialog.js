@@ -1,4 +1,4 @@
-import { Dialog, FlatButton, Paper, RaisedButton } from 'material-ui'
+import { Dialog, FlatButton, Paper } from 'material-ui'
 
 export default ({
   data: { Invoice },
@@ -16,6 +16,16 @@ export default ({
       alignItems: 'flex-start',
       justifyContent: 'center',
     },
+    contentStyle: {
+      width: '85%',
+      maxWidth: '1440px',
+      transform: 'translate(0px, 32px)',
+      textSize: '14px',
+    },
+    titleStyle: {
+      textAlign: 'center',
+      borderBottom: '4px solid #ff4081',
+    },
   }
   {
     selectedInvoice !== ''
@@ -27,16 +37,8 @@ export default ({
             open={invoiceDialogOpened}
             onRequestClose={closeInvoiceDialog}
             background="#FAFAFA"
-            contentStyle={{
-              width: '85%',
-              maxWidth: '1440px',
-              transform: 'translate(0px, 32px)',
-              textSize: '14px',
-            }}
-            titleStyle={{
-              textAlign: 'center',
-              borderBottom: '4px solid #ff4081',
-            }}
+            contentStyle={styles.contentStyle}
+            titleStyle={styles.titleStyle}
           >
             <div>
               <h4>Customer First Name:</h4>

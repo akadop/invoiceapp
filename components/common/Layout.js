@@ -3,8 +3,6 @@ import Loader from './Loader'
 import Sidebar from './Sidebar'
 import { toggleSidebarOpen } from '../../lib/actions/ui'
 
-// the layout that's going to wrap our individual pages
-
 export default ({
   children,
   isLoading,

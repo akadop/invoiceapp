@@ -5,7 +5,6 @@ import {
   RaisedButton,
 } from 'material-ui'
 
-import { Component } from 'react'
 import CreateInvoiceFormContainer from '../../containers/CreateInvoiceFormContainer'
 import { HoverMorphIcon } from 'react-svg-buttons'
 
@@ -53,6 +52,14 @@ export default ({
       alignItems: 'flex-start',
       justifyContent: 'center',
     },
+    titleStyle: {
+      borderBottom: '4px solid #ff4081',
+    },
+    contentStyle: {
+      width: '85%',
+      maxWidth: '1440px',
+      transform: 'translate(0px, 32px)',
+    },
   }
 
   return (
@@ -71,12 +78,8 @@ export default ({
       </FloatingActionButton>
       <Dialog
         title="Create an Invoice"
-        titleStyle={{ borderBottom: '4px solid #ff4081' }}
-        contentStyle={{
-          width: '85%',
-          maxWidth: '1440px',
-          transform: 'translate(0px, 32px)',
-        }}
+        titleStyle={styles.titleStyle}
+        contentStyle={styles.contentStyle}
         actions={actions}
         modal={true}
         open={createInvoiceDialogOpened}

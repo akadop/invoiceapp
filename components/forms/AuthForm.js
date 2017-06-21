@@ -1,4 +1,4 @@
-import { Divider, FlatButton, Paper, RaisedButton } from 'material-ui'
+import { Divider, Paper, RaisedButton } from 'material-ui'
 import { email, required } from '../../lib/util/validators'
 
 import { Field } from 'redux-form'

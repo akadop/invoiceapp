@@ -1,9 +1,7 @@
-import { Divider, Drawer, Menu, MenuItem } from 'material-ui'
-import { blue600, white } from 'material-ui/styles/colors'
+import { Drawer, Menu, MenuItem } from 'material-ui'
 import { spacing, typography } from 'material-ui/styles'
 
 import ContentLink from 'material-ui/svg-icons/content/link'
-import PersonAdd from 'material-ui/svg-icons/social/person-add'
 import Router from 'next/router'
 import Web from 'material-ui/svg-icons/av/web'
 
@@ -36,7 +34,7 @@ export default ({ sidebarOpen }) => {
       <div style={styles.logo}>
         <img
           src="../../static/logo2.svg"
-          alt="Carpet Mills of America"
+          alt="Demo Carpet Store"
           width="100%"
         />
       </div>
