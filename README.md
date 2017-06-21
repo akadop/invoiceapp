@@ -1,14 +1,6 @@
 # invoice app
 
-- Progressive web app with Next.js (server rendered node.js), React, Redux (state management), Apollo (graphql client).
-- Service-worker, lazy-loading, code-splitting, server-side rendering, offline support.
-- Hard-caching policy, Gzip compression, HTTP/2, SSL, home-screen installer, manifest.
-- Small client-side foot-print & latency for the best experience (0kb/350ms cache/offline, 100kb/500ms first render).
-- Graph.cool back-end, we use a small express API for using Auth0 authentication cookies.
-- Uses the latest standard (ES6/ES7) with Babel and small WebPack configuration (thanks to Next.js package/team).
-
-
-# schema
+## graphql schema
 
 ```gql
 type Customer implements Node {

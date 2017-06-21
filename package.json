@@ -47,7 +47,7 @@
     "css-loader": "0.28.4",
     "is-date-object": "1.0.1",
     "module-alias": "^2.0.0",
-    "now": "next",
+    "now": "7.0.2",
     "offline-plugin": "^4.8.1",
     "postcss-easy-import": "2.1.0",
     "postcss-loader": "2.0.6",

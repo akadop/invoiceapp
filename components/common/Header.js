@@ -5,6 +5,7 @@ import LogoutIcon from 'material-ui/svg-icons/communication/vpn-key'
 import Menu from 'material-ui/svg-icons/navigation/menu'
 import PeopleIcon from 'material-ui/svg-icons/social/people'
 import Router from 'next/router'
+import toastr from 'react-redux-toastr'
 
 // top nav bar
 export default ({

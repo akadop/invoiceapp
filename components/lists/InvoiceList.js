@@ -23,7 +23,7 @@ export default ({
 }) => {
   const mapInvoices = map(
     ({ id, createdAt, customer, items, payment, scheduleDate, storeName }) =>
-      <TableRow key={id} showCheckboxes={false}>
+      <TableRow key={id}>
         <TableRowColumn>
           {createdAt}
         </TableRowColumn>
