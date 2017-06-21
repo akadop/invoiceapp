@@ -1,7 +1,6 @@
 import { Drawer, Menu, MenuItem } from 'material-ui'
 import { spacing, typography } from 'material-ui/styles'
 
-import ContentLink from 'material-ui/svg-icons/content/link'
 import Router from 'next/router'
 import Web from 'material-ui/svg-icons/av/web'
 
@@ -45,13 +44,16 @@ export default ({ sidebarOpen }) => {
           onTouchTap={() => Router.push('/')}
           style={styles.menuItem}
         />
-        <MenuItem
+      </Menu>
+    </Drawer>
+  )
+}
+
+/**
+ *         <MenuItem
           primaryText="Employee Manual"
           leftIcon={<ContentLink color="#ff4081" />}
           onTouchTap={() => Router.push('/employee-manual')}
           style={styles.menuItem}
         />
-      </Menu>
-    </Drawer>
-  )
-}
+ */
