@@ -1,5 +1,23 @@
 import { Dialog, FlatButton, Paper } from 'material-ui'
 
+const styles = {
+  InvoiceView: {
+    display: 'flex',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+  },
+  contentStyle: {
+    width: '85%',
+    maxWidth: '1440px',
+    transform: 'translate(0px, 32px)',
+    textSize: '14px',
+  },
+  titleStyle: {
+    textAlign: 'center',
+    borderBottom: '4px solid #ff4081',
+  },
+}
+
 export default ({
   data: { Invoice },
   invoiceDialogOpened,
@@ -9,24 +27,6 @@ export default ({
   const actions = [
     <FlatButton label="Close" primary={true} onTouchTap={closeInvoiceDialog} />,
   ]
-
-  const styles = {
-    InvoiceView: {
-      display: 'flex',
-      alignItems: 'flex-start',
-      justifyContent: 'center',
-    },
-    contentStyle: {
-      width: '85%',
-      maxWidth: '1440px',
-      transform: 'translate(0px, 32px)',
-      textSize: '14px',
-    },
-    titleStyle: {
-      textAlign: 'center',
-      borderBottom: '4px solid #ff4081',
-    },
-  }
   {
     selectedInvoice !== ''
       ? <div style={styles.InvoiceView}>

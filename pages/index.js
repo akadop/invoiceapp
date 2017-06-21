@@ -1,4 +1,4 @@
-import '../lib/util/offlineInstall' // Get our service worker on the page
+//import '../lib/util/offlineInstall' // Get our service worker on the page
 
 import CreateInvoiceDialogContainer from '../containers/CreateInvoiceDialogContainer'
 import InvoiceListContainer from '../containers/InvoiceListContainer'

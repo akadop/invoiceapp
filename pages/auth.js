@@ -1,4 +1,4 @@
-import '../lib/util/offlineInstall' // Get our service worker on the page
+//import '../lib/util/offlineInstall' // Get our service worker on the page
 
 import AuthFormContainer from '../containers/AuthFormContainer'
 import LayoutContainer from '../containers/LayoutContainer'

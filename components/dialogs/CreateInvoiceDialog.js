@@ -8,6 +8,25 @@ import {
 import CreateInvoiceFormContainer from '../../containers/CreateInvoiceFormContainer'
 import { HoverMorphIcon } from 'react-svg-buttons'
 
+const styles = {
+  InvoicePopUp: {
+    display: 'flex',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+  },
+  titleStyle: {
+    borderBottom: '4px solid #ff4081',
+  },
+  contentStyle: {
+    width: '85%',
+    maxWidth: '1440px',
+    transform: 'translate(0px, 32px)',
+  },
+  flatButtonStyle: {
+    margin: 2,
+  },
+}
+
 export default ({
   createInvoiceDialogOpened,
   createInvoiceStep,
@@ -24,14 +43,14 @@ export default ({
       label="Close"
       primary={true}
       onTouchTap={closeCreateInvoiceDialog}
-      style={{ margin: 2 }}
+      style={styles.flatButtonStyle}
     />,
     <RaisedButton
       label="Previous Step"
       primary={true}
       keyboardFocused={true}
       onTouchTap={prevStepCreateInvoice}
-      style={{ margin: 2 }}
+      style={styles.flatButtonStyle}
       disabled={createInvoiceStep === 0}
     />,
     <RaisedButton
@@ -39,29 +58,12 @@ export default ({
       backgroundColor="#19B5FE"
       labelColor="#fff"
       keyboardFocused={true}
-      style={{ margin: 2 }}
+      style={styles.flatButtonStyle}
       onTouchTap={
         createInvoiceStep === 3 ? createInvoice : nextStepCreateInvoice
       }
     />,
   ]
-
-  const styles = {
-    InvoicePopUp: {
-      display: 'flex',
-      alignItems: 'flex-start',
-      justifyContent: 'center',
-    },
-    titleStyle: {
-      borderBottom: '4px solid #ff4081',
-    },
-    contentStyle: {
-      width: '85%',
-      maxWidth: '1440px',
-      transform: 'translate(0px, 32px)',
-    },
-  }
-
   return (
     <div style={styles.InvoicePopUp}>
       <FloatingActionButton

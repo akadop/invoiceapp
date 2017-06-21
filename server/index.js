@@ -19,10 +19,9 @@ app.prepare().then(_ => {
     // serve service worker
     .get('/sw.js', (req, res) => res.sendFile(path.resolve('./.next/sw.js')))
     .get('*', (req, res) => handle(req, res))
+    .listen(PORT, err => {
+      if (err) throw error
 
-  server.listen(PORT, err => {
-    if (err) throw error
-
-    console.log(`> App running on port ${PORT}`)
-  })
+      console.log(`> App running on port ${PORT}`)
+    })
 })

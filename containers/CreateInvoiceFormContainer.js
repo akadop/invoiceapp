@@ -15,7 +15,7 @@ export const container = compose(
   connect(mapStateToProps, mapDispatchToProps),
   reduxForm({
     form: 'createInvoiceForm',
-    destroyOnUnmount: false,
+    destroyOnUnmount: true,
     forceUnregisterOnUnmount: true,
   })
 )
