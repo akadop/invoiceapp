@@ -1,11 +1,10 @@
-import { AppBar, FlatButton, IconButton, IconMenu, MenuItem } from 'material-ui'
+import { AppBar, IconButton, IconMenu, MenuItem } from 'material-ui'
 
 import AccountIcon from 'material-ui/svg-icons/action/account-circle'
 import LogoutIcon from 'material-ui/svg-icons/communication/vpn-key'
 import Menu from 'material-ui/svg-icons/navigation/menu'
 import PeopleIcon from 'material-ui/svg-icons/social/people'
 import Router from 'next/router'
-import { toastr } from 'react-redux-toastr'
 
 // top nav bar
 export default ({

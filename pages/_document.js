@@ -19,6 +19,14 @@ export default class extends Document {
             name="viewport"
             content="width=device-width,initial-scale=1.0"
           />
+          <link
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+            rel="stylesheet"
+          />
+          <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+          />
           <link rel="manifest" href="static/manifest.json" />
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="theme-color" content="#7e57c2" />
@@ -54,14 +62,6 @@ export default class extends Document {
           <meta
             name="msapplication-config"
             content="/static/img/browserconfig.xml"
-          />
-          <link
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
-            rel="stylesheet"
-          />
-          <link
-            href="https://fonts.googleapis.com/icon?family=Material+Icons"
-            rel="stylesheet"
           />
           <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
         </Head>

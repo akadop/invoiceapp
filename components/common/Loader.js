@@ -14,14 +14,12 @@ export default ({ isLoading }) => {
           opacity: 0;
           transition: opacity 1s;
         }
-
         .container.with-opacity {
           opacity: 1;
-          transition: opacity 1s
+          transition: opacity 1s;
         }
-
         .loader-container {
-         transition: opacity 1s;
+          transition: opacity 1s;
         }
       `}</style>
     </div>
