@@ -13,32 +13,3 @@ body {
 body, html, #app, #app > div {
   height: 100%;
 }
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
-  transition-delay: background-color 5000s, color 5000s;
-}
-*::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-  background-color: #fff;
-}
-*::-webkit-scrollbar {
-  width: 10px;
-  background-color: #fff;
-}
-*::-webkit-scrollbar-thumb {
-  background: #FAFAFA
-    linear-gradient(
-      145deg,
-      rgba(255, 255, 255, .9) 25%,
-      transparent 25%,
-      transparent 50%,
-      rgba(255, 255, 255, .2) 50%,
-      rgba(255, 255, 255, .2) 75%,
-      transparent 75%,
-      transparent
-    );
-}

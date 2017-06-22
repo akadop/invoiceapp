@@ -15,7 +15,7 @@ app.prepare().then(_ => {
   server
     .use(compression())
     .use(bodyParser.json())
-    .use(bodyParser.urlencoded({ extended: true }))
+    .use(bodyParser.urlencoded())
     // serve service worker
     .get('/sw.js', (req, res) => res.sendFile(path.resolve('./.next/sw.js')))
     .get('*', (req, res) => handle(req, res))
