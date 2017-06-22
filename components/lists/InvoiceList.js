@@ -43,9 +43,7 @@ export default ({
             icon={<List />}
             label="view details"
             onTouchTap={() => {
-              selectInvoice({
-                selectedInvoice: id,
-              }), openInvoiceDialog()
+              selectInvoice({ selectedInvoice: id }), openInvoiceDialog()
             }}
           />
         </TableRowColumn>

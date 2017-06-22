@@ -20,7 +20,8 @@ const styles = {
   contentStyle: {
     width: '85%',
     maxWidth: '1440px',
-    transform: 'translate(0px, 32px)',
+    transform: 'translate(0px,-100px)',
+    marginBottom: '150px',
   },
   flatButtonStyle: {
     margin: 2,

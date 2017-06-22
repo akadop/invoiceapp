@@ -20,7 +20,11 @@ export const mapDispatchToProps = mapActions({ logout, toggleSidebarOpen })
 
 export const container = compose(
   connect(mapStateToProps, mapDispatchToProps),
-  graphql(authenticatedUser, { options: { fetchPolicy: 'network-only' } })
+  graphql(authenticatedUser, {
+    options: {
+      fetchPolicy: 'network-only',
+    },
+  })
 )
 
 export default container(Layout)
