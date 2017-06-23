@@ -16,6 +16,7 @@
     "production": {
       "presets": [
         "next/babel",
+        "react",
         "react-optimize"
       ],
       "plugins": [
