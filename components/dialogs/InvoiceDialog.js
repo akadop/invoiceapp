@@ -8,8 +8,7 @@ const styles = {
   },
   contentStyle: {
     width: '85%',
-    maxWidth: '1440px',
-    transform: 'translate(0px, 32px)',
+    transform: 'translate(0px, -10px)',
     textSize: '14px',
   },
   titleStyle: {
@@ -27,6 +26,7 @@ export default ({
   const actions = [
     <FlatButton label="Close" primary={true} onTouchTap={closeInvoiceDialog} />,
   ]
+
   return selectedInvoice !== ''
     ? <div style={styles.InvoiceView}>
         <Dialog
