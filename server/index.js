@@ -1,12 +1,12 @@
 const express = require('express')
 const path = require('path')
 const next = require('next')
-//const bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dir: '.', dev })
-const handle = app.getRequestHandler()
 
+const handle = app.getRequestHandler()
 const PORT = process.env.PORT || 3000
 
 app.prepare().then(_ => {

@@ -9,8 +9,6 @@ const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 
 module.exports = {
   webpack: (config, { dev }) => {
-    // For the development version, we'll use React.
-    // Because, it support react hot loading and so on.
     config.module.rules.push(
       {
         test: /\.(css|scss)/,
@@ -46,8 +44,7 @@ module.exports = {
         new webpack.optimize.OccurrenceOrderPlugin(),
         // A plugin for a more aggressive chunk merging strategy
         new webpack.optimize.AggressiveMergingPlugin(),
-        // Compress assets into .gz files, so that our express server handler serves those
-        // instead of the fullsized versions
+        // Compress assets into .gz files, so that our express server handler serves those instead of the fullsized versions
         new CompressionPlugin({
           // Overwrite the default 80% compression-- anything is better than
           // nothing
@@ -59,7 +56,8 @@ module.exports = {
           minify: true,
           staticFileGlobsIgnorePatterns: [/\.next\//],
           staticFileGlobs: [
-            'static/**/*', // Precache all static files by default
+            // Precache all static files by default
+            'static/**/*',
           ],
           forceDelete: true,
           runtimeCaching: [
