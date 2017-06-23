@@ -1,6 +1,7 @@
 {
   "name": "cpa-invoice",
-  "version": "1.0.4",
+  "author": "Ahmed Alahmady",
+  "version": "1.0.5",
   "private": true,
   "description": "Invoice App",
   "scripts": {
@@ -9,7 +10,9 @@
     "build": "next build",
     "now": "now"
   },
-  "author": "Ahmed Alahmady",
+  "engines": {
+    "node": ">8.0.0"
+  },
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
