@@ -19,6 +19,7 @@
     "isomorphic-fetch": "^2.2.1",
     "material-ui": "0.18.3",
     "next": "beta",
+    "prop-types": "15.5.10",
     "react-apollo": "1.4.2",
     "react-dom": "15.6.1",
     "react-redux-toastr": "^6.2.7",

@@ -27,7 +27,7 @@ export default ({
   const actions = [
     <FlatButton label="Close" primary={true} onTouchTap={closeInvoiceDialog} />,
   ]
-  return selectedInvoice
+  return selectedInvoice !== ''
     ? <div style={styles.InvoiceView}>
         <Dialog
           title="Invoice Details"
