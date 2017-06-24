@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const next = require('next')
+const compression = require('compression')
 const bodyParser = require('body-parser')
 
 const dev = process.env.NODE_ENV !== 'production'
