@@ -14,12 +14,12 @@ module.exports = {
         test: /\.(css|scss)/,
         loader: 'emit-file-loader',
         options: {
-          name: 'dist/[path][name].[ext]',
-        },
+          name: 'dist/[path][name].[ext]'
+        }
       },
       {
         test: /\.css$/,
-        use: ['babel-loader', 'raw-loader', 'postcss-loader'],
+        use: ['babel-loader', 'raw-loader', 'postcss-loader']
       }
     )
     if (!dev) {
@@ -34,8 +34,8 @@ module.exports = {
           // with a string not only removes this expensive check, it allows
           // a minifier to remove all of React's warnings in production.
           'process.env': {
-            NODE_ENV: JSON.stringify('production'),
-          },
+            NODE_ENV: JSON.stringify('production')
+          }
         }),
         new ProgressPlugin(),
         // Check for errors, and refuse to emit anything with issues
@@ -43,12 +43,10 @@ module.exports = {
         // Optimise chunk IDs
         new webpack.optimize.OccurrenceOrderPlugin(),
         // A plugin for a more aggressive chunk merging strategy
-        new webpack.optimize.AggressiveMergingPlugin(),
-        // Compress assets into .gz files, so that our express server handler serves those instead of the fullsized versions
         new CompressionPlugin({
           // Overwrite the default 80% compression-- anything is better than
           // nothing
-          minRatio: 0.99,
+          minRatio: 0.99
         }),
         // Service Worker
         new SWPrecacheWebpackPlugin({
@@ -57,22 +55,22 @@ module.exports = {
           staticFileGlobsIgnorePatterns: [/\.next\//],
           staticFileGlobs: [
             // Precache all static files by default
-            'static/**/*',
+            'static/**/*'
           ],
           forceDelete: true,
           runtimeCaching: [
             {
               handler: 'fastest',
-              urlPattern: /[.](png|jpg|css)/,
+              urlPattern: /[.](png|jpg|css)/
             },
             {
               handler: 'networkFirst',
-              urlPattern: /^http.*/, // cache all files
-            },
-          ],
+              urlPattern: /^http.*/ // cache all files
+            }
+          ]
         })
       )
     }
     return config
-  },
+  }
 }

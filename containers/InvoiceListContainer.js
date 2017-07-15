@@ -8,21 +8,21 @@ import { graphql } from 'react-apollo'
 import mapActions from '../lib/util/mapActions'
 
 export const mapStateToProps = ({
-  ui: { selectedInvoice, invoiceDialogOpened },
+  ui: { selectedInvoice, invoiceDialogOpened }
 }) => ({
   selectedInvoice,
-  invoiceDialogOpened,
+  invoiceDialogOpened
 })
 
 export const mapDispatchToProps = mapActions({
   openInvoiceDialog,
-  selectInvoice,
+  selectInvoice
 })
 
 export const container = compose(
   connect(mapStateToProps, mapDispatchToProps),
   graphql(allInvoices, {
-    options: { fetchPolicy: 'network-only' },
+    options: { fetchPolicy: 'network-only' }
   })
 )
 

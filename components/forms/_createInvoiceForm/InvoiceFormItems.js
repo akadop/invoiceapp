@@ -8,7 +8,7 @@ import {
   ListItem,
   MenuItem,
   Paper,
-  RaisedButton,
+  RaisedButton
 } from 'material-ui'
 import { Field, FieldArray } from 'redux-form'
 import { SelectField, TextField } from 'redux-form-material-ui'
@@ -138,7 +138,7 @@ const renderItems = ({ fields, meta: { error }, props }) => {
                 onTouchTap={() => fields.remove(index)}
                 style={{
                   display: 'flex',
-                  justify: 'center',
+                  justify: 'center'
                 }}
               />
             </CardActions>

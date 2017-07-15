@@ -6,7 +6,7 @@ import {
   TableHeader,
   TableHeaderColumn,
   TableRow,
-  TableRowColumn,
+  TableRowColumn
 } from 'material-ui'
 
 import InvoiceDialogContainer from '../../containers/InvoiceDialogContainer'
@@ -19,7 +19,7 @@ export default ({
   actions: { openInvoiceDialog, selectInvoice },
   selectedInvoice,
   invoiceDialogOpened,
-  data: { allInvoices = [] },
+  data: { allInvoices = [] }
 }) => {
   const mapInvoices = map(
     ({ id, createdAt, customer, items, payment, scheduleDate, storeName }) =>

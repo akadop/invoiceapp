@@ -13,7 +13,7 @@ export default ({ actions: { login }, submitting, isLoading }) =>
       minWidth: '400px',
       width: '40%',
       marginTop: '150px',
-      backgroundColor: '#FFF',
+      backgroundColor: '#FFF'
     }}
     zDepth={2}
   >

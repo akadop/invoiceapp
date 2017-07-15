@@ -13,21 +13,21 @@ export default ({
   styles,
   user,
   isAuthenticated,
-  actions: { logout },
+  actions: { logout }
 }) => {
   const styled = {
     appBar: {
       position: 'fixed',
       top: 0,
       overflow: 'hidden',
-      maxHeight: '57',
+      maxHeight: '57'
     },
     menuButton: {
-      marginLeft: 16,
+      marginLeft: 16
     },
     title: {
-      cursor: 'pointer',
-    },
+      cursor: 'pointer'
+    }
   }
   return (
     <AppBar

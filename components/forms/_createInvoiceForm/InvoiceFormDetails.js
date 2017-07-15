@@ -5,7 +5,7 @@ import { Field } from 'redux-form'
 
 const style = {
   marginLeft: 20,
-  width: 'calc(100% - 20px)',
+  width: 'calc(100% - 20px)'
 }
 
 const InvoiceFormDetails = () =>

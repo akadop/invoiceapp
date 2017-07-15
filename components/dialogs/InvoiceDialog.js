@@ -4,27 +4,27 @@ const styles = {
   InvoiceView: {
     display: 'flex',
     alignItems: 'stretch',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   contentStyle: {
     width: '85%',
     transform: 'translate(0px, -10px)',
-    textSize: '14px',
+    textSize: '14px'
   },
   titleStyle: {
     textAlign: 'center',
-    borderBottom: '4px solid #ff4081',
-  },
+    borderBottom: '4px solid #ff4081'
+  }
 }
 
 export default ({
   data: { Invoice },
   invoiceDialogOpened,
   selectedInvoice,
-  actions: { closeInvoiceDialog },
+  actions: { closeInvoiceDialog }
 }) => {
   const actions = [
-    <FlatButton label="Close" primary={true} onTouchTap={closeInvoiceDialog} />,
+    <FlatButton label="Close" primary={true} onTouchTap={closeInvoiceDialog} />
   ]
 
   return selectedInvoice !== ''
@@ -41,13 +41,21 @@ export default ({
         >
           <div>
             <h4>Customer First Name:</h4>
-            <p>{Invoice.customer.firstName}</p>
+            <p>
+              {Invoice.customer.firstName}
+            </p>
             <h4>Customer Last Name:</h4>
-            <p>{Invoice.customer.lastName}</p>
+            <p>
+              {Invoice.customer.lastName}
+            </p>
             <h4>Street Address:</h4>
-            <p>{Invoice.customer.address}</p>
+            <p>
+              {Invoice.customer.address}
+            </p>
             <h4>City:</h4>
-            <p>{Invoice.customer.addressCity}</p>
+            <p>
+              {Invoice.customer.addressCity}
+            </p>
           </div>
         </Dialog>
       </div>

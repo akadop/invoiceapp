@@ -2,7 +2,7 @@ import {
   closeCreateInvoiceDialog,
   nextStepCreateInvoice,
   openCreateInvoiceDialog,
-  prevStepCreateInvoice,
+  prevStepCreateInvoice
 } from '../lib/actions/ui'
 
 import CreateInvoiceDialog from '../components/dialogs/CreateInvoiceDialog'
@@ -14,7 +14,7 @@ import { graphql } from 'react-apollo'
 import mapActions from '../lib/util/mapActions'
 
 export const mapStateToProps = ({
-  ui: { createInvoiceDialogOpened, createInvoiceStep },
+  ui: { createInvoiceDialogOpened, createInvoiceStep }
 }) => ({ createInvoiceStep, createInvoiceDialogOpened })
 
 export const mapDispatchToProps = mapActions({
@@ -22,7 +22,7 @@ export const mapDispatchToProps = mapActions({
   closeCreateInvoiceDialog,
   openCreateInvoiceDialog,
   prevStepCreateInvoice,
-  nextStepCreateInvoice,
+  nextStepCreateInvoice
 })
 
 export const container = compose(

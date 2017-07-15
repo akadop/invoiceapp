@@ -11,20 +11,20 @@ const styles = {
     fontSize: 18,
     color: '#333',
     height: 150,
-    display: 'flex',
+    display: 'flex'
   },
   menuItem: {
     fontSize: 14,
     lineHeight: `${spacing.desktopKeylineIncrement}px`,
     fontWeight: typography.fontWeightMedium,
     width: '100%',
-    color: '#222',
+    color: '#222'
   },
   menu: {
     width: 220,
     backgroundColor: '#fff',
-    marginLeft: 10,
-  },
+    marginLeft: 10
+  }
 }
 
 export default ({ sidebarOpen }) => {
@@ -48,12 +48,3 @@ export default ({ sidebarOpen }) => {
     </Drawer>
   )
 }
-
-/**
- *         <MenuItem
-          primaryText="Employee Manual"
-          leftIcon={<ContentLink color="#ff4081" />}
-          onTouchTap={() => Router.push('/employee-manual')}
-          style={styles.menuItem}
-        />
- */

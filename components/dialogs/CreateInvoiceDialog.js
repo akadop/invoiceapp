@@ -2,7 +2,7 @@ import {
   Dialog,
   FlatButton,
   FloatingActionButton,
-  RaisedButton,
+  RaisedButton
 } from 'material-ui'
 
 import CreateInvoiceFormContainer from '../../containers/CreateInvoiceFormContainer'
@@ -11,21 +11,20 @@ import { HoverMorphIcon } from 'react-svg-buttons'
 const styles = {
   InvoicePopUp: {
     display: 'flex',
-    alignItems: 'flex-start',
-    justifyContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   titleStyle: {
-    borderBottom: '4px solid #ff4081',
+    borderBottom: '4px solid #ff4081'
   },
   contentStyle: {
     width: '85%',
     maxWidth: '1440px',
-    transform: 'translate(0px,-100px)',
-    marginBottom: '150px',
+    transform: 'translate(0px,0px)'
   },
   flatButtonStyle: {
-    margin: 2,
-  },
+    margin: 2
+  }
 }
 
 export default ({
@@ -36,8 +35,8 @@ export default ({
     closeCreateInvoiceDialog,
     openCreateInvoiceDialog,
     prevStepCreateInvoice,
-    nextStepCreateInvoice,
-  },
+    nextStepCreateInvoice
+  }
 }) => {
   const actions = [
     <FlatButton
@@ -63,7 +62,7 @@ export default ({
       onTouchTap={
         createInvoiceStep === 3 ? createInvoice : nextStepCreateInvoice
       }
-    />,
+    />
   ]
   return (
     <div style={styles.InvoicePopUp}>

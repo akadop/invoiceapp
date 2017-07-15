@@ -7,10 +7,10 @@ import mapActions from '../lib/util/mapActions'
 import retrieveInvoiceById from '../lib/queries/retrieveInvoiceById'
 
 export const mapStateToProps = ({
-  ui: { invoiceDialogOpened, selectedInvoice },
+  ui: { invoiceDialogOpened, selectedInvoice }
 }) => ({ invoiceDialogOpened, selectedInvoice })
 export const mapDispatchToProps = mapActions({
-  closeInvoiceDialog,
+  closeInvoiceDialog
 })
 
 export const container = compose(
@@ -18,10 +18,10 @@ export const container = compose(
   graphql(retrieveInvoiceById, {
     options: ({ selectedInvoice }) => ({
       variables: {
-        invoiceId: selectedInvoice,
+        invoiceId: selectedInvoice
       },
-      cache: 'cache-and-network',
-    }),
+      cache: 'cache-and-network'
+    })
   })
 )
 

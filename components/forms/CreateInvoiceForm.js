@@ -3,7 +3,7 @@ import {
   StepButton,
   StepContent,
   StepLabel,
-  Stepper,
+  Stepper
 } from 'material-ui/Stepper'
 
 import { FormSection } from 'redux-form'
@@ -20,7 +20,7 @@ export default ({ createInvoiceStep, actions: { setStepCreateInvoice } }) => {
       style={{
         maxWidth: '100%',
         maxHeight: '100%',
-        margin: 'auto',
+        margin: 'auto'
       }}
     >
       <Stepper

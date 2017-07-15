@@ -8,14 +8,14 @@ export default ({
   isLoading,
   sidebarOpen,
   data: { user, isAuthenticated },
-  actions: { logout, toggleSidebarOpen },
+  actions: { logout, toggleSidebarOpen }
 }) => {
   let marginLeftDrawerOpen = 256
   let styles = {
     baseContainer: {
       marginLeft: sidebarOpen ? marginLeftDrawerOpen : 0,
-      clear: 'both',
-    },
+      clear: 'both'
+    }
   }
   return (
     <div>
