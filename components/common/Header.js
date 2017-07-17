@@ -10,9 +10,9 @@ import { toastr } from 'react-redux-toastr'
 // top nav bar
 export default ({
   handleToggleSidebarOpen,
+  isAuthenticated,
   styles,
   user,
-  isAuthenticated,
   actions: { logout }
 }) => {
   const styled = {
