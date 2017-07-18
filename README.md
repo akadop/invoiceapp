@@ -1,6 +1,23 @@
+[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/akadop/invoiceapp/tree/master)
+
 # invoice app
 
-## graphql schema
+## How to Use
+Hit the deploy now button above this
+
+
+## How to build
+1. Install nodeJs on your system [https://nodejs.org/en/]
+2. cd project directory
+3. to install the packages, run ` yarn `
+4. once complete:
+- to launch development mode with hot loading (changes are seen live on the local server as they are made, with no refreshing required)
+    - ` yarn run dev ` 
+
+- to launch production mode, run:
+    - ` yarn run build ` followed by ` yarn run start `
+
+### graphql schema
 
 ```gql
 type Customer implements Node {
@@ -82,15 +99,3 @@ type User implements Node {
   updatedAt: DateTime!
 }
 ```
-
-## How to use
-
-1. Install nodeJs on your system [https://nodejs.org/en/]
-2. cd project directory
-3. to install the packages, run ` yarn `
-4. once complete:
-- to launch development mode with hot loading (changes are seen live on the local server as they are made, with no refreshing required)
-    - ` yarn run dev ` 
-
-- to launch production mode, run:
-    - ` yarn run build ` followed by ` yarn run start `
