@@ -7,9 +7,9 @@ import withData from '../lib/hocs/withData'
 
 export const page = compose(withAuth, withData)
 
-export default page(props =>
+export default page(props => (
   <LayoutContainer {...props}>
     <InvoiceListContainer />
     <CreateInvoiceDialogContainer />
   </LayoutContainer>
-)
+))

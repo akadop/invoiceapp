@@ -5,6 +5,7 @@ import stylesheet from '../styles/vendor.min.css'
 
 export default class extends Document {
   static displayName = 'pageWithHeader'
+
   static async getInitialProps(ctx) {
     return { ...(await loadGetInitialProps(Document, ctx)) }
   }

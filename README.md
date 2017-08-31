@@ -2,6 +2,10 @@
 
 # invoice app
 
+Built with React, Redux, Graphql. 
+
+This is a partial app custom built for a client with a large chain of Carpet/Flooring stores in Texas.
+
 ## How to Use
 Hit the deploy now button above this
 
