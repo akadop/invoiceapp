@@ -3,7 +3,7 @@ import { SelectField, TextField } from 'redux-form-material-ui'
 
 import { Field } from 'redux-form'
 
-const InvoiceFormPayment = () =>
+const InvoiceFormPayment = () => (
   <div>
     <Field
       name="total"
@@ -44,5 +44,6 @@ const InvoiceFormPayment = () =>
       fullWidth
     />
   </div>
+)
 
 export default InvoiceFormPayment
