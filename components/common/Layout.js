@@ -7,7 +7,8 @@ export default ({
   children,
   isLoading,
   sidebarOpen,
-  data: { user, isAuthenticated },
+  auth: isAuthenticated,
+  data: { user },
   actions: { logout, toggleSidebarOpen }
 }) => {
   let marginLeftDrawerOpen = 256
