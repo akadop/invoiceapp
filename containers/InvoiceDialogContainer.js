@@ -8,7 +8,11 @@ import retrieveInvoiceById from '../lib/queries/retrieveInvoiceById'
 
 export const mapStateToProps = ({
   ui: { invoiceDialogOpened, selectedInvoice }
-}) => ({ invoiceDialogOpened, selectedInvoice })
+}) => ({
+  invoiceDialogOpened,
+  selectedInvoice
+})
+
 export const mapDispatchToProps = mapActions({
   closeInvoiceDialog
 })

@@ -8,7 +8,7 @@ import mapActions from '../lib/util/mapActions'
 import { toggleSidebarOpen } from '../lib/actions/ui'
 
 export const mapStateToProps = ({
-  auth: { isAuthenticated },
+  isAuthenticated,
   ui: { isLoading, sidebarOpen }
 }) => ({
   isAuthenticated,
@@ -22,7 +22,7 @@ export const container = compose(
   connect(mapStateToProps, mapDispatchToProps),
   graphql(authenticatedUser, {
     options: {
-      fetchPolicy: 'network-only'
+      fetchPolicy: 'network-and-cache'
     }
   })
 )

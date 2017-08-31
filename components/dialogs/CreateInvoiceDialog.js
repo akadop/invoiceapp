@@ -89,7 +89,7 @@ export default ({
         background="#FAFAFA"
         autoScrollBodyContent={true}
         autoDetectWindowHeight={true}
-        repositionOnUpdate={false}
+        repositionOnUpdate={true}
       >
         <CreateInvoiceFormContainer />
       </Dialog>

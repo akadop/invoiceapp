@@ -25,22 +25,22 @@ const InvoiceFormDetails = () => (
     </Field>
     <Divider />
     <Field
-      name="installer"
       component={TextField}
       floatingLabelText="Installer"
-      hintText="Installer"
-      underlineShow={false}
-      style={style}
       fullWidth
+      hintText="Installer"
+      name="installer"
+      style={style}
+      underlineShow={false}
     />
     <Divider />
     <Field
-      name="scheduleDate"
       component={DatePicker}
-      fullWidth
-      style={{ ...style, marginBottom: 16, marginTop: 16 }}
       floatingLabelText="Scheduled Install Date"
+      fullWidth
       hintText="Scheduled Install Date"
+      name="scheduleDate"
+      style={{ ...style, marginBottom: 16, marginTop: 16 }}
       underlineShow={false}
       format={(value, name) =>
         value === ''

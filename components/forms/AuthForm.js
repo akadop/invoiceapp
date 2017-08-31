@@ -5,13 +5,22 @@ import { Field } from 'redux-form'
 import LockIcon from 'material-ui/svg-icons/action/lock'
 import { TextField } from 'redux-form-material-ui'
 
-export default ({ actions: { login }, submitting, isLoading }) =>
+export default ({ actions: { login }, submitting, isLoading }) => (
   <div>
-    <Paper style={{ marginBottom: '1em' }}>
+    <Paper
+      style={{
+        marginBottom: '1em'
+      }}
+    >
       <p
-        style={{ textAlign: 'center', paddingTop: '1em', paddingBottom: '1em' }}
+        style={{
+          textAlign: 'center',
+          paddingTop: '1em',
+          paddingBottom: '1em'
+        }}
       >
-        Demo login information: <li>email: test@demo.com</li>
+        Demo login information:
+        <li>email: test@demo.com</li>
         <li>password: testdemo</li>
       </p>
     </Paper>
@@ -32,7 +41,9 @@ export default ({ actions: { login }, submitting, isLoading }) =>
           hintText="Email Address"
           fullWidth
           floatingLabelText="Email Address"
-          style={{ marginLeft: '20px' }}
+          style={{
+            marginLeft: '20px'
+          }}
           component={TextField}
           underlineShow={false}
           name="email"
@@ -45,7 +56,9 @@ export default ({ actions: { login }, submitting, isLoading }) =>
           fullWidth
           hintText="Password"
           floatingLabelText="Password"
-          style={{ marginLeft: '20px' }}
+          style={{
+            marginLeft: '20px'
+          }}
           component={TextField}
           underlineShow={false}
           name="password"
@@ -55,7 +68,9 @@ export default ({ actions: { login }, submitting, isLoading }) =>
         <RaisedButton
           disabled={submitting || isLoading}
           label="Login"
-          style={{ width: '100%' }}
+          style={{
+            width: '100%'
+          }}
           primary={true}
           keyboardFocused={true}
           labelPosition="after"
@@ -65,3 +80,4 @@ export default ({ actions: { login }, submitting, isLoading }) =>
       </form>
     </Paper>
   </div>
+)

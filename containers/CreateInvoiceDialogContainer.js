@@ -15,7 +15,10 @@ import mapActions from '../lib/util/mapActions'
 
 export const mapStateToProps = ({
   ui: { createInvoiceDialogOpened, createInvoiceStep }
-}) => ({ createInvoiceStep, createInvoiceDialogOpened })
+}) => ({
+  createInvoiceStep,
+  createInvoiceDialogOpened
+})
 
 export const mapDispatchToProps = mapActions({
   createInvoice,
@@ -27,7 +30,9 @@ export const mapDispatchToProps = mapActions({
 
 export const container = compose(
   connect(mapStateToProps, mapDispatchToProps),
-  graphql(authenticatedUser, { options: { fetchPolicy: 'network-only' } })
+  graphql(authenticatedUser, {
+    options: { fetchPolicy: 'network-only' }
+  })
 )
 
 export default container(CreateInvoiceDialog)

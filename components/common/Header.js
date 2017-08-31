@@ -7,28 +7,29 @@ import PeopleIcon from 'material-ui/svg-icons/social/people'
 import Router from 'next/router'
 import { toastr } from 'react-redux-toastr'
 
+const styled = {
+  appBar: {
+    position: 'fixed',
+    top: 0,
+    overflow: 'hidden',
+    maxHeight: '57'
+  },
+  menuButton: {
+    marginLeft: 16
+  },
+  title: {
+    cursor: 'pointer'
+  }
+}
+
 // top nav bar
 export default ({
   handleToggleSidebarOpen,
-  isAuthenticated,
   styles,
   user,
-  actions: { logout }
+  actions: { logout },
+  isAuthenticated
 }) => {
-  const styled = {
-    appBar: {
-      position: 'fixed',
-      top: 0,
-      overflow: 'hidden',
-      maxHeight: '57'
-    },
-    menuButton: {
-      marginLeft: 16
-    },
-    title: {
-      cursor: 'pointer'
-    }
-  }
   return (
     <AppBar
       title={<span style={styled.title}>Demo</span>}

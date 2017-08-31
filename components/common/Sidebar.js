@@ -26,25 +26,18 @@ const styles = {
     marginLeft: 10
   }
 }
-
-export default ({ sidebarOpen }) => {
-  return (
-    <Drawer open={sidebarOpen}>
-      <div style={styles.logo}>
-        <img
-          src="../../static/logo2.svg"
-          alt="Demo Carpet Store"
-          width="100%"
-        />
-      </div>
-      <Menu style={styles.menu} disableAutoFocus>
-        <MenuItem
-          primaryText="Create Invoice"
-          leftIcon={<Web color={'ff4081'} />}
-          onTouchTap={() => Router.push('/')}
-          style={styles.menuItem}
-        />
-      </Menu>
-    </Drawer>
-  )
-}
+export default ({ sidebarOpen }) => (
+  <Drawer open={sidebarOpen}>
+    <div style={styles.logo}>
+      <img src="../../static/logo2.svg" alt="Demo Carpet Store" width="100%" />
+    </div>
+    <Menu style={styles.menu} disableAutoFocus>
+      <MenuItem
+        primaryText="Create Invoice"
+        leftIcon={<Web color={'ff4081'} />}
+        onTouchTap={() => Router.push('/')}
+        style={styles.menuItem}
+      />
+    </Menu>
+  </Drawer>
+)

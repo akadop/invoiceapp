@@ -11,45 +11,15 @@ import {
 
 import InvoiceDialogContainer from '../../containers/InvoiceDialogContainer'
 import List from 'material-ui/svg-icons/action/list'
-import { map } from 'ramda'
 
 // use allInvoices query and sort the data into a table
 
 export default ({
-  actions: { openInvoiceDialog, selectInvoice },
+  actions: { selectInvoice },
+  data: { allInvoices = [] },
   selectedInvoice,
-  invoiceDialogOpened,
-  data: { allInvoices = [] }
+  invoiceDialogOpened
 }) => {
-  const mapInvoices = map(
-    ({ id, createdAt, customer, items, payment, scheduleDate, storeName }) =>
-      <TableRow key={id}>
-        <TableRowColumn>
-          {createdAt}
-        </TableRowColumn>
-        <TableRowColumn>
-          {customer.lastName}, {customer.firstName}
-        </TableRowColumn>
-        <TableRowColumn>
-          {storeName}
-        </TableRowColumn>
-        <TableRowColumn>
-          {payment.paymentBy}
-        </TableRowColumn>
-        <TableRowColumn>
-          <RaisedButton
-            backgroundColor="#03A9F4"
-            labelColor="#fff"
-            icon={<List />}
-            label="view details"
-            onTouchTap={() => {
-              selectInvoice({ selectedInvoice: id }), openInvoiceDialog()
-            }}
-          />
-        </TableRowColumn>
-      </TableRow>
-  )
-
   return (
     <Paper zDepth={3} style={{ margin: 20 }}>
       <Table
@@ -80,11 +50,41 @@ export default ({
             </TableHeaderColumn>
           </TableRow>
         </TableHeader>
+
         <TableBody showRowHover={true}>
-          {mapInvoices(allInvoices)}
+          {allInvoices.map((invoice, id) => (
+            <TableRow key={invoice.id}>
+              <TableRowColumn>{invoice.createdAt}</TableRowColumn>
+
+              <TableRowColumn>
+                {invoice.customer.lastName},
+                {invoice.customer.firstName}
+              </TableRowColumn>
+
+              <TableRowColumn>{invoice.storeName}</TableRowColumn>
+
+              <TableRowColumn>{invoice.payment.paymentBy}</TableRowColumn>
+
+              <TableRowColumn>
+                <RaisedButton
+                  backgroundColor="#03A9F4"
+                  labelColor="#fff"
+                  icon={<List />}
+                  label="view details"
+                  onTouchTap={() => {
+                    selectInvoice({ selectedInvoice: invoice.id })
+                  }}
+                />
+              </TableRowColumn>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
-      <InvoiceDialogContainer />
+      {invoiceDialogOpened && selectedInvoice ? (
+        <InvoiceDialogContainer />
+      ) : (
+        <div />
+      )}
     </Paper>
   )
 }

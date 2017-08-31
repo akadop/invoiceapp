@@ -1,5 +1,22 @@
 import { Dialog, FlatButton, Paper } from 'material-ui'
 
+const styles = {
+  InvoiceView: {
+    display: 'flex',
+    alignItems: 'stretch',
+    justifyContent: 'center'
+  },
+  contentStyle: {
+    width: '85%',
+    transform: 'translate(0px, -10px)',
+    textSize: '14px'
+  },
+  titleStyle: {
+    textAlign: 'center',
+    borderBottom: '4px solid #ff4081'
+  }
+}
+
 export default ({
   data: { Invoice },
   invoiceDialogOpened,
@@ -10,24 +27,7 @@ export default ({
     <FlatButton label="Close" primary={true} onTouchTap={closeInvoiceDialog} />
   ]
 
-  const styles = {
-    InvoiceView: {
-      display: 'flex',
-      alignItems: 'stretch',
-      justifyContent: 'center'
-    },
-    contentStyle: {
-      width: '85%',
-      transform: 'translate(0px, -10px)',
-      textSize: '14px'
-    },
-    titleStyle: {
-      textAlign: 'center',
-      borderBottom: '4px solid #ff4081'
-    }
-  }
-
-  return selectedInvoice && invoiceDialogOpened ? (
+  return Invoice && invoiceDialogOpened ? (
     <div style={styles.InvoiceView}>
       <Dialog
         title="Invoice Details"
@@ -56,7 +56,7 @@ export default ({
       <Dialog
         title="Invoice Details"
         actions={actions}
-        modal={true}
+        modal={false}
         open={invoiceDialogOpened}
         onRequestClose={closeInvoiceDialog}
         background="#FAFAFA"
@@ -64,7 +64,7 @@ export default ({
         titleStyle={styles.titleStyle}
       >
         <div>
-          <h4>Please select an invoice!</h4>
+          <h2>Loading Invoice Details...</h2>
         </div>
       </Dialog>
     </div>
