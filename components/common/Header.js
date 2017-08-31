@@ -43,34 +43,36 @@ export default ({
         </IconButton>
       }
       iconElementRight={
-        user
-          ? <IconMenu
-              iconButtonElement={
-                <IconButton>
-                  <AccountIcon color="#fff" />
-                </IconButton>
-              }
-              targetOrigin={{ horizontal: 'right', vertical: 'top' }}
-              anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
-              disableAutoFocus
-            >
-              <MenuItem
-                leftIcon={<PeopleIcon />}
-                primaryText="My Account"
-                onTouchTap={() =>
-                  toastr.warning(
-                    'My Account',
-                    'This feature is not yet available !'
-                  )}
-              />
-              <MenuItem
-                leftIcon={<LogoutIcon />}
-                primaryText="Disconnect"
-                onTouchTap={logout}
-                onMouseEnter={() => Router.prefetch('/auth')}
-              />
-            </IconMenu>
-          : <div />
+        user ? (
+          <IconMenu
+            iconButtonElement={
+              <IconButton>
+                <AccountIcon color="#fff" />
+              </IconButton>
+            }
+            targetOrigin={{ horizontal: 'right', vertical: 'top' }}
+            anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+            disableAutoFocus
+          >
+            <MenuItem
+              leftIcon={<PeopleIcon />}
+              primaryText="My Account"
+              onTouchTap={() =>
+                toastr.warning(
+                  'My Account',
+                  'This feature is not yet available !'
+                )}
+            />
+            <MenuItem
+              leftIcon={<LogoutIcon />}
+              primaryText="Disconnect"
+              onTouchTap={logout}
+              onMouseEnter={() => Router.prefetch('/auth')}
+            />
+          </IconMenu>
+        ) : (
+          <div />
+        )
       }
     />
   )
