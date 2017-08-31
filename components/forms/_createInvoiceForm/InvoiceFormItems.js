@@ -24,7 +24,7 @@ const renderItems = ({ fields, meta: { error }, props }) => {
           secondary
         />
       </ListItem>
-      {fields.map((item, index) =>
+      {fields.map((item, index) => (
         <Card key={index} initiallyExpanded={true}>
           <CardHeader
             title={'Invoice Item #' + `${index + 1}`}
@@ -144,12 +144,13 @@ const renderItems = ({ fields, meta: { error }, props }) => {
             </CardActions>
           </CardText>
         </Card>
-      )}
+      ))}
     </List>
   )
 }
 
-const InvoiceFormItems = () =>
+const InvoiceFormItems = () => (
   <FieldArray name="items" component={renderItems} />
+)
 
 export default InvoiceFormItems
