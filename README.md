@@ -2,6 +2,8 @@
 
 # invoice app
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/akadop/invoiceapp.svg)](https://greenkeeper.io/)
+
 Built with React, Redux, Graphql. 
 
 This is a partial app custom built for a client with a large chain of Carpet/Flooring stores in Texas.
